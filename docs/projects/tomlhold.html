@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tomlhold</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="navigation-links">
+    <a href="/">Back to Startpage</a> |
+    <a href="/projects">Back to Projects</a>
+</div>
+
+
+<header>
+    <h1><code>tomlhold</code> - A dict-like holder for TOML data</h1>
+    <b>Source Code:</b> <a href="https://github.com/johannes-programming/tomlhold">https://github.com/johannes-programming/tomlhold</a>
+</header>
+
+
+    <h2>Overview</h2>
+    <p>A dict-like holder for TOML data.</p>
+
+    <h2>Installation</h2>
+    <p>To install <code>tomlhold</code>, you can use <code>pip</code>. Open your terminal and run:</p>
+
+    <pre><code>pip install tomlhold</code></pre>
+
+    <h2>Example</h2>
+    <p>Here's a simple example:</p>
+
+    <pre>
+<code class="language-python">
+import tomlhold
+
+# Example 1: Create Holder from a TOML string
+toml_data = """
+[database]
+server = "192.168.1.1"
+ports = [ 8001, 8001, 8002 ]
+connection_max = 5000
+enabled = true
+"""
+h = tomlhold.Holder(toml_data)
+
+# Access a single value
+print(h["database", "server"])
+
+# Example 2: Access nested values using multiple indices
+print(h["database", "ports", 2])
+
+# Example 3: Update a value
+h["database", "connection_max"] = 10000
+print(h["database", "connection_max"])
+
+# Example 4: Add a new section and key-value pair
+h["new_section", "new_key"] = "New Value"
+print(h["new_section", "new_key"])
+
+# Example 5: TOML compatibility enforcement (invalid TOML raises an error)
+try:
+    h["new_section", "invalid_key"] = {"invalid": object()}
+except Exception as e:
+    print(f"Error: {e}")  # Ensures only TOML-compatible data is allowed
+
+# Example 6: Create Holder from a dictionary and convert it to TOML format
+data_dict = {
+    "title": "Example",
+    "owner": {
+        "name": "John Doe",
+        "dob": "1979-05-27T07:32:00Z"
+    }
+}
+h = tomlhold.Holder.fromdict(data_dict)
+print(h)
+
+# Example 7: Iterate through Holder object like a regular dictionary
+for section, values in h.items():
+    print(section, values)
+
+# Output:
+    # 192.168.1.1
+    # 8002
+    # 10000
+    # New Value
+    # Error: type &lt;class 'object'> is not allowed
+    # title = "Example"
+    #
+    # [owner]
+    # name = "John Doe"
+    # dob = "1979-05-27T07:32:00Z"
+    #
+    # title Example
+    # owner {'name': 'John Doe', 'dob': '1979-05-27T07:32:00Z'}
+</code>
+    </pre>
+
+    <h2>License</h2>
+    <p>This project is licensed under the MIT License.</p>
+
+    <h2>Links</h2>
+    <ul>
+        <li><a href="https://johannes-programming.space/projects/tomlhold">Documentation</a></li>
+        <li><a href="https://pypi.org/project/tomlhold/#files">Download</a></li>
+        <li><a href="https://github.com/johannes-programming/tomlhold">Source</a></li>
+    </ul>
+
+    <h2>Credits</h2>
+    <ul>
+        <li>Author: <a href="https://johannes-programming.space">Johannes</a></li>
+        <li>Email: <a href="mailto:johannes-programming@mailfence.com">johannes-programming@mailfence.com</a></li>
+    </ul>
+    
+<div class="navigation-links">    <a href="#top">Back to Top</a></div>
+
+<footer>
+    <p>Johannes Programming</p>
+</footer>
+
+</body>
+</html>
