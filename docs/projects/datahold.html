@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>datahold</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <div class="navigation-links">
+        <a href="/">Back to Startpage</a> |
+        <a href="/projects">Back to Projects</a>
+    </div>
+
+    <header>
+        <h1><code>datahold</code> - Wrap common mutable datastructures for inheritance with modification</h1>
+        <b>Source Code:</b> <a href="https://github.com/johannes-programming/datahold">https://github.com/johannes-programming/datahold</a>
+    </header>
+
+
+    <h2>Content</h2>
+
+    <h3>HoldABC</h3>
+    <pre>
+<code class="language-python">
+class HoldABC(abc.ABC):
+    @abc.abstractmethod
+    def __init__(self, *args, **kwargs) -> None: ...
+
+    @property
+    @abc.abstractmethod
+    def data(self): ...
+</code>
+    </pre>
+
+    <h3>HoldList</h3>
+    <p>To understand the class <code>HoldList</code> here the beginning of its code:</p>
+
+    <pre>
+<code class="language-python">
+class HoldList(HoldABC, collections.abc.MutableSequence):
+
+    data: list
+
+    @functools.wraps(list.__add__)
+    def __add__(self, *args, **kwargs):
+        data = self.data
+        ans = data.__add__(*args, **kwargs)
+        self.data = data
+        return ans
+</code>
+    </pre>
+
+    <p>The following methods are defined this way: <code>__add__</code>, <code>__contains__</code>, <code>__delitem__</code>, <code>__eq__</code>, <code>__format__</code>, <code>__ge__</code>, <code>__getitem__</code>, <code>__gt__</code>, <code>__hash__</code>,
+        <code>__iadd__</code>, <code>__imul__</code>, <code>__iter__</code>, <code>__le__</code>, <code>__len__</code>, <code>__lt__</code>, <code>__mul__</code>, <code>__repr__</code>, <code>__reversed__</code>, <code>__rmul__</code>, <code>__setitem__</code>,
+        <code>__str__</code>, <code>append</code>, <code>clear</code>, <code>copy</code>, <code>count</code>, <code>extend</code>, <code>index</code>, <code>insert</code>, <code>pop</code>, <code>remove</code>, <code>reverse</code>, <code>sort</code>.</p>
+
+    <p>The only function present in <code>list</code> and absent in <code>HoldList</code> is <code>__class_getitem__</code></p>
+
+    <p>We can use <code>HoldList</code> as a parent for a list-like class. It is necessary to implement in the subclass:</p>
+    <ul>
+        <li>a property named <code>data</code></li>
+        <li>the <code>__init__</code> magic method</li>
+    </ul>
+    <p>This allows the creation of a list-like class with modified behavior with only minimal effort. To enhance performance, we can overwrite some of the methods.</p>
+
+    <h3>HoldDict</h3>
+    <p>Just like <code>HoldList</code> but for dict... It inherits from <code>HoldABC</code> and <code>collections.abc.MutableMapping</code>. The following methods are implemented: <code>__contains__</code>, <code>__delitem__</code>, <code>__eq__</code>,
+        <code>__format__</code>, <code>__ge__</code>, <code>__getitem__</code>, <code>__gt__</code>, <code>__hash__</code>, <code>__ior__</code>, <code>__iter__</code>, <code>__le__</code>, <code>__len__</code>, <code>__lt__</code>, <code>__or__</code>,
+        <code>__repr__</code>, <code>__reversed__</code>, <code>__ror__</code>, <code>__setitem__</code>, <code>__str__</code>, <code>clear</code>, <code>copy</code>, <code>get</code>, <code>items</code>, <code>keys</code>, <code>pop</code>, <code>popitem</code>,
+        <code>setdefault</code>, <code>update</code>, <code>values</code>.</p>
+    <p>The classmethods <code>__class_getitem__</code> and <code>fromkeys</code> are not implemented.</p>
+
+    <h3>HoldSet</h3>
+    <p>Just like <code>HoldSet</code> but for set... It inherits from <code>HoldABC</code> and <code>collections.abc.MutableSet</code>. The following methods are implemented: <code>__and__</code>, <code>__contains__</code>, <code>__eq__</code>, <code>__format__</code>,
+        <code>__ge__</code>, <code>__gt__</code>, <code>__hash__</code>, <code>__iand__</code>, <code>__ior__</code>, <code>__isub__</code>, <code>__iter__</code>, <code>__ixor__</code>, <code>__le__</code>, <code>__len__</code>, <code>__lt__</code>,
+        <code>__or__</code>, <code>__rand__</code>, <code>__repr__</code>, <code>__ror__</code>, <code>__rsub__</code>, <code>__rxor__</code>, <code>__str__</code>, <code>__sub__</code>, <code>__xor__</code>, <code>add</code>, <code>clear</code>, <code>copy</code>,
+        <code>difference</code>, <code>difference_update</code>, <code>discard</code>, <code>intersection</code>, <code>intersection_update</code>, <code>isdisjoint</code>, <code>issubset</code>, <code>issuperset</code>, <code>pop</code>, <code>remove</code>,
+        <code>symmetric_difference</code>, <code>symmetric_difference_update</code>, <code>union</code>, <code>update</code>.</p>
+    <p>The classmethod <code>__class_getitem__</code> is not implemented.</p>
+
+    <h3>OkayABC</h3>
+    <p>A common abc for <code>OkayList</code>, <code>OkayDict</code>, and <code>OkaySet</code>. Child of <code>Protected</code> (see <a href="https://pypi.org/project/protectedclasses/">protectedclasses</a>), <code>Scaevola</code> (see <a href="https://pypi.org/project/scaevola/">scaevola</a>),
+        and <code>HoldABC</code>. It implements common sense overwrites for some methods. For example:</p>
+    <ul>
+        <li>all methods that cannot actually change the underlying object are now bound to <code>_data</code> instead of <code>data</code></li>
+        <li><code>__bool__</code> is implemented as <code>bool(self._data)</code> because neither <code>list</code>, <code>dict</code>, nor <code>set</code> have a <code>__bool__</code> method defined.</li>
+        <li><code>__hash__</code> raises now a more fitting exception</li>
+        <li>the comparison operations are overwritten:
+            <ul>
+                <li><code>__eq__</code> returns <code>self._data == type(self._data)(other)</code></li>
+                <li><code>__ne__</code> negates <code>__eq__</code></li>
+                <li><code>__ge__</code> returns <code>type(self)(other) &lt;= self</code> (inherited from <code>scaevola.Scaevola</code>)</li>
+                <li><code>__gt__</code> returns <code>not (self == other) and (self >= other)</code></li>
+                <li><code>__lt__</code> returns <code>not (self == other) and (self &lt;= other)</code></li>
+                <li><code>__le__</code> returns <code>self._data &lt;= type(self)(other)._data</code></li>
+            </ul>
+        </li>
+        <li>modify <code>__eq__</code> or <code>__le__</code> as needed to change the behavior of the other comparison methods</li>
+    </ul>
+
+    <h3>OkayList</h3>
+    <p>This class inherits from <code>HoldList</code> and <code>OkayABC</code>. It implements a <code>data</code> property that binds a variable <code>_data</code>.</p>
+
+    <pre>
+<code class="language-python">
+@property
+def data(self, /):
+    return list(self._data)
+
+@data.setter
+def data(self, values, /):
+    self._data = list(values)
+
+@data.deleter
+def data(self, /):
+    self._data = list()
+</code>
+    </pre>
+
+    <p>Based on that, it implements common sense methods. For example:</p>
+    <ul>
+        <li>all methods that returned a list before now return <code>OkayList</code> (type adapts to further inheritance)</li>
+        <li><code>__init__</code> allows now to set data immediately</li>
+    </ul>
+
+    <h3>OkayDict</h3>
+    <p>A subclass of <code>HoldDict</code> with common sense implementations for further inheritance just like <code>OkayList</code> for <code>HoldList</code>.</p>
+
+    <h3>OkaySet</h3>
+    <p>A subclass of <code>HoldSet</code> with common sense implementations for further inheritance just like <code>OkayList</code> for <code>HoldList</code>.</p>
+
+    <h2>Installation</h2>
+    <p>To install <code>datahold</code>, you can use <code>pip</code>. Open your terminal and run:</p>
+
+    <pre><code>pip install datahold</code></pre>
+
+    <h2>License</h2>
+    <p>This project is licensed under the MIT License.</p>
+
+    <h2>Links</h2>
+    <ul>
+        <li><a href="https://www.johannes-programming.space/projects/datahold.html">Documentation</a></li>
+        <li><a href="https://pypi.org/project/datahold/#files">Download</a></li>
+        <li><a href="https://github.com/johannes-programming/datahold">Source</a></li>
+    </ul>
+
+    <h2>Credits</h2>
+    <ul>
+        <li>Author: <a href="http://johannes-programming.space">Johannes</a></li>
+        <li>Email: <a href="mailto:johannes-programming@mailfence.com">johannes-programming@mailfence.com</a></li>
+    </ul>
+
+
+    <div class="navigation-links"> <a href="#top">Back to Top</a></div>
+
+    <footer>
+        <p>Johannes Programming</p>
+    </footer>
+</body>
+
+</html>
