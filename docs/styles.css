@@ -63,7 +63,7 @@ pre {
     border: 2px solid #7F7F7F; /* Black border */
     border-radius: 5px;
     padding: 0px 20px;
-    
+    width: 100%;
 }
 
 /* Section and Content Styling */
