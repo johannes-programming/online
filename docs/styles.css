@@ -54,9 +54,11 @@ nav ul {
     padding: 0;
 }
 nav ul li:first-child {
+    text-align: left;
     flex-grow: 1;
 }
 nav ul li:last-child {
+    text-align: right;
 }
 
 pre {
