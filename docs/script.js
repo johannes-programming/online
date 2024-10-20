@@ -1,3 +1,27 @@
+function getImpressumList() {
+    const strings = [
+            "Name: Johannes",
+            "Email: <a href='mailto:johannes-programming@mailfence.com'>johannes-programming@mailfence.com</a>",
+            "Homepage: <a href='https://www.johannes-programming.online'></a>",
+    ];
+    return strings;
+}
+function getImpressumParagraphs() {
+    const strings = getImpressumList();  
+    let result = "";
+    strings.forEach(str => {
+        result += `<p>${str}</p>`;
+    });
+    return result;
+}
+function getImpressumBullets() {
+    const strings = getImpressumList();  
+    let result = "";
+    strings.forEach(str => {
+        result += `<li>${str}</li>`;
+    });
+    return result;
+}
 function setupProjectsList() {
     const dataList = [
         'datahold', 
@@ -70,6 +94,7 @@ function setupLicenseArticle(packageName) {
         <div id="licenseCorpus"></div>`;
     container.innerHTML = htmlContent;
     setupLicenseCorpus(packageName);
+    modifyLinks();
 }
 
 function setupInstallCorpus(packageName) {
@@ -120,23 +145,25 @@ function setupLinksBlock(packageName) {
     modifyLinks();
 }
 
+function setupCreditsCorpus(packageName) {
+    const container = document.getElementById('creditsCorpus');
+    const htmlContent = getImpressumBullets();
+    container.innerHTML = htmlContent;
+    modifyLinks();
+}
 function setupCreditsBlock(packageName) {
     const container = document.getElementById('credits');
     const htmlContent = `
         <h2>Credits</h2>
-        <ul>
-            <li>
-                Author: Johannes
-            </li>
-            <li>
-                Email: 
-                <a href="mailto:johannes-programming@mailfence.com">
-                    johannes-programming@mailfence.com
-                </a>
-            </li>
-            <li>Homepage: <a href="https://www.johannes-programming.online"></a></li>
-        </ul>
+        <ul id='creditsCorpus'></ul>
         <p>Thank you for using <a>${packageName}</a>!</p>`;
+    container.innerHTML = htmlContent;
+    setupCreditsCorpus(packageName);
+    modifyLinks();
+}
+function setupImpressumCorpus(packageName) {
+    const container = document.getElementById('impressumCorpus');
+    const htmlContent = getImpressumParagraphs();
     container.innerHTML = htmlContent;
     modifyLinks();
 }
@@ -147,14 +174,9 @@ function setupImpressumArticle() {
             <h1>Impressum</h1>
         </header>
         <b>Johannes Programming</b>
-        <div class="content">
-            <p>Name: Johannes</p>
-            <p>Email: <a href="mailto:johannes-programming@mailfence.com">johannes-programming@mailfence.com</a>
-            </p>
-            <p>Homepage: <a href="https://www.johannes-programming.online">https://www.johannes-programming.online</a>
-            </p>
-        </div>`;
+        <section id='impressumCorpus'></section>`;
     container.innerHTML = htmlContent;
+    setupImpressumCorpus(packageName);
 }
 
 
