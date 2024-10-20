@@ -33,6 +33,7 @@ function setupLicenseArticle(packageName) {
         </header>
         <div id="licenseCorpus"></div>`;
     container.innerHTML = htmlContent;
+    setupLicenseCorpus(packageName);
 }
 
 function setupInstallCorpus(packageName) {
