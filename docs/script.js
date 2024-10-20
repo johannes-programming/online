@@ -23,12 +23,7 @@ function setupLicenseArticle(packageName) {
     const container = document.getElementById('licenseArticle');
     const htmlContent = `
         <header id="top">
-            <h1>
-                License of 
-                <code>
-                    <a>${packageName}</a>
-                </code>
-            </h1>
+            <h1>License of <a>${packageName}</a></h1>
         </header>
         <div id="licenseCorpus"></div>`;
     container.innerHTML = htmlContent;
@@ -39,7 +34,7 @@ function setupInstallCorpus(packageName) {
     const container = document.getElementById('installCorpus');
     const htmlContent = `
         <p>
-            To install <code><a>${packageName}</a></code>, 
+            To install <a>${packageName}</a>, 
             you can use <code>pip</code>. 
             Open your terminal and run:
         </p>
