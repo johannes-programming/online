@@ -151,7 +151,7 @@ function modifyLinksWithoutHref() {
         if (!link.getAttribute('href')) {
             // Strip the whitespace from the link's text
             const linkText = link.textContent.trim();
-            if (linkText == "") {
+            if (true) {
                 // Construct the new URL using the link's text
                 const newUrl = `https://${linkText}.johannes-programming.online/`;
 
