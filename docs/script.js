@@ -6,18 +6,33 @@ function setupTopBlock(packageName) {
     container.innerHTML = htmlContent;
 }
 
-function setupLicenseCorpus() {
+function setupLicenseCorpus(packageName) {
     const container = document.getElementById('licenseCorpus');
     const htmlContent = `<p>This project is licensed under the MIT License.</p>`;
     container.innerHTML = htmlContent;
 }
-function setupLicenseBlock() {
+function setupLicenseBlock(packageName) {
     const container = document.getElementById('license');
     const htmlContent = `
         <h2>License</h2>
         <div id="licenseCorpus"></div>`;
     container.innerHTML = htmlContent;
-    setupLicenseCorpus();
+    setupLicenseCorpus(packageName);
+}
+function setupLicenseArticle(packageName) {
+    const container = document.getElementById('licenseArticle');
+    const htmlContent = `
+        <header id="top">
+            <h1>License of 
+                <code>
+                    <a href="https://${packageName}.johannes-programming.online">
+                        ${packageName}
+                    </a>
+                </code>
+            </h1>
+        </header>
+        <div id="licenseCorpus"></div>`;
+    container.innerHTML = htmlContent;
 }
 
 function setupInstallCorpus(packageName) {
@@ -88,26 +103,11 @@ function setupImpressumArticle() {
         </div>`;
     container.innerHTML = htmlContent;
 }
-function setupLicenseArticle(packageName) {
-    const container = document.getElementById('licenseArticle');
-    const htmlContent = `
-        <header id="top">
-            <h1>License of 
-                <code>
-                    <a href="https://${packageName}.johannes-programming.online">
-                        ${packageName}
-                    </a>
-                </code>
-            </h1>
-        </header>
-        <div id="licenseCorpus"></div>`;
-    container.innerHTML = htmlContent;
-}
 
 
 function setupBasicProject(packageName) {
     setupTopBlock(packageName);
-    setupLicenseBlock();
+    setupLicenseBlock(packageName);
     setupInstallBlock(packageName);
     setupLinksBlock(packageName);
     setupCreditsBlock(packageName);
