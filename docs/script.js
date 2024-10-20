@@ -23,11 +23,10 @@ function setupLicenseArticle(packageName) {
     const container = document.getElementById('licenseArticle');
     const htmlContent = `
         <header id="top">
-            <h1>License of 
+            <h1>
+                License of 
                 <code>
-                    <a href="https://${packageName}.johannes-programming.online">
-                        ${packageName}
-                    </a>
+                    <a>${packageName}</a>
                 </code>
             </h1>
         </header>
@@ -40,7 +39,7 @@ function setupInstallCorpus(packageName) {
     const container = document.getElementById('installCorpus');
     const htmlContent = `
         <p>
-            To install <code><a href="https://${packageName}.johannes-programming.online">${packageName}</a></code>, 
+            To install <code><a>${packageName}</a></code>, 
             you can use <code>pip</code>. 
             Open your terminal and run:
         </p>
@@ -81,7 +80,7 @@ function setupLinksBlock(packageName) {
             </li>
         </ul>`;
     container.innerHTML = htmlContent;
-    modifyEmptyLinks();
+    modifyLinks();
 }
 
 function setupCreditsBlock(packageName) {
@@ -146,7 +145,31 @@ function modifyEmptyLinks() {
         }
     });
 }
+function modifyLinksWithoutHref() {
+    // Get all anchor elements on the page
+    const links = document.querySelectorAll('a');
+
+    // Loop through each link
+    links.forEach(link => {
+        // Check if the href attribute is missing or empty
+        if (!link.getAttribute('href')) {
+            // Strip the whitespace from the link's text
+            const linkText = link.textContent.trim().replace(/\s+/g, '');
+
+            // Construct the new URL using the link's text
+            const newUrl = `https://${linkText}.johannes-programming.online/`;
+
+            // Set the href attribute with the new URL
+            link.setAttribute('href', newUrl);
+        }
+    });
+}
+function modifyLinks() {
+    modifyEmptyLinks();
+    modifyLinksWithoutHref();
+}
 
 function main() {
+    modifyLinks();
 }
 main();
