@@ -101,7 +101,7 @@ function setupCreditsBlock(packageName) {
                 </a>
             </li>
         </ul>
-        <p>Thank you for using <code>${packageName}</code>!</p>`;
+        <p>Thank you for using <code><a>${packageName}</a></code>!</p>`;
     container.innerHTML = htmlContent;
 }
 function setupImpressumArticle() {
