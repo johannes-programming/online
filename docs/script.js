@@ -126,10 +126,7 @@ function setupCreditsBlock(packageName) {
         <h2>Credits</h2>
         <ul>
             <li>
-                Author: 
-                <a href="https://www.johannes-programming.online">
-                Johannes
-                </a>
+                Author: Johannes
             </li>
             <li>
                 Email: 
