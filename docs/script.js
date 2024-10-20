@@ -92,9 +92,10 @@ function setupCreditsBlock(packageName) {
             <li>
                 Email: 
                 <a href="mailto:johannes-programming@mailfence.com">
-                johannes-programming@mailfence.com
+                    johannes-programming@mailfence.com
                 </a>
             </li>
+            <li>Homepage: <a href="https://www.johannes-programming.online"></a></li>
         </ul>
         <p>Thank you for using <a>${packageName}</a>!</p>`;
     container.innerHTML = htmlContent;
