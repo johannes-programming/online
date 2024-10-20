@@ -88,6 +88,21 @@ function setupImpressumArticle() {
         </div>`;
     container.innerHTML = htmlContent;
 }
+function setupLicenseArticle(packageName) {
+    const container = document.getElementById('licenseArticle');
+    const htmlContent = `
+        <header id="top">
+            <h1>License of 
+                <code>
+                    <a href="https://${packageName}.johannes-programming.online">
+                        ${packageName}
+                    </a>
+                </code>
+            </h1>
+        </header>
+        <div id="licenseCorpus"></div>`;
+    container.innerHTML = htmlContent;
+}
 
 
 function setupBasicProject(packageName) {
