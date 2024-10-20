@@ -63,19 +63,19 @@ function setupLinksBlock(packageName) {
         <h2>Links</h2>
         <ul>
             <li>
-                <b>Download:</b>
+                Download:
                 <a href="https://pypi.org/project/${packageName}/#files"></a>
             </li>
             <li>
-                <b>Index:</b>
+                Index:
                 <a href="https://pypi.org/project/${packageName}/"></a>
             </li>
             <li>
-                <b>Source:</b>
+                Source:
                 <a href="https://github.com/johannes-programming/${packageName}"></a>
             </li>
             <li>
-                <b>Website:</b>
+                Website:
                 <a href="https://${packageName}.johannes-programming.online"></a>
             </li>
         </ul>`;
