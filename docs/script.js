@@ -101,7 +101,7 @@ function setupCreditsBlock(packageName) {
                 </a>
             </li>
         </ul>
-        <p>Thank you for using <code><a>${packageName}</a></code>!</p>`;
+        <p>Thank you for using <a>${packageName}</a>!</p>`;
     container.innerHTML = htmlContent;
 }
 function setupImpressumArticle() {
@@ -154,16 +154,22 @@ function modifyLinksWithoutHref() {
         // Check if the href attribute is missing or empty
         if (!link.getAttribute('href')) {
             // Strip the whitespace from the link's text
-            const linkText = link.textContent.trim().replace(/\s+/g, '');
+            const linkText = link.textContent.trim();
+            if (linkText == "") {
+                // Construct the new URL using the link's text
+                const newUrl = `https://${linkText}.johannes-programming.online/`;
 
-            // Construct the new URL using the link's text
-            const newUrl = `https://${linkText}.johannes-programming.online/`;
+                // Set the href attribute with the new URL
+                link.setAttribute('href', newUrl);
 
-            // Set the href attribute with the new URL
-            link.setAttribute('href', newUrl);
+                // Wrap the text content in a <code> tag
+                link.innerHTML = `<code>${linkText}</code>`;
+
+            }
         }
     });
 }
+
 function modifyLinks() {
     modifyEmptyLinks();
     modifyLinksWithoutHref();
