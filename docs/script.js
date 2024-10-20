@@ -39,7 +39,11 @@ function setupLicenseArticle(packageName) {
 function setupInstallCorpus(packageName) {
     const container = document.getElementById('installCorpus');
     const htmlContent = `
-        <p>To install <code>${packageName}</code>, you can use <code>pip</code>. Open your terminal and run:</p>
+        <p>
+            To install <code><a href="https://${packageName}.johannes-programming.online">${packageName}</a></code>, 
+            you can use <code>pip</code>. 
+            Open your terminal and run:
+        </p>
         <pre><code class="language-bash">
 pip install ${packageName}
         </code></pre>`;
