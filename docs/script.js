@@ -59,7 +59,10 @@ function setupLinksBlock(packageName) {
     const htmlContent = `
         <h2>Links</h2>
         <ul>
-            <li><a href="https://pypi.org/project/${packageName}/#files">Download</a></li>
+            <li>
+                <b>Download:</b>
+                <a href="https://pypi.org/project/${packageName}/#files"></a>
+            </li>
             <li><a href="https://pypi.org/project/${packageName}/">Index</a></li>
             <li><a href="https://github.com/johannes-programming/${packageName}">Source</a></li>
             <li><a href="https://${packageName}.johannes-programming.online">Website</a></li>
@@ -112,4 +115,25 @@ function setupBasicProject(packageName) {
     setupInstallBlock(packageName);
     setupLinksBlock(packageName);
     setupCreditsBlock(packageName);
+    modifyEmptyLinks();
 }
+
+
+
+function modifyEmptyLinks() {
+    // Get all anchor elements on the page
+    const links = document.querySelectorAll('a');
+
+    // Loop through each link
+    links.forEach(link => {
+        // Check if the link's text content is empty or contains only whitespace
+        if (!link.textContent.trim()) {
+            // Set the text content to the URL in the href attribute
+            link.textContent = link.href;
+        }
+    });
+}
+
+function main() {
+}
+main();
