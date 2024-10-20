@@ -1,4 +1,11 @@
-/* General Body Styling */
+.left {
+    width:auto;
+    font-size: 60%;
+}
+.right {
+    flex-grow: 1;
+}
+
 body {
     font-family: "Avenir Next";
     font-size: 16;
@@ -15,11 +22,6 @@ code {
 }
 
 
-footer {
-    margin-top: 50px;
-    font-size: 12px;
-    color: #777;
-}
 
 h1 {
     font-size: 32;
@@ -45,6 +47,12 @@ header {
     padding: 20px 0;
     margin-bottom: 30px;
     text-align: center;
+}
+
+nav {
+    margin-top: 50px;
+    font-size: 12px;
+    color: #777;
 }
 
 nav ul {
