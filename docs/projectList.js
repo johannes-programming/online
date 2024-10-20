@@ -1,6 +1,13 @@
 const dataList = [
-    'datahold', 'datarepr', 'gravy', 'keyalias', 
-    'overloadable', 'tomlhold', 'seqpad', 'v440'
+    'datahold', 
+    'datarepr', 
+    'gravy', 
+    'keyalias', 
+    'overloadable', 
+    'tomlhold', 
+    'scaevola', 
+    'seqpad', 
+    'v440',
 ];
 
 const baseURL = "https://";
