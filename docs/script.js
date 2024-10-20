@@ -63,11 +63,21 @@ function setupLinksBlock(packageName) {
                 <b>Download:</b>
                 <a href="https://pypi.org/project/${packageName}/#files"></a>
             </li>
-            <li><a href="https://pypi.org/project/${packageName}/">Index</a></li>
-            <li><a href="https://github.com/johannes-programming/${packageName}">Source</a></li>
-            <li><a href="https://${packageName}.johannes-programming.online">Website</a></li>
+            <li>
+                <b>Index:</b>
+                <a href="https://pypi.org/project/${packageName}/"></a>
+            </li>
+            <li>
+                <b>Source:</b>
+                <a href="https://github.com/johannes-programming/${packageName}"></a>
+            </li>
+            <li>
+                <b>Website:</b>
+                <a href="https://${packageName}.johannes-programming.online"></a>
+            </li>
         </ul>`;
     container.innerHTML = htmlContent;
+    modifyEmptyLinks();
 }
 
 function setupCreditsBlock(packageName) {
@@ -115,7 +125,6 @@ function setupBasicProject(packageName) {
     setupInstallBlock(packageName);
     setupLinksBlock(packageName);
     setupCreditsBlock(packageName);
-    modifyEmptyLinks();
 }
 
 
