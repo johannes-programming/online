@@ -98,6 +98,7 @@ function setupCreditsBlock(packageName) {
         </ul>
         <p>Thank you for using <a>${packageName}</a>!</p>`;
     container.innerHTML = htmlContent;
+    modifyLinks();
 }
 function setupImpressumArticle() {
     const container = document.getElementById('impressumArticle');
