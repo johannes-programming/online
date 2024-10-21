@@ -168,7 +168,7 @@ function setupImpressumCorpus(packageName) {
     
     modifyLinks();
 }
-function setupImpressumArticle() {
+function setupImpressumArticle(packageName) {
     const container = document.getElementById('impressumArticle');
     const htmlContent = `
         <header><h1>Impressum</h1></header>
