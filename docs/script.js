@@ -165,14 +165,13 @@ function setupImpressumCorpus(packageName) {
     const container = document.getElementById('impressumCorpus');
     const htmlContent = getImpressumParagraphs();
     container.innerHTML = htmlContent;
+    
     modifyLinks();
 }
 function setupImpressumArticle() {
     const container = document.getElementById('impressumArticle');
     const htmlContent = `
-        <header>
-            <h1>Impressum</h1>
-        </header>
+        <header><h1>Impressum</h1></header>
         <b>Johannes Programming</b>
         <section id='impressumCorpus'></section>`;
     container.innerHTML = htmlContent;
