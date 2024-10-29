@@ -190,6 +190,7 @@ function setupTestingCorpus(packageName) {
     <pre><code>
 import ${packageName}
 ${packageName}.test()
+
 </code></pre>`;
 }
 
