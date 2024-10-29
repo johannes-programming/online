@@ -281,6 +281,7 @@ function setupLinksBlock(packageName) {
 
 
 function setupBasicProject(packageName) {
+    document.title = packageName;
     setupTopBlock(packageName);
     setupLicenseBlock(packageName);
     setupTestingBlock(packageName);
