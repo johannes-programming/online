@@ -79,20 +79,20 @@ function setupTopBlock(packageName) {
 
 
 
-function setupLicenseCorpus(packageName) {
+function setupTestingCorpus(packageName) {
     const container = document.getElementById('testingCorpus');
     const htmlContent = `<p>Testing of <a>${packageName}</a> is provided through its <code>test()</code> function.</p>`;
     container.innerHTML = htmlContent;
 }
-function setupLicenseBlock(packageName) {
+function setupTestingBlock(packageName) {
     const container = document.getElementById('testing');
     const htmlContent = `
         <h2>Testing</h2>
         <div id="testingCorpus"></div>`;
     container.innerHTML = htmlContent;
-    setupLicenseCorpus(packageName);
+    setupTestingCorpus(packageName);
 }
-function setupLicenseArticle(packageName) {
+function setupTestingArticle(packageName) {
     const container = document.getElementById('testingArticle');
     const htmlContent = `
         <header id="top">
@@ -100,7 +100,7 @@ function setupLicenseArticle(packageName) {
         </header>
         <div id="testingCorpus"></div>`;
     container.innerHTML = htmlContent;
-    setupLicenseCorpus(packageName);
+    setupTestingCorpus(packageName);
     modifyLinks();
 }
 
