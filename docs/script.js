@@ -116,9 +116,12 @@ function setupTestingCorpus(packageName) {
 function setupTestingBlock(packageName) {
     const testingDiv = document.getElementById("testing");
     
-    if (testingDiv) {
-        testingDiv.innerHTML = "<h2>Testing</h2><p>Testing is available.</p>";
-    }
+    if (!testingDiv) {return;}
+
+    testingDiv.innerHTML = `
+    <h2>Testing</h2>
+    <p>Testing is available...</p>`;
+
 }
 function setupTestingArticle(packageName) {
     const container = document.getElementById('testingArticle');
