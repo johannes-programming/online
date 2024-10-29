@@ -30,6 +30,7 @@ function setupProjectsList() {
         'gravy', 
         'keyalias', 
         'overloadable', 
+        'preparse',
         'tomlhold', 
         'scaevola', 
         'seqpad', 
