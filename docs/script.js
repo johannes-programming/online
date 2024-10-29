@@ -1,3 +1,4 @@
+// impressum and credits
 function getImpressumList() {
     const strings = [
             "Name: Johannes",
@@ -22,6 +23,50 @@ function getImpressumBullets() {
     });
     return result;
 }
+
+function setupCreditsCorpus(packageName) {
+    const container = document.getElementById('creditsCorpus');
+    if(!container){return;}
+    container.innerHTML = getImpressumBullets();
+    modifyLinks();
+}
+function setupCreditsBlock(packageName) {
+    const container = document.getElementById('credits');
+    if(!container){return;}
+    container.innerHTML = `
+        <h2>Credits</h2>
+        <ul id='creditsCorpus'></ul>
+        <p>Thank you for using <a>${packageName}</a>!</p>`;
+    setupCreditsCorpus(packageName);
+    modifyLinks();
+}
+
+function setupImpressumCorpus(packageName) {
+    const container = document.getElementById('impressumCorpus');
+    if(!container){return;}
+    const htmlContent = getImpressumParagraphs();
+    container.innerHTML = htmlContent;
+    
+    modifyLinks();
+}
+function setupImpressumArticle(packageName) {
+    const container = document.getElementById('impressumArticle');
+    const htmlContent = `
+        <header><h1>Impressum</h1></header>
+        <b>Johannes Programming</b>
+        <section id='impressumCorpus'></section>`;
+    container.innerHTML = htmlContent;
+    setupImpressumCorpus(packageName);
+}
+
+
+
+
+
+
+
+
+// projects
 function setupProjectsList() {
     const dataList = [
         'datahold', 
@@ -80,8 +125,7 @@ function setupProjectsList() {
 function setupTopBlock(packageName) {
     const container = document.getElementById('top');
     if(!container){return;}
-    const htmlContent = `<h1>${packageName}</h1>`;
-    container.innerHTML = htmlContent;
+    container.innerHTML = `<h1>${packageName}</h1>`;
 }
 
 
@@ -111,6 +155,7 @@ function setupLicenseCorpus(packageName) {
 
 function setupLicenseArticle(packageName) {
     const container = document.getElementById('licenseArticle');
+    if(!container){return;}
     const htmlContent = `
         <header id="top">
             <h1>License of <a>${packageName}</a></h1>
@@ -129,11 +174,9 @@ function setupLicenseArticle(packageName) {
 
 // testing
 function setupTestingBlock(packageName) {
-    const testingDiv = document.getElementById("testing");
-    
-    if (!testingDiv) {return;}
-
-    testingDiv.innerHTML = `
+    const container = document.getElementById("testing");
+    if (!container) {return;}
+    container.innerHTML = `
     <h2>Testing</h2>
     <div id="testingCorpus"></div>`;
     setupTestingCorpus(packageName);
@@ -148,12 +191,12 @@ function setupTestingCorpus(packageName) {
 
 function setupTestingArticle(packageName) {
     const container = document.getElementById('testingArticle');
-    const htmlContent = `
+    if(!container){return;}
+    container.innerHTML = `
         <header id="top">
             <h1>Testing of <a>${packageName}</a></h1>
         </header>
         <div id="testingCorpus"></div>`;
-    container.innerHTML = htmlContent;
     setupTestingCorpus(packageName);
     modifyLinks();
 }
@@ -164,10 +207,11 @@ function setupTestingArticle(packageName) {
 
 
 
-
+// install
 function setupInstallCorpus(packageName) {
     const container = document.getElementById('installCorpus');
-    const htmlContent = `
+    if(!container){return;}
+    container.innerHTML = `
         <p>
             To install <a>${packageName}</a>, 
             you can use <code>pip</code>. 
@@ -176,20 +220,25 @@ function setupInstallCorpus(packageName) {
         <pre><code class="language-bash">
 pip install ${packageName}
         </code></pre>`;
-    container.innerHTML = htmlContent;
 }
 function setupInstallBlock(packageName) {
     const container = document.getElementById('install');
-    const htmlContent = `
+    if(!container){return;}
+    container.innerHTML = `
         <h2>Installation</h2>
         <div id="installCorpus"></div>`;
-    container.innerHTML = htmlContent;
     setupInstallCorpus(packageName);
 }
 
+
+
+
+
+// links
 function setupLinksBlock(packageName) {
     const container = document.getElementById('links');
-    const htmlContent = `
+    if(!container){return;}
+    container.innerHTML = `
         <h2>Links</h2>
         <ul>
             <li>
@@ -209,42 +258,21 @@ function setupLinksBlock(packageName) {
                 <a href="https://${packageName}.johannes-programming.online"></a>
             </li>
         </ul>`;
-    container.innerHTML = htmlContent;
     modifyLinks();
 }
 
-function setupCreditsCorpus(packageName) {
-    const container = document.getElementById('creditsCorpus');
-    const htmlContent = getImpressumBullets();
-    container.innerHTML = htmlContent;
-    modifyLinks();
-}
-function setupCreditsBlock(packageName) {
-    const container = document.getElementById('credits');
-    const htmlContent = `
-        <h2>Credits</h2>
-        <ul id='creditsCorpus'></ul>
-        <p>Thank you for using <a>${packageName}</a>!</p>`;
-    container.innerHTML = htmlContent;
-    setupCreditsCorpus(packageName);
-    modifyLinks();
-}
-function setupImpressumCorpus(packageName) {
-    const container = document.getElementById('impressumCorpus');
-    const htmlContent = getImpressumParagraphs();
-    container.innerHTML = htmlContent;
-    
-    modifyLinks();
-}
-function setupImpressumArticle(packageName) {
-    const container = document.getElementById('impressumArticle');
-    const htmlContent = `
-        <header><h1>Impressum</h1></header>
-        <b>Johannes Programming</b>
-        <section id='impressumCorpus'></section>`;
-    container.innerHTML = htmlContent;
-    setupImpressumCorpus(packageName);
-}
+
+
+
+
+
+
+
+
+
+
+
+// basics
 
 
 function setupBasicProject(packageName) {
