@@ -81,7 +81,13 @@ function setupTopBlock(packageName) {
 
 function setupTestingCorpus(packageName) {
     const container = document.getElementById('testingCorpus');
-    const htmlContent = `<p>Testing of <a>${packageName}</a> is provided through its <code>test()</code> function.</p>`;
+    const htmlContent = `
+    <p>Testing of <a>${packageName}</a> is provided through its <code>test()</code> function.</p>
+    <pre><code class="python">
+# python
+import ${packageName}
+${packageName}.test()
+    </code></pre>`;
     container.innerHTML = htmlContent;
 }
 function setupTestingBlock(packageName) {
