@@ -83,6 +83,16 @@ function setupTopBlock(packageName) {
     const htmlContent = `<h1>${packageName}</h1>`;
     container.innerHTML = htmlContent;
 }
+
+
+
+
+
+
+
+
+// license
+
 function setupLicenseBlock(packageName) {
     const container = document.getElementById('license');
     if(!container){return;}
@@ -98,12 +108,6 @@ function setupLicenseCorpus(packageName) {
     const htmlContent = `<p>This project is licensed under the MIT License.</p>`;
     container.innerHTML = htmlContent;
 }
-
-
-
-
-
-// license
 
 function setupLicenseArticle(packageName) {
     const container = document.getElementById('licenseArticle');
