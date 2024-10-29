@@ -114,12 +114,11 @@ function setupTestingCorpus(packageName) {
     container.innerHTML = htmlContent;
 }
 function setupTestingBlock(packageName) {
-    const container = document.getElementById('testing');
-    const htmlContent = `
-        <h2>Testing</h2>
-        <div id="testingCorpus"></div>`;
-    container.innerHTML = htmlContent;
-    setupTestingCorpus(packageName);
+    const testingDiv = document.getElementById("testing");
+    
+    if (testingDiv) {
+        testingDiv.innerHTML = "<h2>Testing</h2><p>Testing is available.</p>";
+    }
 }
 function setupTestingArticle(packageName) {
     const container = document.getElementById('testingArticle');
@@ -225,7 +224,7 @@ function setupImpressumArticle(packageName) {
 function setupBasicProject(packageName) {
     setupTopBlock(packageName);
     setupLicenseBlock(packageName);
-    //setupTestingBlock(packageName);
+    setupTestingBlock(packageName);
     setupInstallBlock(packageName);
     setupLinksBlock(packageName);
     setupCreditsBlock(packageName);
