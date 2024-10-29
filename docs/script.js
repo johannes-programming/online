@@ -70,25 +70,41 @@ function setupProjectsList() {
 
 }
 
+
+
+
+
+
+// top
+
 function setupTopBlock(packageName) {
     const container = document.getElementById('top');
+    if(!container){return;}
     const htmlContent = `<h1>${packageName}</h1>`;
-    container.innerHTML = htmlContent;
-}
-
-function setupLicenseCorpus(packageName) {
-    const container = document.getElementById('licenseCorpus');
-    const htmlContent = `<p>This project is licensed under the MIT License.</p>`;
     container.innerHTML = htmlContent;
 }
 function setupLicenseBlock(packageName) {
     const container = document.getElementById('license');
+    if(!container){return;}
     const htmlContent = `
         <h2>License</h2>
         <div id="licenseCorpus"></div>`;
     container.innerHTML = htmlContent;
     setupLicenseCorpus(packageName);
 }
+function setupLicenseCorpus(packageName) {
+    const container = document.getElementById('licenseCorpus');
+    if(!container){return;}
+    const htmlContent = `<p>This project is licensed under the MIT License.</p>`;
+    container.innerHTML = htmlContent;
+}
+
+
+
+
+
+// license
+
 function setupLicenseArticle(packageName) {
     const container = document.getElementById('licenseArticle');
     const htmlContent = `
@@ -107,12 +123,7 @@ function setupLicenseArticle(packageName) {
 
 
 
-
-function setupTestingCorpus(packageName) {
-    const container = document.getElementById('testingCorpus');
-    const htmlContent = `<p>This project can be tested through its <code>test</code> function.</p>`;
-    container.innerHTML = htmlContent;
-}
+// testing
 function setupTestingBlock(packageName) {
     const testingDiv = document.getElementById("testing");
     
@@ -120,9 +131,17 @@ function setupTestingBlock(packageName) {
 
     testingDiv.innerHTML = `
     <h2>Testing</h2>
-    <p>Testing is available...</p>`;
-
+    <div id="testingCorpus"></div>`;
+    setupTestingCorpus(packageName);
 }
+function setupTestingCorpus(packageName) {
+    const container = document.getElementById('testingCorpus');
+    if(!container){return;}
+    container.innerHTML = `
+    <p>This project can be tested 
+    through its <code>test</code> function.</p>`;
+}
+
 function setupTestingArticle(packageName) {
     const container = document.getElementById('testingArticle');
     const htmlContent = `
