@@ -225,7 +225,7 @@ function setupImpressumArticle(packageName) {
 function setupBasicProject(packageName) {
     setupTopBlock(packageName);
     setupLicenseBlock(packageName);
-    setupTestingBlock(packageName);
+    //setupTestingBlock(packageName);
     setupInstallBlock(packageName);
     setupLinksBlock(packageName);
     setupCreditsBlock(packageName);
