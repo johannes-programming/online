@@ -110,7 +110,7 @@ function setupLicenseArticle(packageName) {
 
 function setupTestingCorpus(packageName) {
     const container = document.getElementById('testingCorpus');
-    const htmlContent = `<p>This project can be tested through its test() function.</p>`;
+    const htmlContent = `<p>This project can be tested through its <code>test()</code> function.</p>`;
     container.innerHTML = htmlContent;
 }
 function setupTestingBlock(packageName) {
