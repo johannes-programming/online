@@ -83,12 +83,13 @@ function setupTestingCorpus(packageName) {
     const container = document.getElementById('testingCorpus');
     const htmlContent = `
     <p>Testing of <a>${packageName}</a> is provided through its <code>test()</code> function.</p>
-    <pre><code class="python">
+    <pre>
 # python
 import ${packageName}
 ${packageName}.test()
-    </code></pre>`;
+    </pre>`;
     container.innerHTML = htmlContent;
+    modifyLinks();
 }
 function setupTestingBlock(packageName) {
     const container = document.getElementById('testing');
