@@ -193,7 +193,6 @@ ${packageName}.test()
 
 </code></pre>`;
 }
-
 function setupTestingArticle(packageName) {
     const container = document.getElementById('testingArticle');
     if(!container){return;}
