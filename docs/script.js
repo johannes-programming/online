@@ -186,7 +186,11 @@ function setupTestingCorpus(packageName) {
     if(!container){return;}
     container.innerHTML = `
     <p>This project can be tested 
-    through its <code>test</code> function.</p>`;
+    through its <code>test</code> function.</p>
+    <pre><code>
+import ${packageName}
+${packageName}.test()
+</code></pre>`;
 }
 
 function setupTestingArticle(packageName) {
