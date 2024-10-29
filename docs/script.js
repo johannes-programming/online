@@ -230,6 +230,24 @@ function setupBasicProject(packageName) {
 }
 
 
+function modifyPre() {
+  // Select all <pre> elements on the page
+  const preElements = document.querySelectorAll('pre');
+
+  // Iterate over each <pre> element
+  preElements.forEach(pre => {
+    // Check if the <pre> element already has a <code> child element
+    if (!pre.querySelector('code')) {
+      // Wrap the existing HTML content of <pre> with <code> tags
+      const codeElement = document.createElement('code');
+      codeElement.innerHTML = pre.innerHTML; // Keep the current content of <pre>
+      
+      // Clear the current content and append the <code> wrapped content
+      pre.innerHTML = '';
+      pre.appendChild(codeElement);
+    }
+  });
+}
 
 function modifyEmptyLinks() {
     // Get all anchor elements on the page
@@ -272,6 +290,7 @@ function modifyLinksWithoutHref() {
 function modifyLinks() {
     modifyEmptyLinks();
     modifyLinksWithoutHref();
+    modifyPre()
 }
 
 function main() {
