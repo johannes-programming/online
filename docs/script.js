@@ -29,6 +29,8 @@ function setupProjectsList() {
         'getoptify',
         'gravy', 
         'keyalias', 
+        'makefunc',
+        'makeprop',
         'overloadable', 
         'preparse',
         'tomlhold', 
