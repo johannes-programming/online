@@ -156,13 +156,13 @@ function setupLicenseCorpus(packageName) {
 function setupLicenseArticle(packageName) {
     const container = document.getElementById('licenseArticle');
     if(!container){return;}
-    const htmlContent = `
+    container.innerHTML = `
         <header id="top">
             <h1>License of <a>${packageName}</a></h1>
         </header>
         <div id="licenseCorpus"></div>`;
-    container.innerHTML = htmlContent;
     setupLicenseCorpus(packageName);
+    document.title = "License of ${packageName}";
     modifyLinks();
 }
 
