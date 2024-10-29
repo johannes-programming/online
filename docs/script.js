@@ -147,10 +147,11 @@ function setupInstallCorpus(packageName) {
             you can use <code>pip</code>. 
             Open your terminal and run:
         </p>
-        <pre><code class="language-bash">
+        <pre>
 pip install ${packageName}
-        </code></pre>`;
+</pre>`;
     container.innerHTML = htmlContent;
+    modifyLinks();
 }
 function setupInstallBlock(packageName) {
     const container = document.getElementById('install');
