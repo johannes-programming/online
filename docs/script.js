@@ -101,6 +101,45 @@ function setupLicenseArticle(packageName) {
     modifyLinks();
 }
 
+
+
+
+
+
+
+
+function setupTestingCorpus(packageName) {
+    const container = document.getElementById('testingCorpus');
+    const htmlContent = `<p>This project can be tested through its test() function.</p>`;
+    container.innerHTML = htmlContent;
+}
+function setupTestingBlock(packageName) {
+    const container = document.getElementById('testing');
+    const htmlContent = `
+        <h2>Testing</h2>
+        <div id="testingCorpus"></div>`;
+    container.innerHTML = htmlContent;
+    setupTestingCorpus(packageName);
+}
+function setupTestingArticle(packageName) {
+    const container = document.getElementById('testingArticle');
+    const htmlContent = `
+        <header id="top">
+            <h1>Testing of <a>${packageName}</a></h1>
+        </header>
+        <div id="testingCorpus"></div>`;
+    container.innerHTML = htmlContent;
+    setupTestingCorpus(packageName);
+    modifyLinks();
+}
+
+
+
+
+
+
+
+
 function setupInstallCorpus(packageName) {
     const container = document.getElementById('installCorpus');
     const htmlContent = `
@@ -186,6 +225,7 @@ function setupImpressumArticle(packageName) {
 function setupBasicProject(packageName) {
     setupTopBlock(packageName);
     setupLicenseBlock(packageName);
+    setupTestingBlock(packageName);
     setupInstallBlock(packageName);
     setupLinksBlock(packageName);
     setupCreditsBlock(packageName);
