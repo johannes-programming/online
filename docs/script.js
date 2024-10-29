@@ -76,6 +76,37 @@ function setupTopBlock(packageName) {
     container.innerHTML = htmlContent;
 }
 
+
+
+
+function setupLicenseCorpus(packageName) {
+    const container = document.getElementById('testingCorpus');
+    const htmlContent = `<p>Testing of <a>${packageName}</a> is provided through its <code>test()</code> function.</p>`;
+    container.innerHTML = htmlContent;
+}
+function setupLicenseBlock(packageName) {
+    const container = document.getElementById('testing');
+    const htmlContent = `
+        <h2>Testing</h2>
+        <div id="testingCorpus"></div>`;
+    container.innerHTML = htmlContent;
+    setupLicenseCorpus(packageName);
+}
+function setupLicenseArticle(packageName) {
+    const container = document.getElementById('testingArticle');
+    const htmlContent = `
+        <header id="top">
+            <h1>Testing of <a>${packageName}</a></h1>
+        </header>
+        <div id="testingCorpus"></div>`;
+    container.innerHTML = htmlContent;
+    setupLicenseCorpus(packageName);
+    modifyLinks();
+}
+
+
+
+
 function setupLicenseCorpus(packageName) {
     const container = document.getElementById('licenseCorpus');
     const htmlContent = `<p>This project is licensed under the MIT License.</p>`;
