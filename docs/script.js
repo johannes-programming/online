@@ -385,6 +385,29 @@ function modifyLinks() {
     modifyLinksWithoutHref();
 }
 
+
+function addStylesheet() {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = "https://www.johannes-programming.online/styles.css";
+    document.head.appendChild(link);
+}
+function addStylesheet() {
+    // Check if there are any existing <link> elements with rel="stylesheet"
+    const existingStylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+    // Only add a new stylesheet if none are found
+    if (!(existingStylesheets.length === 0)) {return;}
+    
+    // Create a new <link> element
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = "https://www.johannes-programming.online/styles.css";
+    
+    // Append the <link> element to the <head>
+    document.head.appendChild(link);
+
+}
+
 function main() {
     modifyLinks();
 }
