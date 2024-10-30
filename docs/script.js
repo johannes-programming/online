@@ -56,6 +56,7 @@ function setupImpressumArticle(packageName) {
         <b>Johannes Programming</b>
         <section id='impressumCorpus'></section>`;
     container.innerHTML = htmlContent;
+    document.title = "Impressum"
     setupImpressumCorpus(packageName);
 }
 
@@ -202,6 +203,7 @@ function setupTestingArticle(packageName) {
         </header>
         <div id="testingCorpus"></div>`;
     setupTestingCorpus(packageName);
+    document.title = `Testing of ${packageName}`
     modifyLinks();
 }
 
