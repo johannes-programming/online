@@ -309,15 +309,15 @@ function setupUsefulArticle(packageName){
     const container = document.getElementById('usefulArticle');
     if(!container){return;}
     if(container.querySelector('header') !== null){return;}
+    document.title = `The ${packageName} Project Documentation`;
     container.innerHTML = `
 <header id="${packageName}">
-    <h1>The <a>${packageName}</a> project homepage</h1>
+    <h1>The <a>${packageName}</a> Project Documentation</h1>
 </header>
 ${container.innerHTML}
 <div id="useful"></div>`;
     setupUsefulBlock(packageName);
     modifyLinks();
-    document.title = `${packageName} Project Documentation`;
 }
 
 
