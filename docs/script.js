@@ -302,10 +302,22 @@ function setupUsefulBlock(packageName){
         </li>
     </ul>
 </div>
-<p>Thank you for using <a>${packageName}</a>!</p>`
+<p>Thank you for using <a>${packageName}</a>!</p>`;
     modifyLinks();
 }
-
+function setupUsefulArticle(packageName){
+    const container = document.getElementById('usefulArticle');
+    if(!container){return;}
+    if(container.querySelector('header') !== null){return;}
+    container.innerHTML = `
+<header id="${packageName}">
+    <h1>The <a>${packageName}</a> project homepage</h1>
+</header>
+${container.innerHTML}
+<div id="useful"></div>`;
+    setupUsefulBlock(packageName);
+    modifyLinks();
+}
 
 
 
