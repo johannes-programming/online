@@ -317,6 +317,7 @@ ${container.innerHTML}
 <div id="useful"></div>`;
     setupUsefulBlock(packageName);
     modifyLinks();
+    document.title = `${packageName} Project Documentation`;
 }
 
 
