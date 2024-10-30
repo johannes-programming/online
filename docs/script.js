@@ -268,7 +268,43 @@ function setupLinksBlock(packageName) {
 }
 
 
-
+// useful
+function setupUsefulBlock(packageName){
+    const container = document.getElementById('useful');
+    if(!container){return;}
+    container.innerHTML = `
+<h2>Useful Links:</h2>
+<div id="usefulCorpus">
+    <ul>
+        <li>
+            Download: 
+            <a href="https://pypi.org/project/${packageName}/#files"></a>
+        </li>
+        <li>
+            Impressum: 
+            <a href="https://${packageName}.johannes-programming.online/impressum.html"></a>
+        </li>
+        <li>
+            Index: 
+            <a href="https://pypi.org/project/${packageName}/"></a>
+        </li>
+        <li>
+            Installation: 
+            <a href="https://${packageName}.johannes-programming.online/install.html"></a>
+        </li>
+        <li>
+            Source: 
+            <a href="https://github.com/johannes-programming/${packageName}"></a>
+        </li>
+        <li>
+            Website: 
+            <a href="https://${packageName}.johannes-programming.online/"></a>
+        </li>
+    </ul>
+</div>
+<p>Thank you for using <a>${packageName}</a>!</p>`
+    modifyLinks();
+}
 
 
 
