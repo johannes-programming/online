@@ -11,6 +11,7 @@ function setupUsefulArticle(packageName){
 ${container.innerHTML}
 <div id="useful"></div>`;
     setupUsefulCorpus(packageName);
+    addMetaAndLinkTags();
     modifyLinks();
 }
 function setupInstallArticle(packageName) {
