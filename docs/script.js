@@ -1,3 +1,211 @@
+// articles
+function setupUsefulArticle(packageName){
+    const container = document.getElementById('usefulArticle');
+    if(!container){return;}
+    if(container.querySelector('header') !== null){return;}
+    document.title = `The ${packageName} Project Documentation`;
+    container.innerHTML = `
+<header id="${packageName}">
+    <h1>The <a>${packageName}</a> Project Documentation</h1>
+</header>
+${container.innerHTML}
+<div id="useful"></div>`;
+    setupUsefulCorpus(packageName);
+    modifyLinks();
+}
+function setupTestingArticle(packageName) {
+    const container = document.getElementById('testingArticle');
+    if(!container){return;}
+    document.title = `Testing of ${packageName}`
+    container.innerHTML = `
+        <header id="top">
+            <h1>Testing of <a>${packageName}</a></h1>
+        </header>
+        <div id="testingCorpus"></div>`;
+    setupTestingCorpus(packageName);
+    modifyLinks();
+}
+function setupLicenseArticle(packageName) {
+    const container = document.getElementById('licenseArticle');
+    if(!container){return;}
+    document.title = `License of ${packageName}`;
+    container.innerHTML = `
+        <header id="top">
+            <h1>License of <a>${packageName}</a></h1>
+        </header>
+        <div id="licenseCorpus"></div>`;
+    setupLicenseCorpus(packageName);
+    modifyLinks();
+}
+function setupImpressumArticle(packageName) {
+    const container = document.getElementById('impressumArticle');
+    if(!container){return;}
+    document.title = "Impressum";
+    const htmlContent = `
+        <header><h1>Impressum</h1></header>
+        <b>Johannes Programming</b>
+        <section id='impressumCorpus'></section>`;
+    container.innerHTML = htmlContent;
+    setupImpressumCorpus(packageName);
+}
+
+
+
+
+
+
+
+
+
+// blocks
+function setupTopBlock() {
+    const container = document.getElementById('top');
+    if(!container){return;}
+    container.innerHTML = `<h1>${document.title}</h1>`;
+}
+function setupInstallBlock() {
+    const container = document.getElementById('install');
+    if(!container){return;}
+    container.innerHTML = `
+        <h2>Installation</h2>
+        <div id="installCorpus"></div>`;
+    setupInstallCorpus(document.title);
+}
+function setupLicenseBlock() {
+    const container = document.getElementById('license');
+    if(!container){return;}
+    container.innerHTML = `
+        <h2>License</h2>
+        <div id="licenseCorpus"></div>`;
+    setupLicenseCorpus(document.title);
+}
+function setupTestingBlock() {
+    const container = document.getElementById("testing");
+    if (!container) {return;}
+    container.innerHTML = `
+    <h2>Testing</h2>
+    <div id="testingCorpus"></div>`;
+    setupTestingCorpus(document.title);
+}
+function setupLinksBlock() {
+    const container = document.getElementById('links');
+    if(!container){return;}
+    container.innerHTML = `
+        <h2>Links</h2>
+        <ul>
+            <li>
+                Download:
+                <a href="https://pypi.org/project/${document.title}/#files"></a>
+            </li>
+            <li>
+                Index:
+                <a href="https://pypi.org/project/${document.title}/"></a>
+            </li>
+            <li>
+                Source:
+                <a href="https://github.com/johannes-programming/${document.title}"></a>
+            </li>
+            <li>
+                Website:
+                <a href="https://${document.title}.johannes-programming.online"></a>
+            </li>
+        </ul>`;
+    modifyLinks();
+}
+function setupCreditsBlock() {
+    const container = document.getElementById('credits');
+    if(!container){return;}
+    container.innerHTML = `
+        <h2>Credits</h2>
+        <ul id='creditsCorpus'></ul>
+        <p>Thank you for using <a>${document.title}</a>!</p>`;
+    setupCreditsCorpus(document.title);
+    modifyLinks();
+}
+
+
+// corpus
+function setupTestingCorpus(packageName) {
+    const container = document.getElementById('testingCorpus');
+    if(!container){return;}
+    container.innerHTML = `
+    <p>This project can be tested 
+    through its <code>test</code> function.</p>
+    <pre><code>
+import ${packageName}
+${packageName}.test()
+
+</code></pre>`;
+}
+function setupLicenseCorpus(packageName) {
+    const container = document.getElementById('licenseCorpus');
+    if(!container){return;}
+    container.innerHTML = `<p>This project is licensed under the MIT License.</p>`;
+}
+function setupCreditsCorpus(packageName) {
+    const container = document.getElementById('creditsCorpus');
+    if(!container){return;}
+    container.innerHTML = getImpressumBullets();
+    modifyLinks();
+}
+function setupImpressumCorpus(packageName) {
+    const container = document.getElementById('impressumCorpus');
+    if(!container){return;}
+    container.innerHTML = getImpressumParagraphs();
+    modifyLinks();
+}
+function setupInstallCorpus(packageName) {
+    const container = document.getElementById('installCorpus');
+    if(!container){return;}
+    container.innerHTML = `
+        <p>
+            To install <a>${packageName}</a>, 
+            you can use <code>pip</code>. 
+            Open your terminal and run:
+        </p>
+        <pre><code>
+pip install ${packageName}
+        </code></pre>`;
+}
+function setupUsefulCorpus(packageName){
+    const container = document.getElementById('useful');
+    if(!container){return;}
+    container.innerHTML = `
+<h2>Useful Links:</h2>
+<div id="usefulCorpus">
+    <ul>
+        <li>
+            Download: 
+            <a href="https://pypi.org/project/${packageName}/#files"></a>
+        </li>
+        <li>
+            Impressum: 
+            <a href="https://${packageName}.johannes-programming.online/impressum.html"></a>
+        </li>
+        <li>
+            Index: 
+            <a href="https://pypi.org/project/${packageName}/"></a>
+        </li>
+        <li>
+            Installation: 
+            <a href="https://${packageName}.johannes-programming.online/install.html"></a>
+        </li>
+        <li>
+            Source: 
+            <a href="https://github.com/johannes-programming/${packageName}"></a>
+        </li>
+        <li>
+            Website: 
+            <a href="https://${packageName}.johannes-programming.online/"></a>
+        </li>
+    </ul>
+</div>
+<p>Thank you for using <a>${packageName}</a>!</p>`;
+    modifyLinks();
+}
+
+
+
 // impressum and credits
 function getImpressumList() {
     const strings = [
@@ -24,41 +232,8 @@ function getImpressumBullets() {
     return result;
 }
 
-function setupCreditsCorpus(packageName) {
-    const container = document.getElementById('creditsCorpus');
-    if(!container){return;}
-    container.innerHTML = getImpressumBullets();
-    modifyLinks();
-}
-function setupCreditsBlock(packageName) {
-    const container = document.getElementById('credits');
-    if(!container){return;}
-    container.innerHTML = `
-        <h2>Credits</h2>
-        <ul id='creditsCorpus'></ul>
-        <p>Thank you for using <a>${packageName}</a>!</p>`;
-    setupCreditsCorpus(packageName);
-    modifyLinks();
-}
 
-function setupImpressumCorpus(packageName) {
-    const container = document.getElementById('impressumCorpus');
-    if(!container){return;}
-    const htmlContent = getImpressumParagraphs();
-    container.innerHTML = htmlContent;
-    
-    modifyLinks();
-}
-function setupImpressumArticle(packageName) {
-    const container = document.getElementById('impressumArticle');
-    const htmlContent = `
-        <header><h1>Impressum</h1></header>
-        <b>Johannes Programming</b>
-        <section id='impressumCorpus'></section>`;
-    container.innerHTML = htmlContent;
-    document.title = "Impressum"
-    setupImpressumCorpus(packageName);
-}
+
 
 
 
@@ -121,13 +296,6 @@ function setupProjectsList() {
 
 
 
-// top
-
-function setupTopBlock(packageName) {
-    const container = document.getElementById('top');
-    if(!container){return;}
-    container.innerHTML = `<h1>${packageName}</h1>`;
-}
 
 
 
@@ -136,189 +304,9 @@ function setupTopBlock(packageName) {
 
 
 
-// license
-
-function setupLicenseBlock(packageName) {
-    const container = document.getElementById('license');
-    if(!container){return;}
-    const htmlContent = `
-        <h2>License</h2>
-        <div id="licenseCorpus"></div>`;
-    container.innerHTML = htmlContent;
-    setupLicenseCorpus(packageName);
-}
-function setupLicenseCorpus(packageName) {
-    const container = document.getElementById('licenseCorpus');
-    if(!container){return;}
-    const htmlContent = `<p>This project is licensed under the MIT License.</p>`;
-    container.innerHTML = htmlContent;
-}
-
-function setupLicenseArticle(packageName) {
-    const container = document.getElementById('licenseArticle');
-    if(!container){return;}
-    container.innerHTML = `
-        <header id="top">
-            <h1>License of <a>${packageName}</a></h1>
-        </header>
-        <div id="licenseCorpus"></div>`;
-    setupLicenseCorpus(packageName);
-    document.title = "License of ${packageName}";
-    modifyLinks();
-}
 
 
 
-
-
-
-
-// testing
-function setupTestingBlock(packageName) {
-    const container = document.getElementById("testing");
-    if (!container) {return;}
-    container.innerHTML = `
-    <h2>Testing</h2>
-    <div id="testingCorpus"></div>`;
-    setupTestingCorpus(packageName);
-}
-function setupTestingCorpus(packageName) {
-    const container = document.getElementById('testingCorpus');
-    if(!container){return;}
-    container.innerHTML = `
-    <p>This project can be tested 
-    through its <code>test</code> function.</p>
-    <pre><code>
-import ${packageName}
-${packageName}.test()
-
-</code></pre>`;
-}
-function setupTestingArticle(packageName) {
-    const container = document.getElementById('testingArticle');
-    if(!container){return;}
-    container.innerHTML = `
-        <header id="top">
-            <h1>Testing of <a>${packageName}</a></h1>
-        </header>
-        <div id="testingCorpus"></div>`;
-    setupTestingCorpus(packageName);
-    document.title = `Testing of ${packageName}`
-    modifyLinks();
-}
-
-
-
-
-
-
-
-// install
-function setupInstallCorpus(packageName) {
-    const container = document.getElementById('installCorpus');
-    if(!container){return;}
-    container.innerHTML = `
-        <p>
-            To install <a>${packageName}</a>, 
-            you can use <code>pip</code>. 
-            Open your terminal and run:
-        </p>
-        <pre><code class="language-bash">
-pip install ${packageName}
-        </code></pre>`;
-}
-function setupInstallBlock(packageName) {
-    const container = document.getElementById('install');
-    if(!container){return;}
-    container.innerHTML = `
-        <h2>Installation</h2>
-        <div id="installCorpus"></div>`;
-    setupInstallCorpus(packageName);
-}
-
-
-
-
-
-// links
-function setupLinksBlock(packageName) {
-    const container = document.getElementById('links');
-    if(!container){return;}
-    container.innerHTML = `
-        <h2>Links</h2>
-        <ul>
-            <li>
-                Download:
-                <a href="https://pypi.org/project/${packageName}/#files"></a>
-            </li>
-            <li>
-                Index:
-                <a href="https://pypi.org/project/${packageName}/"></a>
-            </li>
-            <li>
-                Source:
-                <a href="https://github.com/johannes-programming/${packageName}"></a>
-            </li>
-            <li>
-                Website:
-                <a href="https://${packageName}.johannes-programming.online"></a>
-            </li>
-        </ul>`;
-    modifyLinks();
-}
-
-
-// useful
-function setupUsefulBlock(packageName){
-    const container = document.getElementById('useful');
-    if(!container){return;}
-    container.innerHTML = `
-<h2>Useful Links:</h2>
-<div id="usefulCorpus">
-    <ul>
-        <li>
-            Download: 
-            <a href="https://pypi.org/project/${packageName}/#files"></a>
-        </li>
-        <li>
-            Impressum: 
-            <a href="https://${packageName}.johannes-programming.online/impressum.html"></a>
-        </li>
-        <li>
-            Index: 
-            <a href="https://pypi.org/project/${packageName}/"></a>
-        </li>
-        <li>
-            Installation: 
-            <a href="https://${packageName}.johannes-programming.online/install.html"></a>
-        </li>
-        <li>
-            Source: 
-            <a href="https://github.com/johannes-programming/${packageName}"></a>
-        </li>
-        <li>
-            Website: 
-            <a href="https://${packageName}.johannes-programming.online/"></a>
-        </li>
-    </ul>
-</div>
-<p>Thank you for using <a>${packageName}</a>!</p>`;
-    modifyLinks();
-}
-function setupUsefulArticle(packageName){
-    const container = document.getElementById('usefulArticle');
-    if(!container){return;}
-    if(container.querySelector('header') !== null){return;}
-    document.title = `The ${packageName} Project Documentation`;
-    container.innerHTML = `
-<header id="${packageName}">
-    <h1>The <a>${packageName}</a> Project Documentation</h1>
-</header>
-${container.innerHTML}
-<div id="useful"></div>`;
-    setupUsefulBlock(packageName);
-    modifyLinks();
-}
 
 
 
@@ -330,16 +318,6 @@ ${container.innerHTML}
 // basics
 
 
-function setupBasicProject(packageName) {
-    document.title = packageName;
-    addMetaAndLinkTags(packageName);
-    setupTopBlock(packageName);
-    setupLicenseBlock(packageName);
-    setupTestingBlock(packageName);
-    setupInstallBlock(packageName);
-    setupLinksBlock(packageName);
-    setupCreditsBlock(packageName);
-}
 
 
 
@@ -388,25 +366,18 @@ function modifyLinks() {
 
 
 
-function addStylesheet() {
-    // Check if there are any existing <link> elements with rel="stylesheet"
-    const existingStylesheets = document.querySelectorAll('link[rel="stylesheet"]');
-    // Only add a new stylesheet if none are found
-    if (!(existingStylesheets.length === 0)) {return;}
-    
-    // Create a new <link> element
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = "https://www.johannes-programming.online/styles.css";
-    
-    // Append the <link> element to the <head>
-    document.head.appendChild(link);
+function setupBasicProject() {
+    addMetaAndLinkTags();
 
+    setupTopBlock();
+    setupLicenseBlock();
+    setupTestingBlock();
+    setupInstallBlock();
+    setupLinksBlock();
+    setupCreditsBlock();
 }
 
-function addMetaAndLinkTags(packageName) {
-    // Create and append title
-    document.title = packageName;
+function addMetaAndLinkTags() {
     
     const head = document.head;
 
