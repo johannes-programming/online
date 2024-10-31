@@ -13,6 +13,18 @@ ${container.innerHTML}
     setupUsefulCorpus(packageName);
     modifyLinks();
 }
+function setupInstallArticle(packageName) {
+    const container = document.getElementById('installArticle');
+    if(!container){return;}
+    document.title = `Installing ${packageName}`
+    container.innerHTML = `
+        <header id="header">
+            <h1>Installing <a>${packageName}</a></h1>
+        </header>
+        <div id="installCorpus"></div>`;
+    setupInstallCorpus(document.title);
+    modifyLinks();
+}
 function setupTestingArticle(packageName) {
     const container = document.getElementById('testingArticle');
     if(!container){return;}
