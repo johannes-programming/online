@@ -23,6 +23,7 @@ function setupInstallArticle(packageName) {
         </header>
         <div id="installCorpus"></div>`;
     setupInstallCorpus(document.title);
+    addMetaAndLinkTags();
     modifyLinks();
 }
 function setupTestingArticle(packageName) {
