@@ -332,6 +332,7 @@ ${container.innerHTML}
 
 function setupBasicProject(packageName) {
     document.title = packageName;
+    addMetaAndLinkTags(packageName);
     setupTopBlock(packageName);
     setupLicenseBlock(packageName);
     setupTestingBlock(packageName);
@@ -401,6 +402,30 @@ function addStylesheet() {
     // Append the <link> element to the <head>
     document.head.appendChild(link);
 
+}
+
+function addMetaAndLinkTags(packageName) {
+    // Create and append title
+    document.title = packageName;
+    
+    const head = document.head;
+
+    // Create and append charset meta tag
+    const charsetMeta = document.createElement('meta');
+    charsetMeta.setAttribute('charset', 'UTF-8');
+    head.appendChild(charsetMeta);
+
+    // Create and append viewport meta tag
+    const viewportMeta = document.createElement('meta');
+    viewportMeta.setAttribute('name', 'viewport');
+    viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+    head.appendChild(viewportMeta);
+
+    // Create and append stylesheet link
+    const stylesheetLink = document.createElement('link');
+    stylesheetLink.setAttribute('rel', 'stylesheet');
+    stylesheetLink.setAttribute('href', 'https://www.johannes-programming.online/styles.css');
+    head.appendChild(stylesheetLink);
 }
 
 function main() {
