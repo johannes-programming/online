@@ -31,6 +31,7 @@ function setupTestingArticle(packageName) {
     const container = document.getElementById('testingArticle');
     if(!container){return;}
     document.title = `Testing of ${packageName}`
+    addMetaAndLinkTags();
     container.innerHTML = `
         <header id="top">
             <h1>Testing of <a>${packageName}</a></h1>
@@ -42,6 +43,7 @@ function setupTestingArticle(packageName) {
 function setupLicenseArticle(packageName) {
     const container = document.getElementById('licenseArticle');
     if(!container){return;}
+    addMetaAndLinkTags();
     document.title = `License of ${packageName}`;
     container.innerHTML = `
         <header id="top">
