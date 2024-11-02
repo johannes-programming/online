@@ -274,6 +274,7 @@ function setupProjectsList() {
         'tomlhold', 
         'scaevola', 
         'seqpad', 
+        'setdoc', 
         'v440',
     ];
 
