@@ -123,7 +123,7 @@ function setupLinksBlock() {
             </li>
             <li>
                 Website:
-                <a href="https://${document.title}.johannes-programming.online"></a>
+                <a href="https://${document.title}.johannes-programming.online/"></a>
             </li>
         </ul>`;
     modifyLinks();
@@ -208,7 +208,7 @@ function setupUsefulCorpus(packageName){
         </li>
         <li>
             Source: 
-            <a href="https://github.com/johannes-programming/${packageName}"></a>
+            <a href="https://github.com/johannes-programming/${packageName}/"></a>
         </li>
         <li>
             Website: 
@@ -227,7 +227,7 @@ function getImpressumList() {
     const strings = [
             "Name: Johannes",
             "Email: <a href='mailto:johannes-programming@mailfence.com'>johannes-programming@mailfence.com</a>",
-            "Homepage: <a href='https://www.johannes-programming.online'></a>",
+            "Homepage: <a href='https://www.johannes-programming.online/'></a>",
     ];
     return strings;
 }
@@ -279,7 +279,7 @@ function setupProjectsList() {
     ];
 
     const baseURL = "https://";
-    const domain = ".johannes-programming.online";
+    const domain = ".johannes-programming.online/";
 
     // Reference to the list element
     const listContainer = document.getElementById('dynamicList');
