@@ -119,7 +119,7 @@ function setupLinksBlock() {
             </li>
             <li>
                 Source:
-                <a href="https://github.com/johannes-programming/${document.title}"></a>
+                <a href="https://github.com/johannes-programming/${document.title}/"></a>
             </li>
             <li>
                 Website:
