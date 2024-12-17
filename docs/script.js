@@ -361,17 +361,16 @@ function modifyLinksWithoutHref() {
         if (!link.getAttribute('href')) {
             // Strip the whitespace from the link's text
             const linkText = link.textContent.trim();
-            if (true) {
-                // Construct the new URL using the link's text
-                const newUrl = `https://${linkText}.johannes-programming.online/`;
+            
+            // Construct the new URL using the link's text
+            const newUrl = `https://${linkText}.johannes-programming.online/`;
 
-                // Set the href attribute with the new URL
-                link.setAttribute('href', newUrl);
+            // Set the href attribute with the new URL
+            link.setAttribute('href', newUrl);
 
-                // Wrap the text content in a <code> tag
-                link.innerHTML = `<code>${linkText}</code>`;
+            // Wrap the text content in a <code> tag
+            link.innerHTML = `<code>${linkText}</code>`;
 
-            }
         }
     });
 }
