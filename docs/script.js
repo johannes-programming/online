@@ -52,7 +52,6 @@ function setupUsefulPage(packageName){
 }
 function setupInstallPage(packageName){
     updateHead();
-    document.title = `Installing of ${packageName}`;
     document.body.innerHTML = `
 <div id="installArticle"></div>
 <nav>
