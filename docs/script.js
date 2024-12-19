@@ -1,5 +1,5 @@
 // head
-function updateHead() {
+function addMetaAndLinkTags() {
     addMetaTag();
     addViewport();
     addStylesheet();
@@ -29,12 +29,14 @@ function addStylesheet() {
 
 // page
 function setupUsefulPage(packageName){
-    updateHead();
+    addMetaAndLinkTags();
     document.title = `${packageName} Project Documentation`;
-    const content = `
-<div id="usefulArticle">
-    ${content}
-</div>
+    const content = document.body.innerHTML;
+    document.body.innerHTML = `
+<header id=${packageName}>
+    <h1>The <a>v440</a> project homepage</h1>
+</header>
+<div id="usefulArticle"></div>
 <nav>
     <ul>
         <li>
@@ -46,10 +48,22 @@ function setupUsefulPage(packageName){
             </a>
         </li>
     </ul>
-</nav>`
+</nav>`;
+    const container = document.getElementById('usefulArticle');
+    if(container.querySelector('header') !== null){return;}
+    document.title = `The ${packageName} Project Documentation`;
+    container.innerHTML = `
+<header id="${packageName}">
+    <h1>The <a>${packageName}</a> Project Documentation</h1>
+</header>
+${container.innerHTML}
+<div id="useful"></div>`;
+    setupUsefulCorpus(packageName);
+    addMetaAndLinkTags();
+    modifyLinks();
 }
 function setupInstallPage(packageName){
-    updateHead();
+    addMetaAndLinkTags();
     document.title = `Installing of ${packageName}`;
     document.body.innerHTML = `
 <div id="installArticle"></div>
@@ -72,7 +86,7 @@ function setupInstallPage(packageName){
     setupInstallArticle(packageName);
 }
 function setupTestingPage(packageName){
-    updateHead();
+    addMetaAndLinkTags();
     document.title = `Testing of ${packageName}`;
     document.body.innerHTML = `
 <div id="testingArticle"></div>
@@ -96,7 +110,7 @@ function setupTestingPage(packageName){
     setupTestingArticle(packageName);
 }
 function setupImpressumPage(){
-    updateHead();
+    addMetaAndLinkTags();
     document.title = "Impressum";
     document.body.innerHTML = `
 <div id="impressumArticle"></div>
@@ -506,28 +520,6 @@ function setupBasicProject() {
     setupInstallBlock();
     setupLinksBlock();
     setupCreditsBlock();
-}
-
-function addMetaAndLinkTags() {
-    
-    const head = document.head;
-
-    // Create and append charset meta tag
-    const charsetMeta = document.createElement('meta');
-    charsetMeta.setAttribute('charset', 'UTF-8');
-    head.appendChild(charsetMeta);
-
-    // Create and append viewport meta tag
-    const viewportMeta = document.createElement('meta');
-    viewportMeta.setAttribute('name', 'viewport');
-    viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
-    head.appendChild(viewportMeta);
-
-    // Create and append stylesheet link
-    const stylesheetLink = document.createElement('link');
-    stylesheetLink.setAttribute('rel', 'stylesheet');
-    stylesheetLink.setAttribute('href', 'https://www.johannes-programming.online/styles.css');
-    head.appendChild(stylesheetLink);
 }
 
 function main() {
