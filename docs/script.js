@@ -1,3 +1,58 @@
+// head
+function updateHead() {
+    addMetaTag();
+    addViewport();
+    addStylesheet();
+}
+function addMetaTag() {
+    const metaTag = document.createElement("meta"); // Create a new meta element
+    metaTag.setAttribute("charset", "UTF-8"); // Set its charset attribute
+    document.head.appendChild(metaTag); // Append it to the head
+}
+function addViewport(){
+    // Create a new meta element
+    const meta = document.createElement('meta');
+
+    // Set the attributes for the meta tag
+    meta.name = "viewport";
+    meta.content = "width=device-width, initial-scale=1.0";
+
+    // Append the meta tag to the head section
+    document.head.appendChild(meta);
+}
+function addStylesheet() {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://www.johannes-programming.online/styles.css';
+    document.head.appendChild(link);
+}
+
+// page
+function setupTestingPage(packageName){
+    updateHead();
+    document.title = `Testing of ${packageName}`;
+    document.body.innerHTML = `
+<div id="testingArticle"></div>
+<nav>
+    <ul>
+        <li>
+            <a href="/features.html">
+                <p>&larr; Previous</p>
+                <p>Features of <code>${packageName}</code>
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/license.html">
+                <p>Next &rarr;</p>
+                <p>License of <code>${packageName}</code></p>
+            </a>
+        </li>
+    </ul>
+</nav>`;
+    setupTestingArticle(packageName);
+}
+
 // articles
 function setupUsefulArticle(packageName){
     const container = document.getElementById('usefulArticle');
