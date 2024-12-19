@@ -72,6 +72,31 @@ function setupInstallPage(packageName){
 </nav>`;
     setupInstallArticle(packageName);
 }
+function setupFeaturesPage(packageName){
+    updateHead();
+    const content = document.body.innerHTML;
+    document.body.innerHTML = `
+<header id="header">
+    <h1> Features of <a>${packageName}</a></h1>
+</header>
+${content}
+<nav>
+    <ul>
+        <li>
+            <a href="/intro.html">
+                <p>&larr; Previous</p>
+                <p>Introduction to <code>preparse</code></p>
+            </a>
+        </li>
+        <li>
+            <a href="/testing.html">
+                <p>Next &rarr;</p>
+                <p>Testing of <code>preparse</code></p>
+            </a>
+        </li>
+    </ul>
+</nav>`;
+}
 function setupTestingPage(packageName){
     updateHead();
     document.body.innerHTML = `
