@@ -74,6 +74,7 @@ function setupInstallPage(packageName){
 }
 function setupFeaturesPage(packageName){
     updateHead();
+    document.title = `Features of ${packageName}`;
     const content = document.body.innerHTML;
     document.body.innerHTML = `
 <header id="header">
