@@ -148,7 +148,7 @@ function setupLicensePage(packageName){
 </footer>`;
     setupLicenseArticle(packageName);
 }
-function setupImpressumPage(){
+function setupImpressumPage(packageName){
     addMetaAndLinkTags();
     document.title = "Impressum";
     document.body.innerHTML = `
