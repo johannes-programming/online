@@ -75,6 +75,24 @@ function setupTestingPage(packageName){
 </nav>`;
     setupTestingArticle(packageName);
 }
+function setupImpressumPage(){
+    updateHead();
+    document.title = "Impressum";
+    document.body.innerHTML = `
+<div id="impressumArticle"></div>
+<nav>
+    <ul>
+        <li>
+            <a href="/license.html">
+                <p>&larr; Previous</p>
+                <p>License of <code>${packageName}</code></p>
+            </a>
+        </li>
+        <li></li>
+    </ul>
+</nav>`;
+    setupImpressumArticle(packageName);
+}
 
 // articles
 function setupUsefulArticle(packageName){
