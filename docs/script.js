@@ -30,8 +30,8 @@ function addStylesheet() {
 // page
 function setupUsefulPage(packageName){
     updateHead();
-    document.title = `${packageName} Project Documentation`;
-    const content = `
+    const content = document.body.innerHTML;
+    document.body.innerHTML = `
 <div id="usefulArticle">
     ${content}
 </div>
@@ -46,7 +46,8 @@ function setupUsefulPage(packageName){
             </a>
         </li>
     </ul>
-</nav>`
+</nav>`;
+    setupUsefulArticle(packageName);
 }
 function setupInstallPage(packageName){
     updateHead();
