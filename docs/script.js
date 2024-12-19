@@ -75,7 +75,6 @@ function setupInstallPage(packageName){
 }
 function setupTestingPage(packageName){
     updateHead();
-    document.title = `Testing of ${packageName}`;
     document.body.innerHTML = `
 <div id="testingArticle"></div>
 <nav>
@@ -173,7 +172,7 @@ function setupInstallArticle(packageName) {
 function setupTestingArticle(packageName) {
     const container = document.getElementById('testingArticle');
     if(!container){return;}
-    document.title = `Testing of ${packageName}`
+    document.title = `Testing of ${packageName}`;
     addMetaAndLinkTags();
     container.innerHTML = `
         <header id="top">
