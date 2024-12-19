@@ -1,5 +1,5 @@
 // head
-function updateHead() {
+function addMetaAndLinkTags() {
     addMetaTag();
     addViewport();
     addStylesheet();
@@ -30,7 +30,7 @@ function addStylesheet() {
 
 // page
 function setupUsefulPage(packageName){
-    updateHead();
+    addMetaAndLinkTags();
     const content = document.body.innerHTML;
     document.body.innerHTML = `
 <div id="usefulArticle">
@@ -51,7 +51,7 @@ function setupUsefulPage(packageName){
     setupUsefulArticle(packageName);
 }
 function setupInstallPage(packageName){
-    updateHead();
+    addMetaAndLinkTags();
     document.body.innerHTML = `
 <div id="installArticle"></div>
 <nav>
@@ -73,7 +73,7 @@ function setupInstallPage(packageName){
     setupInstallArticle(packageName);
 }
 function setupFeaturesPage(packageName){
-    updateHead();
+    addMetaAndLinkTags();
     document.title = `Features of ${packageName}`;
     const content = document.body.innerHTML;
     document.body.innerHTML = `
@@ -97,9 +97,11 @@ ${content}
         </li>
     </ul>
 </nav>`;
+    addMetaAndLinkTags();
+    modifyLinks();
 }
 function setupTestingPage(packageName){
-    updateHead();
+    addMetaAndLinkTags();
     document.body.innerHTML = `
 <div id="testingArticle"></div>
 <nav>
@@ -122,7 +124,7 @@ function setupTestingPage(packageName){
     setupTestingArticle(packageName);
 }
 function setupLicensePage(packageName){
-    updateHead();
+    addMetaAndLinkTags();
     document.body.innerHTML = `
 <div id="licenseArticle"></div>
 <footer>
@@ -147,7 +149,7 @@ function setupLicensePage(packageName){
     setupLicenseArticle(packageName);
 }
 function setupImpressumPage(){
-    updateHead();
+    addMetaAndLinkTags();
     document.title = "Impressum";
     document.body.innerHTML = `
 <div id="impressumArticle"></div>
@@ -559,29 +561,8 @@ function setupBasicProject() {
     setupCreditsBlock();
 }
 
-function addMetaAndLinkTags() {
-    
-    const head = document.head;
-
-    // Create and append charset meta tag
-    const charsetMeta = document.createElement('meta');
-    charsetMeta.setAttribute('charset', 'UTF-8');
-    head.appendChild(charsetMeta);
-
-    // Create and append viewport meta tag
-    const viewportMeta = document.createElement('meta');
-    viewportMeta.setAttribute('name', 'viewport');
-    viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0');
-    head.appendChild(viewportMeta);
-
-    // Create and append stylesheet link
-    const stylesheetLink = document.createElement('link');
-    stylesheetLink.setAttribute('rel', 'stylesheet');
-    stylesheetLink.setAttribute('href', 'https://www.johannes-programming.online/styles.css');
-    head.appendChild(stylesheetLink);
-}
-
 function main() {
+    addMetaAndLinkTags();
     modifyLinks();
 }
 main();
