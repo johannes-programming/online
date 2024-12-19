@@ -28,6 +28,29 @@ function addStylesheet() {
 }
 
 // page
+function setupInstallPage(packageName){
+    updateHead();
+    document.title = `Installing of ${packageName}`;
+    document.body.innerHTML = `
+<div id="installArticle"></div>
+<nav>
+    <ul>
+        <li>
+            <a href="/">
+                <p>&larr; Previous</p>
+                <p>The <code>${packageName}</code> project homepage</p>
+            </a>
+        </li>
+        <li>
+            <a href="/intro.html">
+                <p>Next &rarr;</p>
+                <p>Introduction to <code>${packageName}</code></p>
+            </a>
+        </li>
+    </ul>
+</nav>`;
+    setupInstallArticle(packageName);
+}
 function setupTestingPage(packageName){
     updateHead();
     document.title = `Testing of ${packageName}`;
