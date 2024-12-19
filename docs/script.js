@@ -28,6 +28,26 @@ function addStylesheet() {
 }
 
 // page
+function setupUsefulPage(packageName){
+    updateHead();
+    document.title = `${packageName} Project Documentation`;
+    const content = `
+<div id="usefulArticle">
+    ${content}
+</div>
+<nav>
+    <ul>
+        <li>
+        </li>
+        <li>
+            <a href="/install.html">
+                <p>Next &rarr;</p>
+                <p>Installation</p>
+            </a>
+        </li>
+    </ul>
+</nav>`
+}
 function setupInstallPage(packageName){
     updateHead();
     document.title = `Installing of ${packageName}`;
