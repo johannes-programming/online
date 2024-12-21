@@ -28,6 +28,14 @@ function addStylesheet() {
     document.head.appendChild(link);
 }
 
+// h4
+function setupAllH4(){
+    document.querySelectorAll('h4').forEach(setupOneH4);
+}
+function setupOneH4(container){
+    if (container.children.length > 0) {return;} 
+}
+
 // page
 function setupUsefulPage(packageName){
     addMetaAndLinkTags();
