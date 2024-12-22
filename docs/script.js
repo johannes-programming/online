@@ -34,7 +34,50 @@ function setupAllH4(){
 }
 function setupOneH4(container){
     if (container.children.length > 0) {return;} 
+    return;
+    container.innerHTML = formatH4(container.innerHTML);
+    container.innerHTML = `<code>${container.innerHTML}</code>`;
 }
+function formatH4(text){
+    text = text.trim();
+    const openingI = text.indexOf("(");
+    const closingI = text.lastIndexOf(")");
+    if (openingI == -1){return `<b>${text}</b>`;}
+    if (closingI == -1){return `<b>${text}</b>`;}
+    const opening = formatH4Opening(text.substring(0, openingI));
+    const core = formatH4Core(text.substring(openingI + 1, closingI));
+    const closing = formatH4Closing(text.substring(closingI + 1));
+    const ans = `${opening}<b>(</b>${core}<b>)</b>${closing}`;
+    return ans;
+}
+function formatH4Opening(text){
+    text = text.trim();
+    const spaceI = text.indexOf(" ");
+    if (spaceI == -1){return formatH4Name(text);}
+    if (spaceI == -1){return formatH4Name(text);}
+    const title = text.substring(0, spaceI);
+    const name = text.substring(spaceI + 1);
+    const fTitle = formatH4Title(title);
+    const fName = formatH4Name(name);
+    const ans = fTitle + " " + fName;
+    return ans;
+}
+function formatH4Title(text){
+    text = text.trim();
+    return "<i>" + text + "</i>";
+}
+function formatH4Name(text){
+    text = text.trim();
+    const dotI = text.lastIndexOf(".");
+    const partA = text.substring(0, dotI + 1);
+    const partB = text.substring(dotI + 1);
+    const ansB = "<b>" + partB + "</b>";
+    return partA + ansB;
+}
+function formatH4Closing(text){
+    return text;
+}
+
 
 // page
 function setupUsefulPage(packageName){
