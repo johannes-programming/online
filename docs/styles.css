@@ -35,11 +35,10 @@ dl.heading2 > dd {
     font-size: 16px;
 }
 
-
 dl.heading4 > dt {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     background-color: #4CAF50;
 }
