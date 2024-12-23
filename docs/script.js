@@ -127,6 +127,34 @@ function setupInstallPage(packageName){
 </nav>`;
     setupInstallArticle(packageName);
 }
+function setupIntroPage(packageName){
+    addMetaAndLinkTags();
+    document.title = `Introduction to ${packageName}`;
+    const content = document.body.innerHTML;
+    document.body.innerHTML = `
+<header id="header">
+    <h1> Introduction to <a>${packageName}</a></h1>
+</header>
+${content}
+<nav>
+    <ul>
+        <li>
+            <a href="/install.html">
+                <p>&larr; Previous</p>
+                <p>Installing <code>tomlhold</code></p>
+            </a>
+        </li>
+        <li>
+            <a href="/features.html">
+                <p>Next &rarr;</p>
+                <p>Features of <code>tomlhold</code></p>
+            </a>
+        </li>
+    </ul>
+</nav>`;
+    addMetaAndLinkTags();
+    modifyLinks();
+}
 function setupFeaturesPage(packageName){
     addMetaAndLinkTags();
     document.title = `Features of ${packageName}`;
