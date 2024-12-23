@@ -55,6 +55,11 @@ dl.heading4 > dd {
     font-size: 1em;
 }
 
+em {
+    font-size: 1em;
+    font-style: normal;
+}
+
 h1 {
     font-size: 32px;
     font-weight: normal;
