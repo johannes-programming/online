@@ -21,6 +21,17 @@ code {
     font-weight: normal;
 }
 
+dl {
+    
+}
+dt {
+    font-size: 14;
+    font-weight: normal;
+    background-color: #4CAF50;
+}
+dd {
+    padding-left: 2em;
+}
 
 
 h1 {
