@@ -38,6 +38,9 @@ dl.heading2 > dt {
     font-weight: normal;
     background-color: transparent;
 }
+dl.heading2 > dd {
+    padding-left: 0em;
+}
 
 
 h1 {
