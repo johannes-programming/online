@@ -403,9 +403,7 @@ function setupInstallCorpus(packageName) {
             you can use <code>pip</code>. 
             Open your terminal and run:
         </p>
-        <pre><code>
-pip install ${packageName}
-        </code></pre>`;
+        <pre class="block"><code>pip install ${packageName}</code></pre>`;
 }
 function setupUsefulCorpus(packageName){
     const container = document.getElementById('useful');
