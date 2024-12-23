@@ -283,7 +283,7 @@ function setupImpressumArticle(packageName) {
     document.title = "Impressum";
     const htmlContent = `
         <header><h1>Impressum</h1></header>
-        <b>Johannes Programming</b>
+        <p><b>Johannes Programming</b></p>
         <section id='impressumCorpus'></section>`;
     container.innerHTML = htmlContent;
     setupImpressumCorpus(packageName);
