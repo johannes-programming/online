@@ -24,6 +24,7 @@ code {
 
 dl.heading2 > dt {
     font-size: 26 !important;
+    color: red;
     font-weight: normal;
     background-color: transparent;
 }
