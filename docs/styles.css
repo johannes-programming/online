@@ -30,7 +30,8 @@ dt {
     background-color: #4CAF50;
 }
 dd {
-    padding-left: 10px;
+    margin: 0;
+    padding: 0 0 0 10px;
 }
 
 dl.heading2 > dt {
