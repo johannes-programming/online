@@ -23,27 +23,27 @@ code {
 
 
 dl.heading2 > dt {
-    margin: 0 0 0 0;
+    margin: 0 0 0.5em 0;
     padding: 0 0 0 0;
     font-size: 26px;
     font-weight: normal;
     background-color: transparent;
 }
 dl.heading2 > dd {
-    margin: 1em 0 1em 0;
+    margin: 0.5em 0 1em 0;
     padding: 0 0 0 0;
     font-size: 16px;
 }
 
 dl.heading4 > dt {
-    margin: 0 0 0 0;
+    margin: 0 0 0.5em 0;
     padding: 0 0 0 0;
     font-size: 16px;
     font-weight: normal;
     background-color: #4CAF50;
 }
 dl.heading4 > dd {
-    margin: 1em 0 1em 2em;
+    margin: 0.5em 0 1em 2em;
     padding: 0 0 0 0;
     font-size: 16px;
 }
