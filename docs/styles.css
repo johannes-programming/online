@@ -30,8 +30,7 @@ dt {
     background-color: #4CAF50;
 }
 dd {
-    margin: 0;
-    padding: 0;
+    padding-left: 1cm;
 }
 
 dl.heading2 > dt {
@@ -40,7 +39,8 @@ dl.heading2 > dt {
     background-color: transparent;
 }
 dl.heading2 > dd {
-    padding-left: 0em;
+    margin: 0;
+    padding: 0;
 }
 
 
