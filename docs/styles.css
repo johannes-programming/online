@@ -23,7 +23,7 @@ code {
 
 
 dl.heading2 > dt {
-    font-size: 26;
+    font-size: 26 !important;
     font-weight: normal;
     background-color: transparent;
 }
