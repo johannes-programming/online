@@ -8,7 +8,7 @@
 
 body {
     font-family: "Avenir Next";
-    font-size: 16;
+    font-size: 16px;
     background-color: #f4f4f4;
     color: #333;
     padding: 50px;
@@ -34,7 +34,7 @@ dl.heading2 > dd {
 
 
 dl.heading4 > dt {
-    font-size: 14;
+    font-size: 14px;
     font-weight: normal;
     background-color: #4CAF50;
 }
@@ -44,19 +44,19 @@ dl.heading4 > dd {
 }
 
 h1 {
-    font-size: 32;
+    font-size: 32px;
     font-weight: normal;
 }
 h2 {
-    font-size: 26;
+    font-size: 26px;
     font-weight: normal;
 }
 h3 {
-    font-size: 23;
+    font-size: 23px;
     font-weight: normal;
 }
 h4 {
-    font-size: 14;
+    font-size: 14px;
     font-weight: normal;
     background-color: #4CAF50;
 }
