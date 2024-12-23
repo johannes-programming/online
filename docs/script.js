@@ -1,8 +1,12 @@
 // head
 function addMetaAndLinkTags() {
+    addLang();
     addMetaTag();
     addViewport();
     addStylesheet();
+}
+function addLang(){
+    document.documentElement.lang = 'en';
 }
 function addMetaTag() {
     const existing = document.querySelector('meta[charset="UTF-8"]');
