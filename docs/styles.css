@@ -33,6 +33,12 @@ dd {
     padding-left: 1em;
 }
 
+dl.heading2 > dt {
+    font-size: 26;
+    font-weight: normal;
+    background-color: transparent;
+}
+
 
 h1 {
     font-size: 32;
