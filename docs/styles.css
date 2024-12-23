@@ -21,18 +21,6 @@ code {
     font-weight: normal;
 }
 
-dl {
-    
-}
-dt {
-    font-size: 14;
-    font-weight: normal;
-    background-color: #4CAF50;
-}
-dd {
-    margin: 0;
-    padding: 0 0 0 10px;
-}
 
 dl.heading2 > dt {
     font-size: 26;
@@ -44,6 +32,16 @@ dl.heading2 > dd {
     padding: 0;
 }
 
+
+dl.heading4 > dt {
+    font-size: 14;
+    font-weight: normal;
+    background-color: #4CAF50;
+}
+dl.heading4 > dd {
+    margin: 0;
+    padding: 0 0 0 10px;
+}
 
 h1 {
     font-size: 32;
