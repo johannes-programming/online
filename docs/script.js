@@ -371,8 +371,7 @@ function setupTestingCorpus(packageName) {
     container.innerHTML = `
 <p>This project can be tested 
 through its <code>test</code> function.</p>
-<pre class="block"><code>
-import ${packageName}
+<pre class="block"><code>import ${packageName}
 ${packageName}.test()</code></pre>`;
 }
 function setupLicenseCorpus(packageName) {
