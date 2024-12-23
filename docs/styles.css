@@ -94,8 +94,13 @@ nav ul li:last-child {
     text-align: right;
 }
 
+p {
+    margin: 0 0 1em 0;
+    padding: 0 0 0 0;
+}
+
 pre {
-    margin: 0 0 0 0;
+    margin: 0 0 1em 0;
     padding: 1em 1em 1em 1em;
     border: 2px solid #7F7F7F; /* Black border */
     border-radius: 5px;
