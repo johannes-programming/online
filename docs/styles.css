@@ -102,7 +102,13 @@ nav ul li:first-child {
     text-align: left;
     flex-grow: 1;
 }
+nav ul li:first-child > p {
+    text-align: left;
+}
 nav ul li:last-child {
+    text-align: right;
+}
+nav ul li:last-child > p {
     text-align: right;
 }
 
