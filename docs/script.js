@@ -97,8 +97,8 @@ function setupUsefulPage(packageName){
         </li>
         <li>
             <a href="/install.html">
-                <p>Next &rarr;</p>
-                <p>Installation</p>
+                <div class="rightaligned">Next &rarr;</div>
+                <div class="rightaligned">Installation</div>
             </a>
         </li>
     </ul>
@@ -113,14 +113,14 @@ function setupInstallPage(packageName){
     <ul>
         <li>
             <a href="/">
-                <p>&larr; Previous</p>
-                <p>The <code>${packageName}</code> project homepage</p>
+                <div class="leftaligned">&larr; Previous</div>
+                <div class="leftaligned">The <code>${packageName}</code> project homepage</div>
             </a>
         </li>
         <li>
             <a href="/intro.html">
-                <p>Next &rarr;</p>
-                <p>Introduction to <code>${packageName}</code></p>
+                <div class="rightaligned">Next &rarr;</div>
+                <div class="rightaligned">Introduction to <code>${packageName}</code></div>
             </a>
         </li>
     </ul>
@@ -140,14 +140,14 @@ ${content}
     <ul>
         <li>
             <a href="/install.html">
-                <p>&larr; Previous</p>
-                <p>Installing <code>tomlhold</code></p>
+                <div class="leftaligned">&larr; Previous</div>
+                <div class="leftaligned">Installing <code>tomlhold</code></div>
             </a>
         </li>
         <li>
             <a href="/features.html">
-                <p>Next &rarr;</p>
-                <p>Features of <code>tomlhold</code></p>
+                <div class="rightaligned">Next &rarr;</div>
+                <div class="rightaligned">Features of <code>tomlhold</code></div>
             </a>
         </li>
     </ul>
@@ -168,14 +168,14 @@ ${content}
     <ul>
         <li>
             <a href="/intro.html">
-                <p>&larr; Previous</p>
-                <p>Introduction to <code>preparse</code></p>
+                <div class="leftaligned">&larr; Previous</div>
+                <div class="leftaligned">Introduction to <code>preparse</code></div>
             </a>
         </li>
         <li>
             <a href="/testing.html">
-                <p>Next &rarr;</p>
-                <p>Testing of <code>preparse</code></p>
+                <div class="rightaligned">Next &rarr;</div>
+                <div class="rightaligned">Testing of <code>preparse</code></div>
             </a>
         </li>
     </ul>
@@ -191,15 +191,14 @@ function setupTestingPage(packageName){
     <ul>
         <li>
             <a href="/features.html">
-                <p>&larr; Previous</p>
-                <p>Features of <code>${packageName}</code>
-                </p>
+                <div class="leftaligned">&larr; Previous</div>
+                <div class="leftaligned">Features of <code>${packageName}</code></div>
             </a>
         </li>
         <li>
             <a href="/license.html">
-                <p>Next &rarr;</p>
-                <p>License of <code>${packageName}</code></p>
+                <div class="rightaligned">Next &rarr;</div>
+                <div class="rightaligned">License of <code>${packageName}</code></div>
             </a>
         </li>
     </ul>
@@ -215,15 +214,14 @@ function setupLicensePage(packageName){
         <ul>
             <li>
                 <a href="/testing.html">
-                    <p>&larr; Previous</p>
-                    <p>Testing of <code>${packageName}</code>
-                    </p>
+                    <div class="leftaligned">&larr; Previous</div>
+                    <div class="leftaligned">Testing of <code>${packageName}</code></div>
                 </a>
             </li>
             <li>
                 <a href="/impressum.html">
-                    <p>Next &rarr;</p>
-                    <p>Impressum</p>
+                    <div class="rightaligned">Next &rarr;</div>
+                    <div class="rightaligned">Impressum</div>
                 </a>
             </li>
         </ul>
@@ -240,8 +238,8 @@ function setupImpressumPage(packageName){
     <ul>
         <li>
             <a href="/license.html">
-                <p>&larr; Previous</p>
-                <p>License of <code>${packageName}</code></p>
+                <div class="leftaligned">&larr; Previous</div>
+                <div class="leftaligned">License of <code>${packageName}</code></div>
             </a>
         </li>
         <li></li>
@@ -311,7 +309,7 @@ function setupImpressumArticle(packageName) {
     document.title = "Impressum";
     const htmlContent = `
         <header><h1>Impressum</h1></header>
-        <p><b>Johannes Programming</b></p>
+        <p><strong>Johannes Programming</strong></p>
         <section id='impressumCorpus'></section>`;
     container.innerHTML = htmlContent;
     setupImpressumCorpus(packageName);
@@ -405,7 +403,7 @@ ${packageName}.test()</code></pre>`;
 function setupLicenseCorpus(packageName) {
     const container = document.getElementById('licenseCorpus');
     if(!container){return;}
-    container.innerHTML = `<p>This project is licensed under the MIT License.</p>`;
+    container.innerHTML = "<p>This project is licensed under the MIT License.</p>";
 }
 function setupCreditsCorpus(packageName) {
     const container = document.getElementById('creditsCorpus');
