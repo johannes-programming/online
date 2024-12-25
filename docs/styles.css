@@ -24,6 +24,7 @@ code {
 dl.heading2 {
     margin: 0 0 1em 0;
     padding: 0 0 0 0;
+    font-size: 1em;
 }
 dl.heading2 > dt {
     margin: 0 0 0.5em 0;
@@ -41,6 +42,7 @@ dl.heading2 > dd {
 dl.heading4 {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
+    font-size: 1em;
 }
 dl.heading4 > dt {
     margin: 0 0 0.5em 0;
@@ -50,6 +52,23 @@ dl.heading4 > dt {
     background-color: #4CAF50;
 }
 dl.heading4 > dd {
+    margin: 0 0 0.5em 2em;
+    padding: 0 0 0 0;
+    font-size: 1em;
+}
+
+dl.impressum {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-size: 1em;
+}
+dl.impressum > dt {
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0 0;
+    font-size: 1em;
+    font-weight: bold;
+}
+dl.impressum > dd {
     margin: 0 0 0.5em 2em;
     padding: 0 0 0 0;
     font-size: 1em;
