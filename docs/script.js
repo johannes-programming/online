@@ -311,16 +311,22 @@ function setupImpressumArticle(packageName) {
         <header><h1>Impressum</h1></header>
         <dl class="impressum">
             <dt>Johannes Programming</dt>
-            <dd id='impressumCorpus'></dd>
+            <dd id='impressumBasis'></dd>
         </dl>`;
     container.innerHTML = htmlContent;
-    setupImpressumCorpus(packageName);
+    setupImpressumBasis(packageName);
 }
 
 
 
 
-
+// basis
+function setupImpressumBasis(packageName) {
+    const container = document.getElementById('impressumBasis');
+    if(!container){return;}
+    container.innerHTML = getImpressumParagraphs();
+    modifyLinks();
+}
 
 
 
@@ -416,7 +422,12 @@ function setupCreditsCorpus(packageName) {
 function setupImpressumCorpus(packageName) {
     const container = document.getElementById('impressumCorpus');
     if(!container){return;}
-    container.innerHTML = getImpressumParagraphs();
+    container.innerHTML = `
+<dl class="impressum">
+    <dt>Johannes Programming</dt>
+    <dd id='impressumBasis'></dd>
+</dl>`;
+    setupImpressumBasis(packageName);
     modifyLinks();
 }
 function setupInstallCorpus(packageName) {
