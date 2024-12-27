@@ -29,6 +29,7 @@ dl.heading1 > dt {
     font-weight: normal;
     margin: 0 0 0.5em 0;
     padding: 1.25em 0;
+    text-align: center;
 }
 dl.heading1 > dd {
     margin: 0 0 2em 0;
