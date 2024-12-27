@@ -22,7 +22,7 @@ code {
 }
 
 
-dl.heading1 > dt {
+dl.heading0 > dt {
     background-color: #4CAF50;
     color: white;
     font-size: 2em;
@@ -31,7 +31,7 @@ dl.heading1 > dt {
     padding: 1.25em 0;
     text-align: center;
 }
-dl.heading1 > dd {
+dl.heading0 > dd {
     margin: 0 0 2em 0;
     padding: 0;
 }
