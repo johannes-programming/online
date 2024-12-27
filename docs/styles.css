@@ -1,16 +1,16 @@
 .left {
-    width:auto;
     font-size: 60%;
+    width:auto;
 }
 .right {
     flex-grow: 1;
 }
 
 body {
-    font-family: "Avenir Next";
-    font-size: 16px;
     background-color: #f4f4f4;
     color: #333;
+    font-family: "Avenir Next";
+    font-size: 16px;
     padding: 50px;
     
 }
@@ -21,57 +21,69 @@ code {
     font-weight: normal;
 }
 
+
+dl.heading1 > dt {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 2em;
+    padding: 1.25em 0;
+    text-align: center;
+}
+
+
 dl.heading2 {
+    font-size: 1em;
     margin: 0 0 1em 0;
     padding: 0 0 0 0;
-    font-size: 1em;
 }
 dl.heading2 > dt {
-    margin: 0 0 0.5em 0;
-    padding: 0 0 0 0;
+    background-color: transparent;
     font-size: 1.625em;
     font-weight: normal;
-    background-color: transparent;
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0 0;
 }
 dl.heading2 > dd {
+    font-size: 1em;
     margin: 0 0 1em 0;
     padding: 0 0 0 0;
-    font-size: 1em;
 }
 
 dl.heading4 {
+    font-size: 1em;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    font-size: 1em;
 }
 dl.heading4 > dt {
-    margin: 0 0 0.5em 0;
-    padding: 0 0 0 0;
+    background-color: #4CAF50;
     font-size: 1em;
     font-weight: normal;
-    background-color: #4CAF50;
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0 0;
 }
 dl.heading4 > dd {
+    font-size: 1em;
     margin: 0 0 0.5em 2em;
     padding: 0 0 0 0;
-    font-size: 1em;
 }
 
 dl.impressum {
+    font-size: 1em;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    font-size: 1em;
 }
 dl.impressum > dt {
-    margin: 0 0 0.5em 0;
-    padding: 0 0 0 0;
     font-size: 1em;
     font-weight: bold;
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0 0;
 }
 dl.impressum > dd {
+    font-size: 1em;
     margin: 0 0 0.5em 2em;
     padding: 0 0 0 0;
-    font-size: 1em;
 }
 
 div.leftaligned {
