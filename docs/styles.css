@@ -38,10 +38,10 @@ dl.heading0 > dd {
 
 dl.heading1 > dt {
     background-color: transparent;
-    font-size: 2em;
+    font-size: 1.75em;
     font-weight: normal;
     margin: 0 0 0.5em 0;
-    padding: 0 0 0 0;
+    padding: 0;
 }
 dl.heading1 > dd {
     margin: 0 0 2em 0;
