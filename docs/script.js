@@ -363,24 +363,8 @@ function setupLinksBlock() {
     if(!container){return;}
     container.innerHTML = `
         <h2>Links</h2>
-        <ul>
-            <li>
-                Download:
-                <a href="https://pypi.org/project/${document.title}/#files"></a>
-            </li>
-            <li>
-                Index:
-                <a href="https://pypi.org/project/${document.title}/"></a>
-            </li>
-            <li>
-                Source:
-                <a href="https://github.com/johannes-programming/${document.title}/"></a>
-            </li>
-            <li>
-                Website:
-                <a href="https://${document.title}.johannes-programming.online/"></a>
-            </li>
-        </ul>`;
+        <div id="linksCorpus"></div>`;
+    setupLinksCorpus(document.title);
     modifyLinks();
 }
 function setupCreditsBlock() {
@@ -396,6 +380,29 @@ function setupCreditsBlock() {
 
 
 // corpus
+function setupLinksCorpus(packageName) {
+    const container = document.getElementById('linksCorpus');
+    if(!container){return;}
+    container.innerHTML = `
+<ul>
+    <li>
+        Download:
+        <a href="https://pypi.org/project/${document.title}/#files"></a>
+    </li>
+    <li>
+        Index:
+        <a href="https://pypi.org/project/${document.title}/"></a>
+    </li>
+    <li>
+        Source:
+        <a href="https://github.com/johannes-programming/${document.title}/"></a>
+    </li>
+    <li>
+        Website:
+        <a href="https://${document.title}.johannes-programming.online/"></a>
+    </li>
+</ul>`;
+}
 function setupTestingCorpus(packageName) {
     const container = document.getElementById('testingCorpus');
     if(!container){return;}
