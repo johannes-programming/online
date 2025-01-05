@@ -521,6 +521,7 @@ function setupProjectsList() {
     const dataList = [
         'datahold', 
         'datarepr', 
+        'dispatchly',
         'expit',
         'getoptify',
         'gravy', 
