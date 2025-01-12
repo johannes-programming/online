@@ -264,7 +264,6 @@ ${container.innerHTML}
 <div id="useful"></div>`;
     setupUsefulCorpus(packageName);
     addMetaAndLinkTags();
-    modifyLinks();
 }
 function setupInstallArticle(packageName) {
     const container = document.getElementById('installArticle');
@@ -284,12 +283,12 @@ function setupTestingArticle(packageName) {
     document.title = `Testing of ${packageName}`;
     addMetaAndLinkTags();
     container.innerHTML = `
-        <header id="top">
-            <h1>Testing of <a>${packageName}</a></h1>
-        </header>
-        <div id="testingCorpus"></div>`;
+        <dl id="top" class="heading0">
+            <dt>Testing of <a>${packageName}</a></dt>
+            <dd id="testingCorpus"></dd>
+        </dl>`;
     setupTestingCorpus(packageName);
-    modifyLinks();
+    addMetaAndLinkTags();
 }
 function setupLicenseArticle(packageName) {
     const container = document.getElementById('licenseArticle');
@@ -297,20 +296,22 @@ function setupLicenseArticle(packageName) {
     addMetaAndLinkTags();
     document.title = `License of ${packageName}`;
     container.innerHTML = `
-        <header id="top">
-            <h1>License of <a>${packageName}</a></h1>
-        </header>
-        <div id="licenseCorpus"></div>`;
+        <dl id="top" class="heading0">
+            <dt>License of <a>${packageName}</a></dt>
+            <dd id="licenseCorpus"></dd>
+        </dl>`;
     setupLicenseCorpus(packageName);
-    modifyLinks();
+    addMetaAndLinkTags();
 }
 function setupImpressumArticle(packageName) {
     const container = document.getElementById('impressumArticle');
     if(!container){return;}
     document.title = "Impressum";
     const htmlContent = `
-        <header><h1>Impressum</h1></header>
-        <div id="impressumCorpus"></div>`;
+        <dl class="heading0">
+            <dt>Impressum</dt>
+            <dd id="impressumCorpus"></dd>
+        </dl>`;
     container.innerHTML = htmlContent;
     setupImpressumCorpus(packageName);
 }
