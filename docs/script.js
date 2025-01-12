@@ -160,10 +160,12 @@ function setupFeaturesPage(packageName){
     document.title = `Features of ${packageName}`;
     const content = document.body.innerHTML;
     document.body.innerHTML = `
-<header id="header">
-    <h1> Features of <a>${packageName}</a></h1>
-</header>
+<dl>
+    <dt id="header">Features of <a>${packageName}</a></dt>
+    <dd>
 ${content}
+    </dd>
+</dl>
 <nav>
     <ul>
         <li>
