@@ -447,8 +447,8 @@ function setupInstallCorpus(packageName) {
         </p>
         <pre class="block"><code>pip install ${packageName}</code></pre>`;
 }
-function setupUsefulCorpus(packageName){
-    const container = document.getElementById('useful');
+function setupUsefulThings(packageName){
+    const container = document.getElementById('usefulThings');
     if(!container){return;}
     container.innerHTML = `
 <h2>Useful Links:</h2>
