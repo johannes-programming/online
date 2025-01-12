@@ -271,13 +271,12 @@ function setupInstallArticle(packageName) {
     if(!container){return;}
     document.title = `Installing ${packageName}`
     container.innerHTML = `
-        <header id="header">
-            <h1>Installing <a>${packageName}</a></h1>
-        </header>
-        <div id="installCorpus"></div>`;
+        <dl class="heading0">
+            <dt id="header">Installing <a>${packageName}</a></dt>
+            <dd id="installCorpus"></dd>
+        </dl>`;
     setupInstallCorpus(packageName);
     addMetaAndLinkTags();
-    modifyLinks();
 }
 function setupTestingArticle(packageName) {
     const container = document.getElementById('testingArticle');
