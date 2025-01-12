@@ -466,6 +466,7 @@ function setupInstallCorpus(packageName) {
 function setupUsefulCorpus(packageName){
     const container = document.getElementById('useful');
     if(!container){return;}
+    const replaced = packageName.replace('_', '-');
     container.innerHTML = `
 <dl class="heading2">
     <dt>Useful Links:</dt>
@@ -493,7 +494,7 @@ function setupUsefulCorpus(packageName){
             </li>
             <li>
                 Website: 
-                <a href="https://${packageName}.johannes-programming.online/"></a>
+                <a href="https://${replaced}.johannes-programming.online/"></a>
             </li>
         </ul>
         <p>Thank you for using <a>${packageName}</a>!</p>
