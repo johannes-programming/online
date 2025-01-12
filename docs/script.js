@@ -169,13 +169,13 @@ ${content}
         <li>
             <a href="/intro.html">
                 <div class="leftaligned">&larr; Previous</div>
-                <div class="leftaligned">Introduction to <code>preparse</code></div>
+                <div class="leftaligned">Introduction to <code>${packageName}</code></div>
             </a>
         </li>
         <li>
             <a href="/testing.html">
                 <div class="rightaligned">Next &rarr;</div>
-                <div class="rightaligned">Testing of <code>preparse</code></div>
+                <div class="rightaligned">Testing of <code>${packageName}</code></div>
             </a>
         </li>
     </ul>
@@ -527,6 +527,7 @@ function setupProjectsList() {
         'datarepr', 
         'dispatchly',
         'expit',
+        'filelisting',
         'getoptify',
         'gravy', 
         'keyalias', 
