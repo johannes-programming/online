@@ -308,8 +308,10 @@ function setupImpressumArticle(packageName) {
     if(!container){return;}
     document.title = "Impressum";
     const htmlContent = `
-        <header><h1>Impressum</h1></header>
-        <div id="impressumCorpus"></div>`;
+        <dl class="heading0">
+            <dt>Impressum</dt>
+            <dd id="impressumCorpus"></dd>
+        </dl>`;
     container.innerHTML = htmlContent;
     setupImpressumCorpus(packageName);
 }
