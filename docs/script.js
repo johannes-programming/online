@@ -132,9 +132,9 @@ function setupIntroPage(packageName){
     document.title = `Introduction to ${packageName}`;
     const content = document.body.innerHTML;
     document.body.innerHTML = `
-<header id="header">
-    <h1> Introduction to <a>${packageName}</a></h1>
-</header>
+<dl class="heading0" id="header">
+    <dt>Introduction to <a>${packageName}</a></dt>
+</dl>
 ${content}
 <nav>
     <ul>
