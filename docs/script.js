@@ -404,21 +404,22 @@ function setupLinksCorpus(packageName) {
 <ul>
     <li>
         Download:
-        <a href="https://pypi.org/project/${document.title}/#files"></a>
+        <a href="https://pypi.org/project/${packageName}/#files"></a>
     </li>
     <li>
         Index:
-        <a href="https://pypi.org/project/${document.title}/"></a>
+        <a href="https://pypi.org/project/${packageName}/"></a>
     </li>
     <li>
         Source:
-        <a href="https://github.com/johannes-programming/${document.title}/"></a>
+        <a href="https://github.com/johannes-programming/${packageName}/"></a>
     </li>
     <li>
         Website:
-        <a href="https://${document.title}.johannes-programming.online/"></a>
+        <a href="https://${packageName}.johannes-programming.online/"></a>
     </li>
 </ul>`;
+    addMetaAndLinkTags();
 }
 function setupTestingCorpus(packageName) {
     const container = document.getElementById('testingCorpus');
@@ -466,36 +467,38 @@ function setupUsefulCorpus(packageName){
     const container = document.getElementById('useful');
     if(!container){return;}
     container.innerHTML = `
-<h2>Useful Links:</h2>
-<div id="usefulCorpus">
-    <ul>
-        <li>
-            Download: 
-            <a href="https://pypi.org/project/${packageName}/#files"></a>
-        </li>
-        <li>
-            Impressum: 
-            <a href="https://${packageName}.johannes-programming.online/impressum.html"></a>
-        </li>
-        <li>
-            Index: 
-            <a href="https://pypi.org/project/${packageName}/"></a>
-        </li>
-        <li>
-            Installation: 
-            <a href="https://${packageName}.johannes-programming.online/install.html"></a>
-        </li>
-        <li>
-            Source: 
-            <a href="https://github.com/johannes-programming/${packageName}/"></a>
-        </li>
-        <li>
-            Website: 
-            <a href="https://${packageName}.johannes-programming.online/"></a>
-        </li>
-    </ul>
-</div>
-<p>Thank you for using <a>${packageName}</a>!</p>`;
+<dl class="heading2">
+    <dt>Useful Links:</dt>
+    <dd id="usefulCorpus">
+        <ul>
+            <li>
+                Download: 
+                <a href="https://pypi.org/project/${packageName}/#files"></a>
+            </li>
+            <li>
+                Impressum: 
+                <a href="https://${packageName}.johannes-programming.online/impressum.html"></a>
+            </li>
+            <li>
+                Index: 
+                <a href="https://pypi.org/project/${packageName}/"></a>
+            </li>
+            <li>
+                Installation: 
+                <a href="https://${packageName}.johannes-programming.online/install.html"></a>
+            </li>
+            <li>
+                Source: 
+                <a href="https://github.com/johannes-programming/${packageName}/"></a>
+            </li>
+            <li>
+                Website: 
+                <a href="https://${packageName}.johannes-programming.online/"></a>
+            </li>
+        </ul>
+        <p>Thank you for using <a>${packageName}</a>!</p>
+    </dd>
+</dl>`;
     modifyLinks();
 }
 
