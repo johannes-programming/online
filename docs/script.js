@@ -255,12 +255,12 @@ function setupUsefulArticle(packageName){
     if(container.querySelector('header') !== null){return;}
     document.title = `The ${packageName} Project Documentation`;
     container.innerHTML = `
-<header id="${packageName}">
-    <h1>The <a>${packageName}</a> Project Documentation</h1>
-</header>
-${container.innerHTML}
+<dl class="heading0">
+    <dt id="${packageName}">The <a>${packageName}</a> Project Documentation</dt>
+    <dd>
+        ${container.innerHTML}
 <div id="useful"></div>`;
-    setupUsefulCorpus(packageName);
+    setupUsefulThings(packageName);
     addMetaAndLinkTags();
     modifyLinks();
 }
