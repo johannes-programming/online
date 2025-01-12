@@ -4,6 +4,7 @@ function addMetaAndLinkTags() {
     addMetaTag();
     addViewport();
     addStylesheet();
+    modifyLinks();
 }
 function addLang(){
     document.documentElement.lang = 'en';
@@ -153,7 +154,6 @@ ${content}
     </ul>
 </nav>`;
     addMetaAndLinkTags();
-    modifyLinks();
 }
 function setupFeaturesPage(packageName){
     addMetaAndLinkTags();
