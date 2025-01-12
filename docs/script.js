@@ -254,14 +254,16 @@ function setupImpressumPage(packageName){
 function setupUsefulArticle(packageName){
     const container = document.getElementById('usefulArticle');
     if(!container){return;}
-    if(container.querySelector('header') !== null){return;}
+    if(container.querySelector('dl') !== null){return;}
     document.title = `The ${packageName} Project Documentation`;
     container.innerHTML = `
-<header id="${packageName}">
-    <h1>The <a>${packageName}</a> Project Documentation</h1>
-</header>
-${container.innerHTML}
-<div id="useful"></div>`;
+<dl class="heading0">
+    <dt>The <a>${packageName}</a> Project Documentation</dt>
+    <dd>
+        ${container.innerHTML}
+        <div id="useful"></div>
+    </dd>
+</dl>`;
     setupUsefulCorpus(packageName);
     addMetaAndLinkTags();
 }
