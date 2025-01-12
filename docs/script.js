@@ -400,6 +400,7 @@ function setupCreditsBlock() {
 function setupLinksCorpus(packageName) {
     const container = document.getElementById('linksCorpus');
     if(!container){return;}
+    const replaced = packageName.replace("_", "-");
     container.innerHTML = `
 <ul>
     <li>
@@ -416,7 +417,7 @@ function setupLinksCorpus(packageName) {
     </li>
     <li>
         Website:
-        <a href="https://${packageName}.johannes-programming.online/"></a>
+        <a href="https://${replaced}.johannes-programming.online/"></a>
     </li>
 </ul>`;
     addMetaAndLinkTags();
