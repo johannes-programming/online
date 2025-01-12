@@ -342,44 +342,57 @@ function setupInstallBlock() {
     const container = document.getElementById('install');
     if(!container){return;}
     container.innerHTML = `
-        <h2>Installation</h2>
-        <div id="installCorpus"></div>`;
+        <dl class="heading2">
+            <dt>Installation</dt>
+            <dd id="installCorpus"></dd>
+        </dl>`;
     setupInstallCorpus(document.title);
+    addMetaAndLinkTags();
 }
 function setupLicenseBlock() {
     const container = document.getElementById('license');
     if(!container){return;}
     container.innerHTML = `
-        <h2>License</h2>
-        <div id="licenseCorpus"></div>`;
+        <dl class="heading2">
+            <dt>License</dt>
+            <dd id="licenseCorpus"></dd>
+        </dl>`;
     setupLicenseCorpus(document.title);
 }
 function setupTestingBlock() {
     const container = document.getElementById("testing");
     if (!container) {return;}
     container.innerHTML = `
-    <h2>Testing</h2>
-    <div id="testingCorpus"></div>`;
+        <dl class="heading2">
+            <dt>Testing</dt>
+            <dd id="testingCorpus"></dd>
+        </dl>`;
     setupTestingCorpus(document.title);
 }
 function setupLinksBlock() {
     const container = document.getElementById('links');
     if(!container){return;}
     container.innerHTML = `
-        <h2>Links</h2>
-        <div id="linksCorpus"></div>`;
+        <dl class="heading2">
+            <dt>Links</dt>
+            <dd id="linksCorpus"></dd>
+        </dl>`;
     setupLinksCorpus(document.title);
-    modifyLinks();
+    addMetaAndLinkTags();
 }
 function setupCreditsBlock() {
     const container = document.getElementById('credits');
     if(!container){return;}
     container.innerHTML = `
-        <h2>Credits</h2>
-        <ul id='creditsCorpus'></ul>
-        <p>Thank you for using <a>${document.title}</a>!</p>`;
+        <dl class="heading2">
+            <dt>Credits</dt>
+            <dd>
+                <ul id='creditsCorpus'></ul>
+                <p>Thank you for using <a>${document.title}</a>!</p>
+            </dd>
+        </dl>`;
     setupCreditsCorpus(document.title);
-    modifyLinks();
+    addMetaAndLinkTags();
 }
 
 
