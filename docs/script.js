@@ -545,6 +545,7 @@ function getImpressumBullets() {
 // projects
 function setupProjectsList() {
     const dataList = [
+        'argshold',
         'datahold', 
         'datarepr', 
         'dispatchly',
