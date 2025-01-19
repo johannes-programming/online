@@ -71,6 +71,11 @@ dl.heading4 {
     margin: 0;
     padding: 0;
 }
+dl.heading4 > dd {
+    font-size: 1em;
+    margin: 0 0 0.5em 2em;
+    padding: 0;
+}
 dl.heading4 > dt {
     background-color: #4CAF50;
     font-size: 1em;
@@ -78,9 +83,15 @@ dl.heading4 > dt {
     margin: 0 0 0.5em 0;
     padding: 0;
 }
-dl.heading4 > dd {
+dl.heading4 > dt > ul {
     font-size: 1em;
-    margin: 0 0 0.5em 2em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+dl.heading4 > dt > ul > li {
+    font-size: 1em;
+    margin: 0;
     padding: 0;
 }
 
