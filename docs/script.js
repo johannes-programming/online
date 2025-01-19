@@ -25,12 +25,28 @@ function formatH4(text){
     return ans;
 }
 function formatH4Opening(text){
-    let parts = text.split(".");
+    let ans = text.trim();
+    let parts = ans.split(" ");
+    let lastpart = parts.pop();
+    parts = parts.map(formatH4OpeningTitle);
+    lastpart = formatH4OpeningName(lastpart);
+    parts.push(lastpart);
+    ans = parts.join(" ");
+    return ans;
+}
+function formatH4OpeningTitle(text){
+    let ans = text.trim();
+    ans = "<i>" + ans + "</i>";
+    return ans;
+}
+function formatH4OpeningName(text){
+    let ans = text.trim();
+    let parts = ans.split(".");
     parts = parts.map(part => part.trim());
     let lastpart = parts.pop();
-    lastpart = "<i>" + lastpart + "</i>";
+    lastpart = "<b>" + lastpart + "</b>";
     parts.push(lastpart);
-    const ans = parts.join(".");
+    ans = parts.join(".");
     return ans;
 }
 function formatH4Core(text){
