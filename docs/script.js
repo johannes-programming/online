@@ -500,7 +500,6 @@ function setupUsefulCorpus(packageName){
                 <a href="https://${replaced}.johannes-programming.online/"></a>
             </li>
         </ul>
-        <p>Thank you for using <a>${packageName}</a>!</p>
     </dd>
 </dl>`;
     addMetaAndLinkTags();
