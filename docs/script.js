@@ -656,6 +656,7 @@ function addMetaAndLinkTags() {
     addStylesheet();
     modifyEmptyLinks();
     modifyLinksWithoutHref();
+    setupAllH4();
 }
 function addLang(){
     document.documentElement.lang = 'en';
