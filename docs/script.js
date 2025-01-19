@@ -1,38 +1,3 @@
-// head
-function addMetaAndLinkTags() {
-    addLang();
-    addMetaTag();
-    addViewport();
-    addStylesheet();
-    modifyLinks();
-}
-function addLang(){
-    document.documentElement.lang = 'en';
-}
-function addMetaTag() {
-    const existing = document.querySelector('meta[charset="UTF-8"]');
-    if(existing){return;}
-    const metaTag = document.createElement("meta"); // Create a new meta element
-    metaTag.setAttribute("charset", "UTF-8"); // Set its charset attribute
-    document.head.appendChild(metaTag); // Append it to the head
-}
-function addViewport(){
-    const existing = document.querySelector('meta[name="viewport"]');
-    if(existing){return;}
-    const meta = document.createElement('meta');
-    meta.name = "viewport";
-    meta.content = "width=device-width, initial-scale=1.0";
-    document.head.appendChild(meta);
-}
-function addStylesheet() {
-    const existing = document.querySelector('link[rel="stylesheet"]');
-    if(existing){return;}
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://www.johannes-programming.online/styles.css';
-    document.head.appendChild(link);
-}
-
 // h4
 function setupAllH4(){
     document.querySelectorAll('h4').forEach(setupOneH4);
@@ -183,7 +148,6 @@ ${content}
     </ul>
 </nav>`;
     addMetaAndLinkTags();
-    modifyLinks();
 }
 function setupTestingPage(packageName){
     addMetaAndLinkTags();
@@ -325,8 +289,17 @@ function setupImpressumArticle(packageName) {
 function setupImpressumBasis(packageName) {
     const container = document.getElementById('impressumBasis');
     if(!container){return;}
+    container.innerHTML = `
+<div id="impressumParagraphs">
+</div>`;
+    setupImpressumParagraphs();
+    addMetaAndLinkTags();
+}
+function setupImpressumParagraphs() {
+    const container = document.getElementById('impressumParagraphs');
+    if(!container){return;}
     container.innerHTML = getImpressumParagraphs();
-    modifyLinks();
+    addMetaAndLinkTags();
 }
 
 
@@ -440,7 +413,7 @@ function setupCreditsCorpus(packageName) {
     const container = document.getElementById('creditsCorpus');
     if(!container){return;}
     container.innerHTML = getImpressumBullets();
-    modifyLinks();
+    addMetaAndLinkTags();
 }
 function setupImpressumCorpus(packageName) {
     const container = document.getElementById('impressumCorpus');
@@ -451,7 +424,7 @@ function setupImpressumCorpus(packageName) {
     <dd id='impressumBasis'></dd>
 </dl>`;
     setupImpressumBasis(packageName);
-    modifyLinks();
+    addMetaAndLinkTags();
 }
 function setupInstallCorpus(packageName) {
     const container = document.getElementById('installCorpus');
@@ -501,7 +474,7 @@ function setupUsefulCorpus(packageName){
         <p>Thank you for using <a>${packageName}</a>!</p>
     </dd>
 </dl>`;
-    modifyLinks();
+    addMetaAndLinkTags();
 }
 
 
@@ -629,8 +602,6 @@ function setupProjectsList() {
 
 
 
-
-
 function modifyEmptyLinks() {
     // Get all anchor elements on the page
     const links = document.querySelectorAll('a');
@@ -667,9 +638,39 @@ function modifyLinksWithoutHref() {
     });
 }
 
-function modifyLinks() {
+function addMetaAndLinkTags() {
+    addLang();
+    addMetaTag();
+    addViewport();
+    addStylesheet();
     modifyEmptyLinks();
     modifyLinksWithoutHref();
+}
+function addLang(){
+    document.documentElement.lang = 'en';
+}
+function addMetaTag() {
+    const existing = document.querySelector('meta[charset="UTF-8"]');
+    if(existing){return;}
+    const metaTag = document.createElement("meta"); // Create a new meta element
+    metaTag.setAttribute("charset", "UTF-8"); // Set its charset attribute
+    document.head.appendChild(metaTag); // Append it to the head
+}
+function addViewport(){
+    const existing = document.querySelector('meta[name="viewport"]');
+    if(existing){return;}
+    const meta = document.createElement('meta');
+    meta.name = "viewport";
+    meta.content = "width=device-width, initial-scale=1.0";
+    document.head.appendChild(meta);
+}
+function addStylesheet() {
+    const existing = document.querySelector('link[rel="stylesheet"]');
+    if(existing){return;}
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://www.johannes-programming.online/styles.css';
+    document.head.appendChild(link);
 }
 
 
@@ -687,6 +688,5 @@ function setupBasicProject() {
 
 function main() {
     addMetaAndLinkTags();
-    modifyLinks();
 }
 main();

@@ -1,25 +1,21 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Impressum</title>
-        <link rel="stylesheet" href="https://www.johannes-programming.online/styles.css">
     </head>
     <body>
-        <header>
-            <h1>Impressum</h1>
-        </header>
-        <b>Johannes Programming</b>
-        <div>
-            <p>Name: Johannes</p>
-            <p>Email: <a href="mailto:johannes-programming@mailfence.com">johannes-programming@mailfence.com</a>
-            </p>
-            <p>Homepage: <a href="https://www.johannes-programming.online">https://www.johannes-programming.online</a>
-            </p>
-        </div>
+        <dl class="heading0">
+            <dt>Impressum</dt>
+            <dd id="impressumCorpus">
+                <dl class="impressum">
+                    <dt>Johannes Programming</dt>
+                    <dd id="impressumParagraphs">
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
         <nav>
             <ul>
                 <li>
@@ -32,4 +28,9 @@
             </ul>
         </nav>
     </body>
+    <script src="https://www.johannes-programming.online/script.js"></script>
+    <script>
+        setupImpressumParagraphs();
+        addMetaAndLinkTags();
+    </script>
 </html>
