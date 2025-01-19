@@ -1,51 +1,62 @@
 // h4
 function setupAllH4(){
-    document.querySelectorAll('h4').forEach(setupOneH4);
+    const dtElements = document.querySelectorAll(".heading4 > dt").forEach(setupOneH4);
 }
 function setupOneH4(container){
-    if (container.children.length > 0) {return;} 
-    return;
+    if (container.children.length > 0) {return;}
+    container.innerHTML = container.innerHTML.replace(/\s+/g, " ");
     container.innerHTML = formatH4(container.innerHTML);
-    container.innerHTML = `<code>${container.innerHTML}</code>`;
+    container.innerHTML = "<code>" + container.innerHTML + "</code>";
 }
 function formatH4(text){
     text = text.trim();
     const openingI = text.indexOf("(");
     const closingI = text.lastIndexOf(")");
-    if (openingI == -1){return `<b>${text}</b>`;}
-    if (closingI == -1){return `<b>${text}</b>`;}
+    if ((openingI == -1)||(closingI == -1)){
+        return "<b>" + text + "</b>";
+    }
     const opening = formatH4Opening(text.substring(0, openingI));
     const core = formatH4Core(text.substring(openingI + 1, closingI));
     const closing = formatH4Closing(text.substring(closingI + 1));
-    const ans = `${opening}<b>(</b>${core}<b>)</b>${closing}`;
+    let ans = "";
+    ans = ans + "<b>" + opening + "</b>";
+    ans = ans + "<em>(</em>" + core + "<em>)</em>";
+    ans = ans + "<i>" + closing + "</i>";
     return ans;
 }
 function formatH4Opening(text){
-    text = text.trim();
-    const spaceI = text.indexOf(" ");
-    if (spaceI == -1){return formatH4Name(text);}
-    if (spaceI == -1){return formatH4Name(text);}
-    const title = text.substring(0, spaceI);
-    const name = text.substring(spaceI + 1);
-    const fTitle = formatH4Title(title);
-    const fName = formatH4Name(name);
-    const ans = fTitle + " " + fName;
+    let parts = text.split(".");
+    parts = parts.map(part => part.trim());
+    let lastpart = parts.pop();
+    lastpart = "<i>" + lastpart + "</i>";
+    parts.push(lastpart);
+    const ans = parts.join(".");
     return ans;
 }
-function formatH4Title(text){
-    text = text.trim();
-    return "<i>" + text + "</i>";
+function formatH4Core(text){
+    let parts = text.split(",");
+    parts = parts.map(part => formatH4CorePart(part));
+    parts = parts.map(part => "<i>" + part + "</i>");
+    let ans = parts.join(", ");
+    return ans
 }
-function formatH4Name(text){
-    text = text.trim();
-    const dotI = text.lastIndexOf(".");
-    const partA = text.substring(0, dotI + 1);
-    const partB = text.substring(dotI + 1);
-    const ansB = "<b>" + partB + "</b>";
-    return partA + ansB;
+function formatH4CorePart(text){
+    let ans = text.trim();
+    ans = ans.replace(" =", "=");
+    ans = ans.replace("= ", "=");
+    ans = ans.replace(" :", ":");
+    ans = ans.replace(": ", ":");
+    ans = ans.replace("=", " = ");
+    ans = ans.replace(":", ": ");
+    return ans;
 }
 function formatH4Closing(text){
-    return text;
+    let ans = text.trim();
+    if (ans.startsWith("->")) {
+        ans = ans.substring(2).trim();
+        ans = "-> " + ans;
+    }
+    return ans;
 }
 
 
