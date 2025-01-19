@@ -1,8 +1,9 @@
 // h4
-function setupAllH4(){
-    const dtElements = document.querySelectorAll(".heading4 > dt").forEach(setupOneH4);
+function setupAllHeading4(){
+    document.querySelectorAll(".heading4 > dt").forEach(setupOneHeading4);
+    document.querySelectorAll(".heading4 > dt > ul > li").forEach(setupOneHeading4);
 }
-function setupOneH4(container){
+function setupOneHeading4(container){
     if (container.children.length > 0) {return;}
     container.innerHTML = container.innerHTML.replace(/\s+/g, " ");
     container.innerHTML = formatH4(container.innerHTML);
@@ -673,7 +674,7 @@ function addMetaAndLinkTags() {
     addStylesheet();
     modifyEmptyLinks();
     modifyLinksWithoutHref();
-    setupAllH4();
+    setupAllHeading4();
 }
 function addLang(){
     document.documentElement.lang = 'en';
