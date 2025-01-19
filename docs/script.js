@@ -20,7 +20,7 @@ function formatH4(text){
     const closing = formatH4Closing(text.substring(closingI + 1));
     let ans = "";
     ans = ans + "<b>" + opening + "</b>";
-    ans = ans + "<em>(</em>" + core + "<em>)</em>";
+    ans = ans + "<em>(</em>" + core + "<em>)</em> ";
     ans = ans + "<i>" + closing + "</i>";
     return ans;
 }
