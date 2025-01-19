@@ -560,7 +560,7 @@ function setupProjectsList() {
         // Create the <a> tag
         const subdomain = name.replace("_", "-");
         const anchor = document.createElement('a');
-        const url = `${urlStart}${name}${urlEnd}`;
+        const url = `${urlStart}${subdomain}${urlEnd}`;
         anchor.href = url;
         anchor.textContent = url;
 
