@@ -81,7 +81,7 @@ dl.heading4 > dt {
     font-size: 1em;
     font-weight: normal;
     margin: 0 0 0.5em 0;
-    padding: 0;
+    padding: 0 0 0 1em;
 }
 dl.heading4 > dt > ul {
     font-size: 1em;
