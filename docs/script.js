@@ -55,6 +55,9 @@ function formatH4Closing(text){
     if (ans.startsWith("->")) {
         ans = ans.substring(2).trim();
         ans = "-> " + ans;
+    } else if (ans.startsWith("-&gt;")) {
+        ans = ans.substring(5).trim();
+        ans = "-&gt; " + ans;
     }
     return ans;
 }
