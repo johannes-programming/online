@@ -13,9 +13,9 @@ function formatH4(text){
     text = text.trim();
     const openingI = text.indexOf("(");
     const closingI = text.lastIndexOf(")");
-    if ((openingI == -1)||(closingI == -1)){
-        return "<b>" + text + "</b>";
-    }
+    if ((openingI == -1)||(closingI == -1)) {
+        return formatH4Opening(text);
+    } 
     const opening = formatH4Opening(text.substring(0, openingI));
     const core = formatH4Core(text.substring(openingI + 1, closingI));
     const closing = formatH4Closing(text.substring(closingI + 1));
