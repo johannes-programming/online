@@ -18,8 +18,7 @@ function formatH4(text){
     const opening = formatH4Opening(text.substring(0, openingI));
     const core = formatH4Core(text.substring(openingI + 1, closingI));
     const closing = formatH4Closing(text.substring(closingI + 1));
-    let ans = "";
-    ans = ans + "<b>" + opening + "</b>";
+    let ans = opening;
     ans = ans + "<em>(</em>" + core + "<em>)</em> ";
     ans = ans + "<i>" + closing + "</i>";
     return ans;
