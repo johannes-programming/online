@@ -403,7 +403,7 @@ function setupCreditsBlock() {
 function setupLinksCorpus(packageName) {
     const container = document.getElementById('linksCorpus');
     if(!container){return;}
-    const replaced = packageName.replace("_", "-");
+    const subdomain = toSubdomain(packageName);
     container.innerHTML = `
 <ul>
     <li>
@@ -420,7 +420,7 @@ function setupLinksCorpus(packageName) {
     </li>
     <li>
         Website:
-        <a href="https://${replaced}.johannes-programming.online/"></a>
+        <a href="https://${subdomain}.johannes-programming.online/"></a>
     </li>
 </ul>`;
     addMetaAndLinkTags();
@@ -470,7 +470,7 @@ function setupInstallCorpus(packageName) {
 function setupUsefulCorpus(packageName){
     const container = document.getElementById('useful');
     if(!container){return;}
-    const replaced = packageName.replace('_', '-');
+    const subdomain = toSubdomain(packageName);
     container.innerHTML = `
 <dl class="heading2">
     <dt>Useful Links:</dt>
@@ -498,7 +498,7 @@ function setupUsefulCorpus(packageName){
             </li>
             <li>
                 Website: 
-                <a href="https://${replaced}.johannes-programming.online/"></a>
+                <a href="https://${subdomain}.johannes-programming.online/"></a>
             </li>
         </ul>
     </dd>
@@ -587,7 +587,7 @@ function setupProjectsList() {
         boldText.textContent = `${name}: `;
 
         // Create the <a> tag
-        const subdomain = name.replace("_", "-");
+        const subdomain = toSubdomain(name);
         const anchor = document.createElement('a');
         const url = `${urlStart}${subdomain}${urlEnd}`;
         anchor.href = url;
@@ -629,6 +629,12 @@ function setupProjectsList() {
 
 // basics
 
+
+function toSubdomain(pkg) {
+    let ans = pkg.replace("_", "-");
+    ans = name.toLowerCase();
+    return ans;
+}
 
 
 function modifyEmptyLinks() {
