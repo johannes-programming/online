@@ -633,7 +633,7 @@ function setupProjectsList() {
 
 function toSubdomain(pkg) {
     let ans = pkg.replace("_", "-");
-    ans = name.toLowerCase();
+    ans = ans.toLowerCase();
     return ans;
 }
 
