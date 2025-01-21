@@ -564,6 +564,7 @@ function setupProjectsList() {
         'na_quantors',
         'overloadable', 
         'preparse',
+        'printtostderr',
         'raisefunction',
         'tomlhold', 
         'scaevola', 
