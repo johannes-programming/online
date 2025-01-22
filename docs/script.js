@@ -566,10 +566,11 @@ function setupProjectsList() {
         'preparse',
         'printtostderr',
         'raisefunction',
-        'tomlhold', 
         'scaevola', 
         'seqpad', 
+        'seqreads',
         'setdoc', 
+        'tomlhold', 
         'unhash',
         'v440',
     ];
