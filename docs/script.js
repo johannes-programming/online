@@ -570,6 +570,7 @@ function setupProjectsList() {
         'scaevola', 
         'seqpad', 
         'setdoc', 
+        'unhash',
         'v440',
     ];
 
