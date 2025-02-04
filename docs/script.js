@@ -570,6 +570,7 @@ function setupProjectsList() {
         'seqpad', 
         'seqreads',
         'setdoc', 
+        'texthold',
         'tomlhold', 
         'unhash',
         'v440',
