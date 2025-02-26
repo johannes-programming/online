@@ -681,6 +681,7 @@ function addMetaAndLinkTags() {
     addMetaTag();
     addViewport();
     addStylesheet();
+    addIcon();
     modifyEmptyLinks();
     modifyLinksWithoutHref();
     setupAllHeading4();
@@ -711,7 +712,15 @@ function addStylesheet() {
     link.href = 'https://www.johannes-programming.online/styles.css';
     document.head.appendChild(link);
 }
-
+function addIcon() {
+    const existing = document.querySelector('link[rel="icon"]');
+    if(existing){return;}
+    const link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = "image/svg+xml";
+    link.href = "https://www.johannes-programming.online/icon.svg";
+    document.head.appendChild(link);
+}
 
 
 function setupBasicProject() {
