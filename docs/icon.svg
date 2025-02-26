@@ -3,13 +3,14 @@
   <rect width="1000" height="1000" fill="#4CAF50" />
   
   <!-- Centered giant letter J -->
-  <path d="M300,200
-           L700,100
+  <path d="M700,100
            C600,600 500,800 400,900 
            S200,700 400,500 
            S500,700 400,800 
            S300,700 500,600 
-           S700,700 800,600"
+           S700,700 800,600
+           M300,200
+           L700,100"
         fill="none"
         stroke="white"
         stroke-width="30"
