@@ -514,6 +514,7 @@ function getImpressumList() {
             "Name: Johannes",
             "Email: <a href='mailto:johannes-programming@mailfence.com'>johannes-programming@mailfence.com</a>",
             "Homepage: <a href='https://www.johannes-programming.online/'></a>",
+            "Gravatar: <a href='https://www.johannes-programming.fyi/'></a>",
     ];
     return strings;
 }
