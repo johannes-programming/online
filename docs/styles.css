@@ -6,6 +6,12 @@
     flex-grow: 1;
 }
 
+.borderless,
+.borderless * {
+  border: none !important;
+  border-collapse: collapse; /* optional, for cleaner layout */
+}
+
 body {
     background-color: #f4f4f4;
     color: #333;
