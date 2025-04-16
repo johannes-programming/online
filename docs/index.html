@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Startpage</title>
-        <link rel="icon" type="image/svg+xml" href="icon.svg">
+        <title>Johannes Programming</title>
     </head>
     <body>
-        <dl class="heading0">
-            <dt>Startpage</dt>
-            <dd>
+
+        <dl class="heading1">
+            <dt id="welcome">Welcome</dt>
+            <dd id="welcomeCorpus">
+                <img src="/icon.svg.jpg" alt="Profile Picture" />
                 <p>Welcome to my Homepage.</p>
             </dd>
+            <dt>Projects</dt>
+            <dd class="content">
+                <p>Here you can find the links to all the python projects.</p>
+                <ul id="dynamicList"></ul>
+            </dd>
+            <dt>Impressum</dt>
+            <dd id="impressumCorpus">
+                <dl class="impressum">
+                    <dt>Johannes Programming</dt>
+                    <dd id="impressumParagraphs">
+                    </dd>
+                </dl>
+            </dd>
         </dl>
-        <nav>
-            <ul>
-                <li>
-                </li>
-                <li>
-                    <a href="/projects.html">
-                        <p>Next &rarr;</p>
-                        <p>Projects</p>
-                    </a>
-                </li>
-            </ul>
-        </nav>
     </body>
     <script src="https://www.johannes-programming.online/script.js"></script>
     <script>
+        setupProjectsList();
         addMetaAndLinkTags();
     </script>
 </html>
