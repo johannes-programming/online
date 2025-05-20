@@ -563,7 +563,7 @@ function setupProjectsList() {
         'makefunc',
         'makeprop',
         'na_quantors',
-        'normed',
+        'norming',
         'normedtuple',
         'overloadable', 
         'preparse',
