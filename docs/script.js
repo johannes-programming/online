@@ -80,8 +80,15 @@ function formatH4Closing(text){
 
 
 // page
+function addBody(){
+    if (!document.body) {
+        const body = document.createElement('body');
+        document.documentElement.appendChild(body);
+    } 
+}
 function setup404(){
     document.title = "404";
+    addBody();
     document.body.innerHTML = `
 <dl class="heading0">
     <dt>404 - Page Not Found</dt>
@@ -695,6 +702,7 @@ function modifyLinksWithoutHref() {
 }
 
 function addMetaAndLinkTags() {
+    addBody();
     addLang();
     addMetaTag();
     addViewport();
