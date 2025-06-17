@@ -83,10 +83,10 @@ function formatH4Closing(text){
 function setup404(){
     document.title = "404";
     document.body.innerHTML = `
-<img src="https://www.johannes-programming.online/icon.svg" alt="johannes">
 <dl class="heading0">
     <dt>404 - Page Not Found</dt>
     <dd>
+        <img src="https://www.johannes-programming.online/icon.svg" alt="johannes">
         <p>Sorry, the page you're looking for doesn't exist.</p>
         <p><a href="/">Go Back.</a></p>
     </dd>
