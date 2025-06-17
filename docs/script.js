@@ -93,9 +93,9 @@ function setup404(){
 <dl class="heading0">
     <dt>404 - Page Not Found</dt>
     <dd>
-        <img src="https://www.johannes-programming.online/icon.svg" alt="johannes">
         <p>Sorry, the page you're looking for doesn't exist.</p>
         <p><a href="/">Go Back.</a></p>
+        <img src="https://www.johannes-programming.online/icon.svg" alt="johannes">
     </dd>
 </dl>`;
     addMetaAndLinkTags();
