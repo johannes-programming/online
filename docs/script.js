@@ -574,6 +574,7 @@ function setupProjectsList() {
         'datarepr', 
         'dispatchly',
         'dummyfunction',
+        'expandpath',
         'expit',
         'filelisting',
         'getoptify',
