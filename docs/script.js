@@ -598,6 +598,7 @@ function setupProjectsList() {
         'texthold',
         'tomlhold', 
         'unhash',
+        'upcounting',
         'v440',
     ];
 
