@@ -532,7 +532,7 @@ function setupUsefulCorpus(packageName){
 function getImpressumList() {
     const strings = [
             "Name: Johannes",
-            "Email: <a href='mailto:johannes-programming@mailfence.com'>johannes-programming@mailfence.com</a>",
+            "Email: <a href='mailto:johannes.programming@gmail.com'>johannes.programming@gmail.com</a>",
             "Homepage: <a href='https://www.johannes-programming.online/'></a>",
             "Gravatar: <a href='https://www.johannes-programming.fyi/'></a>",
     ];
