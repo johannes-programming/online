@@ -569,7 +569,6 @@ function getImpressumBullets() {
 function setupProjectsList() {
     const dataList = [
         'argshold',
-        'chessclasses',
         'datahold', 
         'datarepr', 
         'dispatchly',
