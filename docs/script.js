@@ -578,7 +578,6 @@ function setupProjectsList() {
         'gravy', 
         'identityfunction',
         'keyalias', 
-        'makefunc',
         'makeprop',
         'na_quantors',
         'norming',
