@@ -575,7 +575,6 @@ function setupProjectsList() {
         'expandpath',
         'expit',
         'filelisting',
-        'getoptify',
         'gravy', 
         'identityfunction',
         'keyalias', 
