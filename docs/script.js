@@ -571,7 +571,6 @@ function setupProjectsList() {
         'argshold',
         'datahold', 
         'datarepr', 
-        'dispatchly',
         'dummyfunction',
         'expandpath',
         'expit',
