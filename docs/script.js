@@ -24,7 +24,7 @@ function formatH4NonCallable(text){
     let name = parts.shift();
     name = formatH4Opening(name);
     parts.unshift(name);
-    ans = ": ".join(parts);
+    ans = parts.join(": ");
     return ans;
 }
 function formatH4Callable(text){
