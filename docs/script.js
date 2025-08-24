@@ -5,9 +5,11 @@ function setupAllHeading4(){
 }
 function setupOneHeading4(container){
     if (container.children.length > 0) {return;}
-    container.innerHTML = container.innerHTML.replace(/\s+/g, " ");
-    container.innerHTML = formatH4(container.innerHTML);
-    container.innerHTML = "<code>" + container.innerHTML + "</code>";
+    let text = container.innerHTML;
+    text = text.replace(/\s+/g, " ");
+    text = formatH4(text);
+    text = "<code>" + text + "</code>";
+    container.innerHTML = text;
 }
 function formatH4(text){
     if (text.includes("(") && text.includes(")")) {
@@ -17,24 +19,29 @@ function formatH4(text){
     }
 }
 function formatH4NonCallable(text){
-    text = text.trim();
     let ans = formatH4SpecialCharsInPart(text);
     let parts = ans.split(":");
-    parts[0] = formatH4Opening(parts[0]);
+    let name = parts.shift();
+    name = formatH4Opening(name);
+    parts.unshift(name);
     ans = ": ".join(parts);
     return ans;
 }
 function formatH4Callable(text){
     text = text.trim();
-    const openingI = text.indexOf("(");
-    const closingI = text.lastIndexOf(")");
-    const opening = formatH4Opening(text.substring(0, openingI));
-    const core = formatH4Core(text.substring(openingI + 1, closingI));
-    const closing = formatH4Closing(text.substring(closingI + 1));
-    let ans = opening;
-    ans = ans + "<em>(</em>" + core + "<em>)</em> ";
-    ans = ans + "<i>" + closing + "</i>";
-    return ans;
+    let i = text.indexOf("(");
+    let opening = text.substring(0, i);
+    text = text.substring(i + 1);
+    i = text.lastIndexOf(")");
+    let core = text.substring(0, i);
+    let closing = text.substring(i + 1);
+    opening = formatH4Opening(opening);
+    core = formatH4Core(core);
+    closing = formatH4SpecialCharsInPart(closing);
+    text = opening;
+    text += "<em>(</em>" + core + "<em>)</em>";
+    text += " <i>" + closing + "</i>";
+    return text;
 }
 function formatH4Opening(text){
     let ans = text.trim();
@@ -68,9 +75,6 @@ function formatH4Core(text){
     let ans = parts.join(", ");
     return ans
 }
-function formatH4Closing(text){
-    return formatH4SpecialCharsInPart(text);
-}
 function formatH4SpecialCharsInPart(text){
     let ans = text.trim();
     // this works because every interval of whitespace 
@@ -86,6 +90,7 @@ function formatH4SpecialCharsInPart(text){
     ans = ans.replace("=", " = ");
     ans = ans.replace(":", ": ");
     ans = ans.replace("-&gt;", "-&gt; ");
+    ans = ans.trim();
     return ans;
 }
 function formatH4trim(text){
