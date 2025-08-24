@@ -10,12 +10,24 @@ function setupOneHeading4(container){
     container.innerHTML = "<code>" + container.innerHTML + "</code>";
 }
 function formatH4(text){
+    if (text.includes("(") && text.includes(")")) {
+        return formatH4Callable(text);
+    } else {
+        return formatH4NonCallable(text);
+    }
+}
+function formatH4NonCallable(text){
+    text = text.trim();
+    let ans = formatH4SpecialCharsInPart(text);
+    let parts = ans.split(":");
+    parts[0] = formatH4Opening(parts[0]);
+    ans = ": ".join(parts);
+    return ans;
+}
+function formatH4Callable(text){
     text = text.trim();
     const openingI = text.indexOf("(");
     const closingI = text.lastIndexOf(")");
-    if ((openingI == -1)||(closingI == -1)) {
-        return formatH4Opening(text);
-    } 
     const opening = formatH4Opening(text.substring(0, openingI));
     const core = formatH4Core(text.substring(openingI + 1, closingI));
     const closing = formatH4Closing(text.substring(closingI + 1));
@@ -51,31 +63,33 @@ function formatH4OpeningName(text){
 }
 function formatH4Core(text){
     let parts = text.split(",");
-    parts = parts.map(part => formatH4CorePart(part));
+    parts = parts.map(formatH4SpecialCharsInPart);
     parts = parts.map(part => "<i>" + part + "</i>");
     let ans = parts.join(", ");
     return ans
 }
-function formatH4CorePart(text){
+function formatH4Closing(text){
+    return formatH4SpecialCharsInPart(text);
+}
+function formatH4SpecialCharsInPart(text){
     let ans = text.trim();
+    // this works because every interval of whitespace 
+    // has been already replaced with single spaces
     ans = ans.replace(" =", "=");
     ans = ans.replace("= ", "=");
     ans = ans.replace(" :", ":");
     ans = ans.replace(": ", ":");
+    ans = ans.replace(" ->", "->");
+    ans = ans.replace("-> ", "->");
+    ans = ans.replace(" -&gt;", "-&gt;");
+    ans = ans.replace("-&gt; ", "-&gt;");
     ans = ans.replace("=", " = ");
     ans = ans.replace(":", ": ");
+    ans = ans.replace("-&gt;", "-&gt; ");
     return ans;
 }
-function formatH4Closing(text){
-    let ans = text.trim();
-    if (ans.startsWith("->")) {
-        ans = ans.substring(2).trim();
-        ans = "-> " + ans;
-    } else if (ans.startsWith("-&gt;")) {
-        ans = ans.substring(5).trim();
-        ans = "-&gt; " + ans;
-    }
-    return ans;
+function formatH4trim(text){
+    return text.trim();
 }
 
 
