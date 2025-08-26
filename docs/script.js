@@ -598,6 +598,7 @@ function setupProjectsList() {
         'filelisting',
         'gravy', 
         'identityfunction',
+        'iterprod',
         'keyalias', 
         'makeprop',
         'na_quantors',
