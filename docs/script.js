@@ -612,6 +612,7 @@ function setupProjectsList() {
         'setdoc', 
         'staticclasses',
         'texthold',
+        'tofunc',
         'tomlhold', 
         'unhash',
         'upcounting',
