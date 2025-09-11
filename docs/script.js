@@ -594,6 +594,7 @@ function setupProjectsList() {
         'datarepr', 
         'dummyfunction',
         'expandpath',
+        'excepting',
         'expit',
         'filelisting',
         'gravy', 
