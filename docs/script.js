@@ -590,11 +590,11 @@ function getImpressumBullets() {
 function setupProjectsList() {
     const dataList = [
         'argshold',
+        'catchlib',
         'datahold', 
         'datarepr', 
         'dummyfunction',
         'expandpath',
-        'excepting',
         'expit',
         'filelisting',
         'gravy', 
