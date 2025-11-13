@@ -196,16 +196,15 @@ nav ul li:last-child > p {
     text-align: right;
 }
 
-dt > p {
-    font-size: 0.5em;
-    text-align: center;
-}
-
 p {
     margin: 0 0 0.5em 0;
     padding: 0 0 0 0;
     font-size: 1em;
     text-align: justify;
+}
+dt > p {
+    font-size: 0.5em;
+    text-align: center;
 }
 
 pre {
