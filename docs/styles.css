@@ -27,14 +27,6 @@ code {
     font-weight: normal;
 }
 
-dt > ul {
-    font-size: 1em;
-    list-style-type: none;
-}
-dt > ul > li {
-    font-size: 1em;
-}
-
 dl.heading0 > dt {
     background-color: #4CAF50;
     color: white;
@@ -47,10 +39,6 @@ dl.heading0 > dt {
 dl.heading0 > dd {
     margin: 0 0 2em 0;
     padding: 0;
-}
-dl.heading0-1 > dt {}
-dl.heading0-1 > dd {
-    font-size: 0.5em;
 }
 dl.heading1 > dt {
     background-color: transparent;
@@ -206,6 +194,10 @@ nav ul li:last-child {
 }
 nav ul li:last-child > p {
     text-align: right;
+}
+
+dt > p {
+    font-size: 0.5em;
 }
 
 p {
