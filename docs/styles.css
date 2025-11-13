@@ -198,6 +198,7 @@ nav ul li:last-child > p {
 
 dt > p {
     font-size: 0.5em;
+    text-align: center;
 }
 
 p {
