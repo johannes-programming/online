@@ -27,6 +27,13 @@ code {
     font-weight: normal;
 }
 
+dt > ul {
+    font-size: 1em;
+    list-style-type: none;
+}
+dt > ul > li {
+    font-size: 1em;
+}
 
 dl.heading0 > dt {
     background-color: #4CAF50;
@@ -252,7 +259,6 @@ th {
     padding: 10px;
     text-align: left;
 }
-
 
 
 /* Back to Top Link */
