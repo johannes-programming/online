@@ -44,6 +44,9 @@ function formatH4Callable(text){
     return text;
 }
 function formatH4Opening(text){
+    return formatH4OpeningClassical(text);
+}
+function formatH4OpeningClassical(text){
     let ans = text.trim();
     let parts = ans.split(" ");
     let lastpart = parts.pop();
