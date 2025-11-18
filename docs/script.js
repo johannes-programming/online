@@ -44,6 +44,23 @@ function formatH4Callable(text){
     return text;
 }
 function formatH4Opening(text){
+    text = text.trim();
+    if (text.endswith("]")) {
+        return formatH4Generic(text);
+    } else {
+        return formatH4OpeningClassical(text);
+    }
+}
+function formatH4Generic(text){
+    text = text.trim();
+    let i = text.indexOf("[");
+    let cla = text.substring(0, i);
+    let gen = text.substring(i + 1);
+    let ans = formatH4OpeningClassical(cla);
+    ans += formatH4OpeningTitle(gen);
+    return ans;
+}
+function formatH4OpeningClassical(text){
     let ans = text.trim();
     let parts = ans.split(" ");
     let lastpart = parts.pop();
