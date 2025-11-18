@@ -45,10 +45,13 @@ function formatH4Callable(text){
 }
 function formatH4Opening(text){
     if (text.endsWith("]")) {
-        return text;
+        return formatH4OpeningGeneric(text);
     } else {
         return formatH4OpeningClassical(text);
     }
+}
+function formatH4OpeningGeneric(text){
+    return text;
 }
 function formatH4OpeningClassical(text){
     let ans = text.trim();
