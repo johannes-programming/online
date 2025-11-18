@@ -51,7 +51,11 @@ function formatH4Opening(text){
     }
 }
 function formatH4OpeningGeneric(text){
-    return text;
+    let i = text.indexOf("[");
+    let x = text.substring(0, i);
+    let y = text.substring(i);
+    x = formatH4OpeningClassical(x);
+    return x + y;
 }
 function formatH4OpeningClassical(text){
     let ans = text.trim();
