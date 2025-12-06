@@ -272,6 +272,10 @@ th {
 }
 
 
+/* hidden */
+.hidden {
+  display: none !important;
+}
 
 
 
