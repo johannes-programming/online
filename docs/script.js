@@ -841,6 +841,8 @@ function updateVersionVisibilityLoad() {
         if (optionExists) {
             select.value = urlVersion;
         }
+    } else {
+        setVersionInUrl(select.value);
     }
 
     // On change, update URL and visibility
