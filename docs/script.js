@@ -630,7 +630,6 @@ function setupProjectsList() {
         'texthold',
         'tofunc',
         'tomlhold', 
-        'unhash',
         'upcounting',
         'v440',
     ];
