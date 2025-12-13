@@ -20,12 +20,25 @@ function formatH4(text){
 }
 function formatH4NonCallable(text){
     let ans = formatH4SpecialCharsInPart(text);
-    let parts = ans.split(":");
+    if (ans.includes("=")) {
+        return formatH4NonCallableEqual(ans);
+    } else {
+        return formatH4NonCallableColon(ans);
+    }
+}
+function formatH4NonCallableEqual(text){
+    let parts = text.split("=");
     let name = parts.shift();
     name = formatH4Opening(name);
     parts.unshift(name);
-    ans = parts.join(": ");
-    return ans;
+    return parts.join(" = ");
+}
+function formatH4NonCallableColon(text){
+    let parts = text.split(":");
+    let name = parts.shift();
+    name = formatH4Opening(name);
+    parts.unshift(name);
+    return parts.join(": ");
 }
 function formatH4Callable(text){
     text = text.trim();
