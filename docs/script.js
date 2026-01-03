@@ -492,8 +492,14 @@ function setupLinksCorpus(packageName) {
     addMetaAndLinkTags();
 }
 function setupTestingCorpus(packageName) {
-    const container = document.getElementById('testingCorpus');
-    if(!container){return;}
+    const seen = new Set();
+    const byId = document.getElementById('testingCorpus');
+    if (byId) { seen.add(byId); }
+    document.querySelectorAll('.testingCorpus').forEach(seen.add);
+    const setupTestingCorpus0Bind = setupTestingCorpus0.bind(null, packageName);
+    seen.forEach(setupTestingCorpus0Bind);
+}
+function setupTestingCorpus0(packageName, container) {
     container.innerHTML = `
 <p>
     This project can be tested 
