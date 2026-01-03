@@ -492,12 +492,10 @@ function setupLinksCorpus(packageName) {
     addMetaAndLinkTags();
 }
 function setupTestingCorpus(packageName) {
-    const seen = new Set();
+    const seen = new Set(document.querySelectorAll('.testingCorpus'));
     const byId = document.getElementById('testingCorpus');
     if (byId) { seen.add(byId); }
-    document.querySelectorAll('.testingCorpus').forEach(seen.add);
-    const setupTestingCorpus0Bind = setupTestingCorpus0.bind(null, packageName);
-    seen.forEach(setupTestingCorpus0Bind);
+    seen.forEach(x => setupTestingCorpus0(packageName, x));
 }
 function setupTestingCorpus0(packageName, container) {
     container.innerHTML = `
