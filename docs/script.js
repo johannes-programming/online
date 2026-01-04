@@ -12,11 +12,16 @@ function setupOneHeading4(container){
     container.innerHTML = text;
 }
 function formatH4(text){
-    if (text.includes("(") && text.includes(")")) {
-        return formatH4Callable(text);
-    } else {
-        return formatH4NonCallable(text);
+    let parts = text.split("(");
+    if (text.includes("(")) {
+        if (parts[0].includes("=")) {
+            return formatH4NonCallable(text);
+        }
+        if (text.includes(")")) {
+            return formatH4Callable(text);
+        }
     }
+    return formatH4NonCallable(text);
 }
 function formatH4NonCallable(text){
     let ans = formatH4SpecialCharsInPart(text);
