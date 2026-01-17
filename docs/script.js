@@ -625,6 +625,7 @@ function getImpressumBullets() {
 // projects
 function setupProjectsList() {
     const dataList = [
+        'antistar',
         'argshold',
         'catchlib',
         'datahold', 
@@ -633,7 +634,7 @@ function setupProjectsList() {
         'expandpath',
         'expit',
         'filelisting',
-        'gravy', 
+        'gravy',
         'identityfunction',
         'iterflat',
         'iterprod',
