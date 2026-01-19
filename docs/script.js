@@ -628,6 +628,7 @@ function setupProjectsList() {
         'antistar',
         'argshold',
         'catchlib',
+        'copyable',
         'datahold', 
         'datarepr', 
         'dummyfunction',
