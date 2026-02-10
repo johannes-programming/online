@@ -305,7 +305,9 @@ th {
     border: none;
     border-left-width: 0.25em;
     border-left-style: solid;
-    padding: 10px;
+}
+.minor-added {
+    border-color: #4FC464;
 }
 
 /* Navigation Links */
