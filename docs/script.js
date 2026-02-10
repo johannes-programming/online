@@ -626,7 +626,6 @@ function getImpressumBullets() {
 function setupProjectsList() {
     const dataList = [
         'antistar',
-        'argshold',
         'catchlib',
         'cmp3',
         'copyable',
