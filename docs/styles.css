@@ -308,6 +308,9 @@ th {
     border-left-style: solid;
     padding-left: 1em;
 }
+.minor > p > span {
+    font-style: italic;
+}
 .minor-added {
     border-color: #4FC464;
 }
