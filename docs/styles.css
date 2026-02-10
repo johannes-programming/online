@@ -300,6 +300,14 @@ th {
     color: white;
 }
 
+/* Minor */
+.minor {
+    border-left-width: 4px;
+    border-left-style: solid;
+    /* border-left-color: yellow; */
+    padding: 10px;
+}
+
 /* Navigation Links */
 .navigation-links {
     text-align: center;
