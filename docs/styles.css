@@ -316,6 +316,9 @@ th {
 .minor-changed {
     border-color: #F4E34C;
 }
+.minor-changed > p > span {
+    color: #F4E34C;
+}
 
 /* Navigation Links */
 .navigation-links {
