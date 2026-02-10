@@ -313,7 +313,7 @@ th {
     margin: 0 0 0.5em 1.0em;
 }
 .minor-added > p > span {
-    font-color: #4FC464;
+    color: #4FC464;
 }
 
 /* Navigation Links */
