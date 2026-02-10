@@ -305,15 +305,16 @@ th {
     border: none;
     border-left-width: 0.25em;
     border-left-style: solid;
+    padding-left: 1em;
 }
 .minor-added {
     border-color: #4FC464;
 }
-.minor-added > p {
-    margin: 0 0 0.5em 1.0em;
-}
 .minor-added > p > span {
     color: #4FC464;
+}
+.minor-changed {
+    border-color: #F4E34C;
 }
 
 /* Navigation Links */
