@@ -302,6 +302,7 @@ th {
 
 /* Minor */
 .minor {
+    background-color: #808080;
     border: none;
     border-left-width: 0.25em;
     border-left-style: solid;
