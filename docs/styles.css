@@ -307,6 +307,7 @@ th {
     border-left-width: 0.25em;
     border-left-style: solid;
     padding-left: 1em;
+    padding-right: 1em;
 }
 .minor > p > span {
     font-style: italic;
