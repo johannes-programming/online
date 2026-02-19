@@ -145,7 +145,7 @@ function addBody(){
         document.documentElement.appendChild(body);
     } 
 }
-function setup404(){
+export function setup404(){
     document.title = "404";
     addBody();
     document.body.innerHTML = `
