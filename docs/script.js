@@ -1,6 +1,7 @@
 // imports
 
 import { setupVersionVisibility } from "./version.js";
+import { getProjectNames } from "./consts.js";
 
 
 
@@ -632,39 +633,7 @@ function getImpressumBullets() {
 
 // projects
 export function setupProjectsList() {
-    const dataList = [
-        'antistar',
-        'catchlib',
-        'cmp3',
-        'copyable',
-        'datahold', 
-        'datarepr', 
-        'dummyfunction',
-        'expandpath',
-        'expit',
-        'filelisting',
-        'gravy',
-        'identityfunction',
-        'iterflat',
-        'iterprod',
-        'keyalias', 
-        'makeprop',
-        'na_quantors',
-        'norming',
-        'overloadable', 
-        'preparse',
-        'printtostderr',
-        'raisefunction',
-        'scaevola', 
-        'seqpad',
-        'setdoc', 
-        'staticclasses',
-        'texthold',
-        'tofunc',
-        'tomlhold', 
-        'upcounting',
-        'v440',
-    ];
+    const dataList = getProjectNames();
 
     const urlStart = "https://";
     const urlEnd = ".johannes-programming.online/";
