@@ -479,7 +479,7 @@ function setupCreditsBlock() {
 
 
 // corpus
-function setupLinksCorpus(packageName) {
+export function setupLinksCorpus(packageName) {
     const container = document.getElementById('linksCorpus');
     if(!container){return;}
     const subdomain = toSubdomain(packageName);
@@ -504,7 +504,7 @@ function setupLinksCorpus(packageName) {
 </ul>`;
     addMetaAndLinkTags();
 }
-function setupTestingCorpus(packageName) {
+export function setupTestingCorpus(packageName) {
     const seen = new Set(document.querySelectorAll('.testingCorpus'));
     const byId = document.getElementById('testingCorpus');
     if (byId) { seen.add(byId); }
@@ -519,7 +519,7 @@ function setupTestingCorpus0(packageName, container) {
 <pre class="block"><code>import ${packageName}
 ${packageName}.test()</code></pre>`;
 }
-function setupLicenseCorpus(packageName) {
+export function setupLicenseCorpus(packageName) {
     const container = document.getElementById('licenseCorpus');
     if(!container){return;}
     container.innerHTML = "<p>This project is licensed under the MIT License.</p>";
@@ -530,7 +530,7 @@ function setupCreditsCorpus(packageName) {
     container.innerHTML = getImpressumBullets();
     addMetaAndLinkTags();
 }
-function setupImpressumCorpus(packageName) {
+export function setupImpressumCorpus(packageName) {
     const container = document.getElementById('impressumCorpus');
     if(!container){return;}
     container.innerHTML = `
@@ -541,7 +541,7 @@ function setupImpressumCorpus(packageName) {
     setupImpressumBasis(packageName);
     addMetaAndLinkTags();
 }
-function setupInstallCorpus(packageName) {
+export function setupInstallCorpus(packageName) {
     const container = document.getElementById('installCorpus');
     if(!container){return;}
     container.innerHTML = `
@@ -767,7 +767,7 @@ function modifyLinksWithoutHref() {
     });
 }
 
-function addMetaAndLinkTags() {
+export function addMetaAndLinkTags() {
     addBody();
     addLang();
     addMetaTag();
@@ -816,7 +816,7 @@ function addIcon() {
 }
 
 
-function setupBasicProject() {
+export function setupBasicProject() {
     addMetaAndLinkTags();
 
     setupTopBlock();
