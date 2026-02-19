@@ -404,7 +404,7 @@ function setupImpressumBasis(packageName) {
     setupImpressumParagraphs();
     addMetaAndLinkTags();
 }
-function setupImpressumParagraphs() {
+export function setupImpressumParagraphs() {
     const container = document.getElementById('impressumParagraphs');
     if(!container){return;}
     container.innerHTML = getImpressumParagraphs();
@@ -631,7 +631,7 @@ function getImpressumBullets() {
 
 
 // projects
-function setupProjectsList() {
+export function setupProjectsList() {
     const dataList = [
         'antistar',
         'catchlib',
