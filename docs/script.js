@@ -842,7 +842,6 @@ function setupBasicProject() {
 // main
 
 function main() {
-    window.setupInstallCorpus = setupInstallCorpus;
     addMetaAndLinkTags();
 }
 main();
