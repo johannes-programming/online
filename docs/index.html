@@ -39,8 +39,12 @@
             </dd>
         </dl>
     </body>
-    <script src="https://www.johannes-programming.online/script.js"></script>
-    <script>
+    <script type="module">
+        import {
+            addMetaAndLinkTags,
+            setupImpressumParagraphs,
+            setupProjectsList,
+        } from "https://www.johannes-programming.online/main.js";
         setupProjectsList();
         setupImpressumParagraphs();
         addMetaAndLinkTags();
