@@ -2,6 +2,7 @@
 import { getProjectNames } from "./consts.js";
 import { setupAllHeading4 } from "./h4.js";
 import { setupVersionVisibility } from "./version.js";
+import { addBody, toSubdomain } from "./utils.js";
 
 
 
@@ -9,12 +10,7 @@ import { setupVersionVisibility } from "./version.js";
 
 
 // page
-function addBody(){
-    if (!document.body) {
-        const body = document.createElement('body');
-        document.documentElement.appendChild(body);
-    } 
-}
+
 export function setup404(){
     document.title = "404";
     addBody();
@@ -561,12 +557,6 @@ export function setupProjectsList() {
 
 // basics
 
-
-function toSubdomain(pkg) {
-    let ans = pkg.replace("_", "-");
-    ans = ans.toLowerCase();
-    return ans;
-}
 
 
 function modifyEmptyLinks() {
