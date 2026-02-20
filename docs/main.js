@@ -604,8 +604,7 @@ function modifyLinksWithoutHref() {
         link.innerHTML = `<code>${linkText}</code>`;
     });
 }
-
-export function addMetaAndLinkTags() {
+function setupFoundation() {
     addBody();
     addLang();
     addMetaTag();
@@ -614,6 +613,9 @@ export function addMetaAndLinkTags() {
     addIcon();
     modifyEmptyLinks();
     modifyLinksWithoutHref();
+}
+export function addMetaAndLinkTags() {
+    setupFoundation();
     setupAllHeading4();
     setupVersionVisibility();
 }
