@@ -2,7 +2,10 @@
 import { getProjectNames } from "./consts.js";
 import { setupAllHeading4 } from "./h4.js";
 import { setupVersionVisibility } from "./version.js";
-import { addBody, toSubdomain } from "./utils.js";
+import { 
+    addBody, 
+    toSubdomain,
+} from "./utils.js";
 
 
 
