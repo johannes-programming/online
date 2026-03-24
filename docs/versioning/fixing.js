@@ -1,5 +1,11 @@
+
+import {
+    fixAllSignatures,
+} from "https://www.johannes-programming.online/versioning/signature.js";
+
 export function fixContent(realm = document.body) {
     fixCodeOnlyHeadings(realm);
+    fixAllSignatures(realm);
     fixAllDetails(realm);
     fixPreCode(realm);
 }
