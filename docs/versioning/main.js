@@ -3,7 +3,13 @@ import {
 } from 'https://www.johannes-programming.online/rst-compiler/app.js';
 import {
     setupVersionVisibility,
-} from "https://www.johannes-programming.online/version.js";
+} from "https://www.johannes-programming.online/versioning/version.js";
+import {
+    fixContent,
+} from "https://www.johannes-programming.online/versioning/fixing.js";
+
+
+
 
 export function setupAllRstVersions() {
     const versionSelect = document.getElementById('version');
@@ -27,39 +33,24 @@ export async function loadAllRstVersions() {
 async function handleVersionWrapper(wrapper) {
     const filePath = `./${wrapper.id}.rst`;
     const response = await fetch(filePath);
-    if (!response.ok) {
-        throw new Error(`Failed to load ${filePath}: ${response.status} ${response.statusText}`);
-    }
+    if (!response.ok) { return; }
     const rstContent = await response.text();
     const result = compile_function(rstContent);
     wrapper.innerHTML = result.body || '';
+    fixContent(wrapper);
 }
 
 
 
 
 
-function wrapBarePreCodeBlocks() {
-    const pres = document.querySelectorAll('pre.code');
-
-    for (const pre of pres) {
-        if (pre.querySelector('code')) {
-            continue;
-        }
-
-        const code = document.createElement('code');
-        code.innerHTML = pre.innerHTML;
-        pre.innerHTML = '';
-        pre.appendChild(code);
-    }
-}
 
 
 
 export async function main() {
     setupAllRstVersions();
+    fixContent();
     await loadAllRstVersions();
-    wrapBarePreCodeBlocks();
     setupVersionVisibility();
 }
 
