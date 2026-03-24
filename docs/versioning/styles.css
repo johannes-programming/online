@@ -29,7 +29,7 @@ header > p {
 }
 
 code {
-    /*font-family: Menlo;*/
+    font-family: monospace;
     font-size: 0.875em;
     font-weight: normal;
 }
