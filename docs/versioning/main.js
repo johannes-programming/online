@@ -36,9 +36,6 @@ async function handleVersionWrapper(wrapper) {
 
 
 
-
-
-
 function wrapBarePreCodeBlocks() {
     const pres = document.querySelectorAll('pre.code');
 
@@ -56,4 +53,10 @@ function wrapBarePreCodeBlocks() {
 
 
 
+export async function main() {
+    setupAllRstVersions();
+    await loadAllRstVersions();
+    wrapBarePreCodeBlocks();
+}
 
+await main();
