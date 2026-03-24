@@ -33,6 +33,9 @@ code {
     font-size: 0.875em;
     font-weight: normal;
 }
+.signature code {
+  display: block;
+}
 
 em {
     font-size: 1em;
