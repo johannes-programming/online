@@ -44,8 +44,7 @@ function fixCodeOnlyHeading(heading) {
 
 
 function fixAllDetails(realm) {
-    console.log(realm.innerHTML);
-    const descendants = [...realm.querySelectorAll("*")];
+    const descendants = [realm, ...realm.querySelectorAll('*')];
     for (const descendant of descendants) {
         for (let i = 1; i <= 6; i++) {
             fixElementDetails(descendant, i);
