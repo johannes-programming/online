@@ -1,6 +1,9 @@
 import {
   compile_function,
 } from 'https://www.johannes-programming.online/rst-compiler/app.js';
+import {
+    setupVersionVisibility,
+} from "https://www.johannes-programming.online/version.js";
 
 export function setupAllRstVersions() {
     const versionSelect = document.getElementById('version');
@@ -57,6 +60,7 @@ export async function main() {
     setupAllRstVersions();
     await loadAllRstVersions();
     wrapBarePreCodeBlocks();
+    setupVersionVisibility();
 }
 
 await main();
