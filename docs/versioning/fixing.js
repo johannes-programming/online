@@ -44,6 +44,7 @@ function fixCodeOnlyHeading(heading) {
 
 
 function fixAllDetails(realm) {
+    console.log(realm.innerHTML);
     const descendants = [...realm.querySelectorAll("*")];
     for (const descendant of descendants) {
         for (let i = 1; i <= 6; i++) {
@@ -52,6 +53,7 @@ function fixAllDetails(realm) {
     }
 }
 function fixElementDetails(element, number) {
+    console.log(number, element.innerHTML);
     const className = `detail${number}`;
     const tagName = `h${number}`;
     const oldChildren = Array.from(element.childNodes);
