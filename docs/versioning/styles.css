@@ -4,16 +4,9 @@ body {
     font-family: "Avenir Next";
     font-size: 16px;
     padding: 50px;
-    
 }
 
-code {
-    /*font-family: Menlo;*/
-    font-size: 0.875em;
-    font-weight: normal;
-}
-
-dl.heading0 > dt {
+header {
     background-color: #4CAF50;
     color: white;
     font-size: 2em;
@@ -22,107 +15,23 @@ dl.heading0 > dt {
     padding: 1.25em;
     text-align: center;
 }
-dl.heading0 > dd {
-    margin: 0 0 2em 0;
-    padding: 0;
-}
-dl.heading1 > dt {
-    background-color: transparent;
-    font-size: 1.75em;
-    font-weight: normal;
+p {
+    font-size: 1em;
     margin: 0 0 0.5em 0;
-    padding: 0;
+    padding: 0 0 0 0;
+    text-align: justify;
 }
-dl.heading1 > dd {
-    margin: 0 0 2em 2em;
-    padding: 0;
-}
-
-dl.heading2 {
-    font-size: 1em;
-    margin: 0 0 1em 0;
-    padding: 0;
-}
-dl.heading2 > dt {
-    background-color: transparent;
-    font-size: 1.625em;
-    font-weight: normal;
-    margin: 0 0 0.5em 0;
-    padding: 0;
-}
-dl.heading2 > dd {
-    font-size: 1em;
-    margin: 0 0 1em 0;
-    padding: 0;
-}
-dl.heading4 {
-    font-size: 1em;
-    margin: 0;
-    padding: 0;
-}
-dl.heading4 > dt {
-    background-color: #4CAF50;
-    font-size: 1em;
-    font-weight: normal;
-    margin: 0 0 0.5em 0;
-    padding: 0 0 0 0; /* 0.5em; */
-}
-dl.heading4 > dt > ul {
-    font-size: 1em;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-dl.heading4 > dt > ul > li {
-    font-size: 1em;
-    margin: 0;
-    padding: 0;
-}
-dl.heading4 > dd {
-    font-size: 1em;
-    margin: 0 0 0.5em 2em;
-    padding: 0;
-}
-dl.heading5 {
-    font-size: 1em;
-    margin: 0 0 1em 0;
-    padding: 0;
-}
-dl.heading5 > dt {
-    background-color: transparent;
-    font-size: 1em;
-    font-weight: bold;
+header > p {
+    font-size: 0.5em;
     margin: 0 0 0.25em 0;
-    padding: 0;
-}
-dl.heading5 > dd {
-    font-size: 1em;
-    margin: 0 0 0.5em 0;
-    padding: 0;
+    padding: 0 0 0 0;
+    text-align: center;
 }
 
-dl.impressum {
-    font-size: 1em;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-}
-dl.impressum > dt {
-    font-size: 1em;
-    font-weight: bold;
-    margin: 0 0 0.5em 0;
-    padding: 0 0 0 0;
-}
-dl.impressum > dd {
-    font-size: 1em;
-    margin: 0 0 0.5em 2em;
-    padding: 0 0 0 0;
-}
-
-div.leftaligned {
-    text-align: left;
-}
-div.rightaligned {
-    text-align: right;
+code {
+    /*font-family: Menlo;*/
+    font-size: 0.875em;
+    font-weight: normal;
 }
 
 em {
@@ -130,26 +39,66 @@ em {
     font-style: normal;
 }
 
-header {
+
+
+
+
+
+
+
+/* headings and details */
+
+
+h1:not(.signature) {
+    background-color: transparent;
+    font-size: 1.75em;
+    font-weight: normal;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+.detail1:not(.description) {
+    margin: 0 0 2em 2em;
+    padding: 0;
+}
+/* dl.heading2 {
+    font-size: 1em;
+    margin: 0 0 1em 0;
+    padding: 0;
+} */
+h2:not(.signature) {
+    background-color: transparent;
+    font-size: 1.625em;
+    font-weight: normal;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+.detail2:not(.description) {
+    font-size: 1em;
+    margin: 0 0 1em 0;
+    padding: 0;
+}
+.signature {
     background-color: #4CAF50;
-    color: white;
-    padding: 1.25em 0;
-    margin-bottom: 2em;
-    text-align: center;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+.description {
+    font-size: 1em;
+    margin: 0 0 0.5em 2em;
+    padding: 0;
 }
 
-p {
-    font-size: 1em;
-    margin: 0 0 0.5em 0;
-    padding: 0 0 0 0;
-    text-align: justify;
-}
-dt > p {
-    font-size: 0.5em;
-    margin: 0 0 0.25em 0;
-    padding: 0 0 0 0;
-    text-align: center;
-}
+
+
+
+
+
+
+
+
+/* pre */
 
 pre {
     margin: 0 0 0.5em 0;
@@ -159,7 +108,7 @@ pre {
     border-radius: 5px;
     width: 100%;
 }
-pre.block {
+pre.code {
     margin: 0 0 0.5em 0;
     padding: 0.5em 1em 0.5em 1em;
     font-size: 1em;
@@ -169,11 +118,8 @@ pre.block {
     overflow-x: auto; 
 }
 
-/* Section and Content Styling */
-strong {
-    font-weight: normal;
-    font-family: Menlo;
-}
+
+
 
 /* tables */
 table {
