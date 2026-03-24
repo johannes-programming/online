@@ -55,4 +55,8 @@ export async function main() {
     console.log('main ended');
 }
 
-await main();
+main()
+  .then(() => console.log('main succeeded'))
+  .catch((error) => {
+    console.error('main failed:', error);
+  });
