@@ -1,0 +1,227 @@
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: "Avenir Next";
+    font-size: 16px;
+    padding: 50px;
+    
+}
+
+code {
+    /*font-family: Menlo;*/
+    font-size: 0.875em;
+    font-weight: normal;
+}
+
+dl.heading0 > dt {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 2em;
+    font-weight: normal;
+    margin: 0 0 1.5em 0;
+    padding: 1.25em;
+    text-align: center;
+}
+dl.heading0 > dd {
+    margin: 0 0 2em 0;
+    padding: 0;
+}
+dl.heading1 > dt {
+    background-color: transparent;
+    font-size: 1.75em;
+    font-weight: normal;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+dl.heading1 > dd {
+    margin: 0 0 2em 2em;
+    padding: 0;
+}
+
+dl.heading2 {
+    font-size: 1em;
+    margin: 0 0 1em 0;
+    padding: 0;
+}
+dl.heading2 > dt {
+    background-color: transparent;
+    font-size: 1.625em;
+    font-weight: normal;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+dl.heading2 > dd {
+    font-size: 1em;
+    margin: 0 0 1em 0;
+    padding: 0;
+}
+dl.heading4 {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+dl.heading4 > dt {
+    background-color: #4CAF50;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0 0; /* 0.5em; */
+}
+dl.heading4 > dt > ul {
+    font-size: 1em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+dl.heading4 > dt > ul > li {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+dl.heading4 > dd {
+    font-size: 1em;
+    margin: 0 0 0.5em 2em;
+    padding: 0;
+}
+dl.heading5 {
+    font-size: 1em;
+    margin: 0 0 1em 0;
+    padding: 0;
+}
+dl.heading5 > dt {
+    background-color: transparent;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0 0.25em 0;
+    padding: 0;
+}
+dl.heading5 > dd {
+    font-size: 1em;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+
+dl.impressum {
+    font-size: 1em;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+dl.impressum > dt {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0 0;
+}
+dl.impressum > dd {
+    font-size: 1em;
+    margin: 0 0 0.5em 2em;
+    padding: 0 0 0 0;
+}
+
+div.leftaligned {
+    text-align: left;
+}
+div.rightaligned {
+    text-align: right;
+}
+
+em {
+    font-size: 1em;
+    font-style: normal;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1.25em 0;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+p {
+    font-size: 1em;
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0 0;
+    text-align: justify;
+}
+dt > p {
+    font-size: 0.5em;
+    margin: 0 0 0.25em 0;
+    padding: 0 0 0 0;
+    text-align: center;
+}
+
+pre {
+    margin: 0 0 0.5em 0;
+    padding: 0 1em 0 1em;
+    font-size: 1em;
+    border: 2px solid #7F7F7F;
+    border-radius: 5px;
+    width: 100%;
+}
+pre.block {
+    margin: 0 0 0.5em 0;
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: 1em;
+    border: 2px solid #7F7F7F;
+    border-radius: 0.25em;
+    width: auto;
+    overflow-x: auto; 
+}
+
+/* Section and Content Styling */
+strong {
+    font-weight: normal;
+    font-family: Menlo;
+}
+
+/* tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    
+    border: 1px solid black;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    
+    padding: 10px;
+    text-align: left;
+}
+
+/* hidden */
+.hidden {
+  display: none !important;
+}
+
+/* container */
+.container {
+    background-color: #808080;
+    border: none;
+    border-left-width: 0.25em;
+    border-left-style: solid;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.container > p > span {
+    font-style: italic;
+}
+.versionadded {
+    border-color: #4FC464;
+}
+.versionadded > p > span {
+    color: #4FC464;
+}
+.versionchanged {
+    border-color: #F4E34C;
+}
+.versionchanged > p > span {
+    color: #F4E34C;
+}

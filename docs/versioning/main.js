@@ -31,3 +31,29 @@ async function handleVersionWrapper(wrapper) {
     const result = compile_function(rstContent);
     wrapper.innerHTML = result.body || '';
 }
+
+
+
+
+
+
+
+
+function wrapBarePreCodeBlocks() {
+    const pres = document.querySelectorAll('pre.code');
+
+    for (const pre of pres) {
+        if (pre.querySelector('code')) {
+            continue;
+        }
+
+        const code = document.createElement('code');
+        code.innerHTML = pre.innerHTML;
+        pre.innerHTML = '';
+        pre.appendChild(code);
+    }
+}
+
+
+
+
