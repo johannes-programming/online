@@ -36,8 +36,7 @@ code {
 .signature code {
   display: block;
 }
-
-em {
+code > em {
     font-size: 1em;
     font-style: normal;
 }
