@@ -52,6 +52,7 @@ export async function main() {
     fixContent();
     await loadAllRstVersions();
     setupVersionVisibility();
+    console.log('main ended');
 }
 
 await main();
