@@ -44,9 +44,9 @@ function fixCodeOnlyHeading(heading) {
 
 
 function fixAllDetails(realm) {
-    const descendants = [realm, ...realm.querySelectorAll('*')];
-    for (const descendant of descendants) {
-        for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 6; i++) {
+        const descendants = [realm, ...realm.querySelectorAll('*')];
+        for (const descendant of descendants) {
             fixElementDetails(descendant, i);
         }
     }
@@ -81,9 +81,7 @@ function fixElementDetails(element, number) {
         }
         if (wrapper === null) {
             wrapper = document.createElement("div");
-            if (kind === "signature") {
-                wrapper.classList.add("description");
-            }
+            if (kind === "signature") { wrapper.classList.add("description"); }
             wrapper.classList.add(className);
             element.insertBefore(wrapper, oldChild);
         }
