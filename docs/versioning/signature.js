@@ -3,10 +3,12 @@ export function fixAllSignatures(realm = document.body){
 }
 function fixSignatureCode(container){
     if (container.children.length > 0) {return;}
-    let text = container.innerHTML;
-    text = text.replace(/\s+/g, " ");
-    text = formatH4(text);
-    container.innerHTML = text;
+    container.innerHTML = fixSignatureCodeText(container.innerHTML);
+}
+function fixSignatureCodeText(text) {
+    let ans = text.replace(/\s+/g, " ");
+    ans = formatH4(ans);
+    return ans;
 }
 function formatH4(text){
     let parts = text.split("(");
