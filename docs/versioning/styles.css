@@ -44,7 +44,7 @@ pre {
     padding: 0.5em 1em 0.5em 1em;
     width: 100%;
 }
-cite, pre {
+.citation, cite, pre {
     font-family: monospace;
     font-size: 0.875em;
     font-style: normal;
