@@ -96,7 +96,7 @@ function spansH4OpeningGeneric(text){
     const iOpen = text.indexOf("[");
     const textclassical = text.substring(0, iOpen);
     const textbracketed = text.substring(iOpen);
-    let ans = spansH4OpeningClassical(textclassical);
+    const ans = spansH4OpeningClassical(textclassical);
     ans.push(span(textbracketed, "signature-plain"));
     return ans;
 }
@@ -112,21 +112,18 @@ function spansH4OpeningClassical(text){
     return titlespans.concat(namespans);
 }
 function spansH4OpeningName(text){
-    const trimmedtext = text.trim();
-    let parts = trimmedtext.split(".");
-    parts = parts.map(part => part.trim());
+    const parts = text.split(".");
     const lastpart = parts.pop();
-    let ans = [];
+    const ans = [];
     for (const textpart of parts) {
-        ans.push(span(textpart, "signature-plain"));
+        ans.push(span(textpart.trim(), "signature-plain"));
         ans.push(span(".", "signature-separator"));
     }
-    ans.push(span(lastpart, "signature-name"));
+    ans.push(span(lastpart.trim(), "signature-name"));
     return ans;
 }
 function spansH4Core(text){
-    let parts = text.split(",");
-    parts = parts.map(formatH4SpecialCharsInPart);
+    const parts = text.split(",").map(formatH4SpecialCharsInPart);
     const lastpart = parts.pop();
     const ans = [];
     for (const textpart of parts) {
