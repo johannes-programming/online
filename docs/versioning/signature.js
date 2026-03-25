@@ -59,7 +59,7 @@ function formatH4Callable(text){
     text += "<span class='signature-bracket'>(</span>";
     text += core;
     text += "<span class='signature-bracket'>)</span>";
-    text += " ";
+    text += "<span class='signature-separator'> </span>";
     text += "<span class='signature-parameter'>";
     text += closing;
     text += "</span>";
@@ -108,9 +108,11 @@ function formatH4OpeningName(text){
 function formatH4Core(text){
     let parts = text.split(",");
     parts = parts.map(formatH4SpecialCharsInPart);
-    parts = parts.map(part => "<span class='signature-parameter'>" + part + "</span>");
-    let ans = parts.join(", ");
-    return ans
+    parts = parts.map(spanParameter);
+    return parts.join("<span class='signature-separator'>, </span>");
+}
+function spanParameter(part) {
+    return "<span class='signature-parameter'>" + part + "</span>";
 }
 function formatH4SpecialCharsInPart(text){
     let ans = text.trim();
