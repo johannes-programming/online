@@ -3,133 +3,158 @@ export function fixAllSignatures(realm = document.body){
 }
 function fixSignatureCode(container){
     if (container.children.length > 0) {return;}
-    container.textContent = fixSignatureCodeText(container.textContent);
+    const text = container.textContent;
+    container.textContent = "";
+    const children = spansSignatureCodeText(text);
+    for (const child of children) {
+        container.appendChild(child);
+    }
 }
-function fixSignatureCodeText(text) {
-    let ans = text.replace(/\s+/g, " ");
-    ans = formatH4(ans);
+function spansSignatureCodeText(text) {
+    const reduced = text.replaceAll(/\s+/g, " ");
+    const iOpen = reduced.indexOf("(");
+    const iClose = reduced.indexOf(")");
+    const iEqual = reduced.indexOf("=");
+    if (-1 < iEqual && iEqual < iOpen) {
+        return spansH4NonCallableEqual(reduced);
+    }
+    if (-1 < iOpen && iOpen < iClose) {
+        return spansH4Callable(reduced);
+    }
+    return spansH4NonCallableColon(reduced);
+}
+function spansH4NonCallableEqual(text){
+    const text_ = formatH4SpecialCharsInPart(text);
+    let textparts = text_.split("=");
+    const textname = textparts.shift();
+    let ans = spansH4Opening(textname);
+    for (const textpart of textparts) {
+        const spanequal = span(" = ", "signature-separator");
+        ans.push(spanequal);
+        const spanpart = span(textpart, "signature-plain");
+        ans.push(spanpart);
+    }
     return ans;
 }
-function formatH4(text){
-    let parts = text.split("(");
-    if (text.includes("(")) {
-        if (parts[0].includes("=")) {
-            return formatH4NonCallable(text);
-        }
-        if (text.includes(")")) {
-            return formatH4Callable(text);
-        }
+function spansH4NonCallableColon(text){
+    const text_ = formatH4SpecialCharsInPart(text);
+    let textparts = text_.split(":");
+    const textname = textparts.shift();
+    let ans = spansH4Opening(textname);
+    for (const textpart of textparts) {
+        const spanequal = span(": ", "signature-separator");
+        ans.push(spanequal);
+        const spanpart = span(textpart, "signature-plain");
+        ans.push(spanpart);
     }
-    return formatH4NonCallable(text);
+    return ans;
 }
-function formatH4NonCallable(text){
-    let ans = formatH4SpecialCharsInPart(text);
-    if (ans.includes("=")) {
-        return formatH4NonCallableEqual(ans);
-    } else {
-        return formatH4NonCallableColon(ans);
+function spansH4Callable(text){
+    const trimmedtext = text.trim();
+
+    const iOpen = trimmedtext.indexOf("(");
+    const textopening = trimmedtext.substring(0, iOpen);
+    const openedtext = trimmedtext.substring(iOpen + 1);
+
+    const iClose = openedtext.lastIndexOf(")");
+    const textcore = openedtext.substring(0, iClose);
+    const textclosing = openedtext.substring(iClose + 1);
+
+    let ans = spansH4Opening(textopening);
+    ans.push(span("(", "signature-bracket"));
+    const spanscore = spansH4Core(textcore);
+    for (const spancore of spanscore) {
+        ans.push(spancore);
     }
+    ans.push(span(")", "signature-bracket"));
+    ans.push(span(" ", "signature-separator"));
+    const formattedClosing = formatH4SpecialCharsInPart(textclosing);
+    ans.push(span(formattedClosing, 'signature-parameter'));
+    return ans;
 }
-function formatH4NonCallableEqual(text){
-    let parts = text.split("=");
-    let name = parts.shift();
-    name = formatH4Opening(name);
-    parts.unshift(name);
-    return parts.join(" = ");
-}
-function formatH4NonCallableColon(text){
-    let parts = text.split(":");
-    let name = parts.shift();
-    name = formatH4Opening(name);
-    parts.unshift(name);
-    return parts.join(": ");
-}
-function formatH4Callable(text){
-    text = text.trim();
-    let i = text.indexOf("(");
-    let opening = text.substring(0, i);
-    text = text.substring(i + 1);
-    i = text.lastIndexOf(")");
-    let core = text.substring(0, i);
-    let closing = text.substring(i + 1);
-    opening = formatH4Opening(opening);
-    core = formatH4Core(core);
-    closing = formatH4SpecialCharsInPart(closing);
-    text = opening;
-    text += "<span class='signature-bracket'>(</span>";
-    text += core;
-    text += "<span class='signature-bracket'>)</span>";
-    text += "<span class='signature-separator'> </span>";
-    text += "<span class='signature-parameter'>";
-    text += closing;
-    text += "</span>";
-    return text;
-}
-function formatH4Opening(text){
+function spansH4Opening(text){
     if (text.endsWith("]")) {
-        return formatH4OpeningGeneric(text);
+        return spansH4OpeningGeneric(text);
     } else {
-        return formatH4OpeningClassical(text);
+        return spansH4OpeningClassical(text);
     }
 }
-function formatH4OpeningGeneric(text){
-    let i = text.indexOf("[");
-    let x = text.substring(0, i);
-    let y = text.substring(i);
-    x = formatH4OpeningClassical(x);
-    return x + y;
-}
-function formatH4OpeningClassical(text){
-    let ans = text.trim();
-    let parts = ans.split(" ");
-    let lastpart = parts.pop();
-    parts = parts.map(formatH4OpeningTitle);
-    lastpart = formatH4OpeningName(lastpart);
-    parts.push(lastpart);
-    ans = parts.join(" ");
+function spansH4OpeningGeneric(text){
+    const iOpen = text.indexOf("[");
+    const textclassical = text.substring(0, iOpen);
+    const textbracketed = text.substring(iOpen);
+    let ans = spansH4OpeningClassical(textclassical);
+    ans.push(span(textbracketed, "signature-plain"));
     return ans;
 }
-function formatH4OpeningTitle(text){
-    let ans = "<span class='signature-title'>";
-    ans += text.trim();
-    ans += "</span>";
+function spansH4OpeningClassical(text){
+    const trimmedtext = text.trim();
+    let parts = trimmedtext.split(" ");
+    const lastpart = parts.pop();
+    let ans = parts.map(spanH4OpeningTitle);
+    const namespans = spansH4OpeningName(lastpart);
+    for (const namespan of namespans) {
+        ans.push(span(" ", "signature-separator"));
+        ans.push(namespan);
+    }
     return ans;
 }
-function formatH4OpeningName(text){
-    let ans = text.trim();
-    let parts = ans.split(".");
+function spanH4OpeningTitle(text){
+    return span(text.trim(), 'signature-title');
+}
+function spansH4OpeningName(text){
+    const trimmedtext = text.trim();
+    let parts = trimmedtext.split(".");
     parts = parts.map(part => part.trim());
-    let lastpart = parts.pop();
-    lastpart = "<span class='signature-name'>" + lastpart + "</span>";
-    parts.push(lastpart);
-    ans = parts.join(".");
+    const lastpart = parts.pop();
+    let ans = [];
+    for (const textpart of parts) {
+        ans.push(span(textpart, "signature-plain"));
+        ans.push(span(".", "signature-separator"));
+    }
+    ans.push(span(lastpart, "signature-name"));
     return ans;
 }
-function formatH4Core(text){
+function spansH4Core(text){
     let parts = text.split(",");
     parts = parts.map(formatH4SpecialCharsInPart);
-    parts = parts.map(spanParameter);
-    return parts.join("<span class='signature-separator'>, </span>");
-}
-function spanParameter(part) {
-    return "<span class='signature-parameter'>" + part + "</span>";
+    const lastpart = parts.pop();
+    let ans = [];
+    for (const textpart of parts) {
+        ans.push(span(textpart, "signature-parameter"));
+        ans.push(span(", ", "signature-separator"));
+    }
+    ans.push(span(lastpart, "signature-parameter"));
+    return ans;
 }
 function formatH4SpecialCharsInPart(text){
     let ans = text.trim();
     // this works because every interval of whitespace 
     // has been already replaced with single spaces
-    ans = ans.replace(" =", "=");
-    ans = ans.replace("= ", "=");
-    ans = ans.replace(" :", ":");
-    ans = ans.replace(": ", ":");
-    ans = ans.replace(" ->", "->");
-    ans = ans.replace("-> ", "->");
-    ans = ans.replace(" -&gt;", "-&gt;");
-    ans = ans.replace("-&gt; ", "-&gt;");
-    ans = ans.replace("=", " = ");
-    ans = ans.replace(":", ": ");
-    ans = ans.replace("-&gt;", "-&gt; ");
+    ans = ans.replaceAll(" =", "=");
+    ans = ans.replaceAll("= ", "=");
+    ans = ans.replaceAll(" :", ":");
+    ans = ans.replaceAll(": ", ":");
+    ans = ans.replaceAll(" ->", "->");
+    ans = ans.replaceAll("-> ", "->");
+    ans = ans.replaceAll(" -&gt;", "-&gt;");
+    ans = ans.replaceAll("-&gt; ", "-&gt;");
+    ans = ans.replaceAll("=", " = ");
+    ans = ans.replaceAll(":", ": ");
+    ans = ans.replaceAll("-&gt;", "-&gt; ");
     ans = ans.trim();
     return ans;
 }
 
+
+
+
+
+
+
+function span(text, kind) {
+    const ans = document.createElement("span");
+    ans.classList.add(kind);
+    ans.textContent = text;
+    return ans;
+}
