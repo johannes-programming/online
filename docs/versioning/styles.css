@@ -144,6 +144,10 @@ pre.code {
     font-style: normal;
     font-weight: normal;
 }
+.signature-plain {
+    font-style: normal;
+    font-weight: normal;
+}
 .signature-parameter {
     font-style: italic;
     font-weight: normal;
