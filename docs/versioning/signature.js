@@ -88,7 +88,7 @@ function formatH4OpeningClassical(text){
     return ans;
 }
 function formatH4OpeningTitle(text){
-    let ans = "<span class='signature-parameter'>";
+    let ans = "<span class='signature-title'>";
     ans += text.trim();
     ans += "</span>";
     return ans;
