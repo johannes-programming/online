@@ -140,6 +140,10 @@ pre.code {
     font-style: normal;
     font-weight: normal;
 }
+.signature-separator {
+    font-style: normal;
+    font-weight: normal;
+}
 .signature-parameter {
     font-style: italic;
     font-weight: normal;
