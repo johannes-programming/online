@@ -54,8 +54,13 @@ function formatH4Callable(text){
     core = formatH4Core(core);
     closing = formatH4SpecialCharsInPart(closing);
     text = opening;
-    text += "<em>(</em>" + core + "<em>)</em>";
-    text += " <i>" + closing + "</i>";
+    text += "<span class='signature-bracket'>(</span>";
+    text += core;
+    text += "<span class='signature-bracket'>)</span>";
+    text += " ";
+    text += "<span class='signature-parameter'>";
+    text += closing;
+    text += "</span>";
     return text;
 }
 function formatH4Opening(text){
@@ -83,8 +88,9 @@ function formatH4OpeningClassical(text){
     return ans;
 }
 function formatH4OpeningTitle(text){
-    let ans = text.trim();
-    ans = "<i>" + ans + "</i>";
+    let ans = "<span class='signature-parameter'>";
+    ans += text.trim();
+    ans += "</span>";
     return ans;
 }
 function formatH4OpeningName(text){
@@ -92,7 +98,7 @@ function formatH4OpeningName(text){
     let parts = ans.split(".");
     parts = parts.map(part => part.trim());
     let lastpart = parts.pop();
-    lastpart = "<b>" + lastpart + "</b>";
+    lastpart = "<span class='signature-name'>" + lastpart + "</span>";
     parts.push(lastpart);
     ans = parts.join(".");
     return ans;
@@ -100,7 +106,7 @@ function formatH4OpeningName(text){
 function formatH4Core(text){
     let parts = text.split(",");
     parts = parts.map(formatH4SpecialCharsInPart);
-    parts = parts.map(part => "<i>" + part + "</i>");
+    parts = parts.map(part => "<span class='signature-parameter'>" + part + "</span>");
     let ans = parts.join(", ");
     return ans
 }
