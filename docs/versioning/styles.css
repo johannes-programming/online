@@ -193,18 +193,20 @@ th {
     padding-left: 1em;
     padding-right: 1em;
 }
-.container > p > span {
+.container > p > strong {
+    font-size: 1em;
     font-style: italic;
+    font-weight: normal;
 }
 .versionadded {
     border-color: #4FC464;
 }
-.versionadded > p > span {
+.versionadded > p > strong {
     color: #4FC464;
 }
 .versionchanged {
     border-color: #F4E34C;
 }
-.versionchanged > p > span {
+.versionchanged > p > strong {
     color: #F4E34C;
 }
