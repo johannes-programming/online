@@ -10,6 +10,7 @@ export function fixContent(realm = document.body) {
     fixPreCode(realm);
 }
 function fixPreCode(realm) {
+    return;
     const pres = realm.querySelectorAll('pre.cite');
     for (const pre of pres) {
         if (pre.querySelector('cite')) {
