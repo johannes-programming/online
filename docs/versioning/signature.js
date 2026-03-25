@@ -16,18 +16,18 @@ function spansSignatureCodeText(text) {
     const iClose = reduced.indexOf(")");
     const iEqual = reduced.indexOf("=");
     if (-1 < iEqual && iEqual < iOpen) {
-        return spansH4NonCallableEqual(reduced);
+        return spansH4Variable(reduced);
     }
     if (-1 < iOpen && iOpen < iClose) {
         return spansH4Callable(reduced);
     }
     return spansH4NonCallableColon(reduced);
 }
-function spansH4NonCallableEqual(text){
+function spansH4Variable(text){
     const text_ = formatH4SpecialCharsInPart(text);
-    let textparts = text_.split("=");
+    const textparts = text_.split("=");
     const textname = textparts.shift();
-    let ans = spansH4Opening(textname);
+    const ans = spansH4Opening(textname);
     for (const textpart of textparts) {
         const spanequal = span(" = ", "signature-separator");
         ans.push(spanequal);
@@ -38,9 +38,9 @@ function spansH4NonCallableEqual(text){
 }
 function spansH4NonCallableColon(text){
     const text_ = formatH4SpecialCharsInPart(text);
-    let textparts = text_.split(":");
-    const textname = textparts.shift();
-    let ans = spansH4Opening(textname);
+    const textparts = text_.split(":");
+    const firstpart = textparts.shift();
+    const ans = spansH4Opening(firstpart);
     for (const textpart of textparts) {
         const spanequal = span(": ", "signature-separator");
         ans.push(spanequal);
@@ -59,8 +59,9 @@ function spansH4Callable(text){
     const iClose = openedtext.lastIndexOf(")");
     const textcore = openedtext.substring(0, iClose);
     const textclosing = openedtext.substring(iClose + 1);
+    const formattedClosing = formatH4SpecialCharsInPart(textclosing);
 
-    let ans = spansH4Opening(textopening);
+    const ans = spansH4Opening(textopening);
     ans.push(span("(", "signature-bracket"));
     const spanscore = spansH4Core(textcore);
     for (const spancore of spanscore) {
@@ -68,7 +69,6 @@ function spansH4Callable(text){
     }
     ans.push(span(")", "signature-bracket"));
     ans.push(span(" ", "signature-separator"));
-    const formattedClosing = formatH4SpecialCharsInPart(textclosing);
     ans.push(span(formattedClosing, 'signature-parameter'));
     return ans;
 }
@@ -88,19 +88,15 @@ function spansH4OpeningGeneric(text){
     return ans;
 }
 function spansH4OpeningClassical(text){
-    const trimmedtext = text.trim();
-    let parts = trimmedtext.split(" ");
+    const parts = text.trim().split(" ");
     const lastpart = parts.pop();
-    let ans = parts.map(spanH4OpeningTitle);
-    const namespans = spansH4OpeningName(lastpart);
-    for (const namespan of namespans) {
-        ans.push(span(" ", "signature-separator"));
-        ans.push(namespan);
+    const titlespans = [];
+    for (const textpart of parts) {
+        titlespans.push(span(textpart.trim(), "signature-title"));
+        titlespans.push(span(" ", "signature-separator"));
     }
-    return ans;
-}
-function spanH4OpeningTitle(text){
-    return span(text.trim(), 'signature-title');
+    const namespans = spansH4OpeningName(lastpart);
+    return titlespans.concat(namespans);
 }
 function spansH4OpeningName(text){
     const trimmedtext = text.trim();
