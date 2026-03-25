@@ -10,15 +10,15 @@ export function fixContent(realm = document.body) {
     fixPreCode(realm);
 }
 function fixPreCode(realm) {
-    const pres = realm.querySelectorAll('pre.code');
+    const pres = realm.querySelectorAll('pre.cite');
     for (const pre of pres) {
-        if (pre.querySelector('code')) {
+        if (pre.querySelector('cite')) {
             continue;
         }
-        const code = document.createElement('code');
+        const code = document.createElement('cite');
         code.textContent = pre.textContent;
         pre.textContent = '';
-        pre.appendChild(code);
+        pre.appendChild(cite);
     }
 }
 function fixCodeOnlyHeadings(realm = document.body) {
@@ -38,7 +38,7 @@ function fixCodeOnlyHeading(heading) {
             }
         }
         if (node.nodeType === Node.ELEMENT_NODE) {
-            if (node.tagName.toLowerCase() !== 'code') {
+            if (node.tagName.toLowerCase() !== 'cite') {
                 return;
             }
         }
