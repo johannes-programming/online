@@ -126,6 +126,26 @@ pre.code {
 
 
 
+
+/* signature spans */
+.signature-name {
+    font-style: normal;
+    font-weight: bold;
+}
+.signature-bracket {
+    font-style: normal;
+    font-weight: normal;
+}
+.signature-parameter {
+    font-style: italic;
+    font-weight: normal;
+}
+
+
+
+
+
+
 /* tables */
 table {
     width: 100%;
