@@ -69,7 +69,10 @@ function spansH4Callable(text){
     }
     ans.push(span(")", "signature-bracket"));
     ans.push(span(" ", "signature-separator"));
-    ans.push(span(formattedClosing, 'signature-parameter'));
+    if (formattedClosing !== "") {
+        ans.push(span(" ", "signature-separator"));
+        ans.push(span(formattedClosing, 'signature-parameter'));
+    }
     return ans;
 }
 function spansH4Opening(text){
@@ -115,7 +118,7 @@ function spansH4Core(text){
     let parts = text.split(",");
     parts = parts.map(formatH4SpecialCharsInPart);
     const lastpart = parts.pop();
-    let ans = [];
+    const ans = [];
     for (const textpart of parts) {
         ans.push(span(textpart, "signature-parameter"));
         ans.push(span(", ", "signature-separator"));
