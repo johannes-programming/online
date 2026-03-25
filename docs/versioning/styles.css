@@ -6,7 +6,15 @@ body {
     padding: 50px;
 }
 
-header {
+
+p {
+    font-size: 1em;
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0 0;
+    text-align: justify;
+}
+
+header > a {
     background-color: #4CAF50;
     color: white;
     font-size: 2em;
@@ -15,14 +23,8 @@ header {
     padding: 1.25em;
     text-align: center;
 }
-p {
-    font-size: 1em;
-    margin: 0 0 0.5em 0;
-    padding: 0 0 0 0;
-    text-align: justify;
-}
 header > p {
-    font-size: 0.5em;
+    font-size: 1em;
     margin: 0 0 0.25em 0;
     padding: 0 0 0 0;
     text-align: center;
@@ -34,7 +36,8 @@ code {
     font-weight: normal;
 }
 .signature code {
-  display: block;
+    display: block;
+    margin: 0.0625em 0 0.0625em 0;
 }
 code > em {
     font-size: 1em;
