@@ -28,20 +28,16 @@ header > p {
     text-align: center;
 }
 
-code {
+cite {
     font-family: monospace;
     font-size: 0.875em;
     font-weight: normal;
 }
-.signature code {
+.signature cite {
     display: block;
 }
-.signature > code {
+.signature > cite {
     margin: 0.0625em 0 0.0625em 0;
-}
-code > em {
-    font-size: 1em;
-    font-style: normal;
 }
 
 
@@ -113,7 +109,7 @@ pre {
     border-radius: 5px;
     width: 100%;
 }
-pre.code {
+pre.cite {
     margin: 0 0 0.5em 0;
     padding: 0.5em 1em 0.5em 1em;
     font-size: 1em;
