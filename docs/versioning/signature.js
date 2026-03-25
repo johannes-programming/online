@@ -3,7 +3,7 @@ export function fixAllSignatures(realm = document.body){
 }
 function fixSignatureCode(container){
     if (container.children.length > 0) {return;}
-    container.innerHTML = fixSignatureCodeText(container.innerHTML);
+    container.textContent = fixSignatureCodeText(container.textContent);
 }
 function fixSignatureCodeText(text) {
     let ans = text.replace(/\s+/g, " ");
