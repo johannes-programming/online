@@ -1,5 +1,5 @@
 export function fixAllSignatures(realm = document.body){
-    realm.querySelectorAll(".signature > code").forEach(fixSignatureCode);
+    realm.querySelectorAll(".signature > cite").forEach(fixSignatureCode);
 }
 function fixSignatureCode(container){
     if (container.children.length > 0) {return;}
