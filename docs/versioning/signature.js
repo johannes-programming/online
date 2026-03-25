@@ -59,7 +59,6 @@ function spansH4Callable(text){
     const iClose = openedtext.lastIndexOf(")");
     const textcore = openedtext.substring(0, iClose);
     const textclosing = openedtext.substring(iClose + 1);
-    const formattedClosing = formatH4SpecialCharsInPart(textclosing);
 
     const ans = spansH4Opening(textopening);
     ans.push(span("(", "signature-bracket"));
@@ -68,11 +67,22 @@ function spansH4Callable(text){
         ans.push(spancore);
     }
     ans.push(span(")", "signature-bracket"));
-    ans.push(span(" ", "signature-separator"));
-    if (formattedClosing !== "") {
-        ans.push(span(" ", "signature-separator"));
-        ans.push(span(formattedClosing, 'signature-parameter'));
+    const spansclosing = spansH4Closing(textclosing);
+    for (const spanclosing of spansclosing) {
+        ans.push(spanclosing);
     }
+    return ans;
+}
+function spansH4Closing(text){
+    const formattedClosing = formatH4SpecialCharsInPart(text);
+    const ans = [];
+    if (formattedClosing === "") {return ans;}
+    if (formattedClosing.startsWith("->")) {
+        ans.push(span(" -> ", "signature-separator"));
+        ans.push(span(formattedClosing.substring(2), "signature-parameter"));
+        return ans;
+    }
+    ans.push(span(formattedClosing, 'signature-parameter'));
     return ans;
 }
 function spansH4Opening(text){
