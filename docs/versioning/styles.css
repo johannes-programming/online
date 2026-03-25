@@ -128,6 +128,10 @@ pre.code {
 
 
 /* signature spans */
+.signature-title {
+    font-style: italic;
+    font-weight: normal;
+}
 .signature-name {
     font-style: normal;
     font-weight: bold;
