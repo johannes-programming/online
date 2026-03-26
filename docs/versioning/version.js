@@ -26,14 +26,12 @@ function syncHtml() {
     const url = new URL(window.location.href);
     const version = url.searchParams.get("version");
     const option = [...select.options].find(o => o.value === version) ?? null;
-
     if (option === null) {
         url.searchParams.set("version", select.value);
         window.history.replaceState(null, "", url);
-        return;
+    } else {
+        select.value = version;
     }
-
-    select.value = version;
     loadVersion();
 }
 async function loadVersion() {
