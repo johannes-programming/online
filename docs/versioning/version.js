@@ -1,57 +1,50 @@
-function getVersionFromUrl() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('version');
+import {
+  compile_function,
+} from 'https://www.johannes-programming.online/rst-compiler/app.js';
+import {
+    fixContent,
+} from "https://www.johannes-programming.online/versioning/fixing.js";
+
+
+
+export function setupVersioning() {
+    const select = document.getElementById("version");
+    select.addEventListener("change", syncUrl);
+    window.addEventListener("popstate", syncHtml);
+    syncHtml();
 }
 
-function setVersionInUrl(version) {
-    const params = new URLSearchParams(window.location.search);
-    params.set('version', version);
-    const newUrl = window.location.pathname + '?' + params.toString();
-    history.replaceState(null, '', newUrl);
+function syncUrl(event) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("version", event.target.value);
+    window.history.replaceState(null, "", url);
+    loadVersion();
 }
 
-function updateVersionVisibilityElement(el) {
-    const select = document.getElementById('version');
-    if (select === null){return;}
-    const currentVersion = select.value;
-    const versionsAttr = el.getAttribute('version') || '';
-    const versions = versionsAttr.split(/\s+/).filter(Boolean);
-    const shouldShow = versions.includes(currentVersion);
-    if (shouldShow) {el.classList.remove('hidden');} 
-    else {el.classList.add('hidden');}
-}
+function syncHtml() {
+    const select = document.getElementById("version");
+    const url = new URL(window.location.href);
+    const version = url.searchParams.get("version");
+    const option = [...select.options].find(o => o.value === version) ?? null;
 
-function updateVersionVisibility() {
-    const versionedElements = document.querySelectorAll('[version]');
-    versionedElements.forEach(updateVersionVisibilityElement);
-}
-
-function updateVersionVisibilityLoad() {
-    const select = document.getElementById('version');
-    if (select === null) { return; }
-
-    // Initialize from URL if possible
-    const urlVersion = getVersionFromUrl();
-    if (urlVersion) {
-        const optionExists = Array.from(select.options)
-            .some(opt => opt.value === urlVersion);
-        if (optionExists) {
-            select.value = urlVersion;
-        }
-    } else {
-        setVersionInUrl(select.value);
+    if (option === null) {
+        url.searchParams.set("version", select.value);
+        window.history.replaceState(null, "", url);
+        return;
     }
 
-    // On change, update URL and visibility
-    select.addEventListener('change', function () {
-        setVersionInUrl(select.value);
-        updateVersionVisibility();
-    });
-
-    updateVersionVisibility();
+    select.value = version;
+    loadVersion();
 }
-
-export function setupVersionVisibility() {
-    document.addEventListener('DOMContentLoaded', updateVersionVisibilityLoad);
-    updateVersionVisibilityLoad();
+async function loadVersion() {
+    const select = document.getElementById("version");
+    const rstElement = document.getElementById('rst');
+    rstElement.innerHTML = "";
+    const filePath = `./v${select.value}.rst`;
+    const response = await fetch(filePath);
+    if (!response.ok) { return; }
+    const rstContent = await response.text();
+    const result = compile_function(rstContent);
+    rstElement.innerHTML = result.body || '';
+    fixContent(rstElement);
 }
