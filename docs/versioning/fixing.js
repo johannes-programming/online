@@ -7,20 +7,6 @@ export function fixContent(realm = document.body) {
     fixCodeOnlyHeadings(realm);
     fixAllSignatures(realm);
     fixAllDetails(realm);
-    fixPreCode(realm);
-}
-function fixPreCode(realm) {
-    return;
-    const pres = realm.querySelectorAll('pre.cite');
-    for (const pre of pres) {
-        if (pre.querySelector('cite')) {
-            continue;
-        }
-        const wrapper = document.createElement('cite');
-        cite.textContent = pre.textContent;
-        pre.textContent = '';
-        pre.appendChild(wrapper);
-    }
 }
 function fixCodeOnlyHeadings(realm = document.body) {
     const headings = realm.querySelectorAll('h1, h2, h3, h4, h5, h6');
@@ -34,14 +20,10 @@ function fixCodeOnlyHeading(heading) {
     }
     for (const node of heading.childNodes) {
         if (node.nodeType === Node.TEXT_NODE) {
-            if (node.textContent.trim() !== '') {
-                return;
-            }
+            if (node.textContent.trim() !== '') { return; }
         }
         if (node.nodeType === Node.ELEMENT_NODE) {
-            if (node.tagName.toLowerCase() !== 'cite') {
-                return;
-            }
+            if (!node.classList.contains("literal")) { return; }
         }
     }
     heading.classList.add('signature');
