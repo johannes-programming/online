@@ -27,7 +27,12 @@ header > p {
     padding: 0 0 0 0;
     text-align: center;
 }
-
+#rst {
+    border: 2px solid red;
+}
+.detail1 {
+    border: 2px solid green;
+}
 
 
 
