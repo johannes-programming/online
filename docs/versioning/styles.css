@@ -45,7 +45,7 @@ pre {
     border-radius: 0.25em;
     margin: 0 0 0.5em 0;
     padding: 0.5em 1em 0.5em 1em;
-    width: 100%;
+    width: max(100%, max-content);
 }
 .literal, header > a, pre {
     font-family: monospace;
