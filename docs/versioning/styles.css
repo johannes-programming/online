@@ -179,6 +179,7 @@ th {
     border: none;
     border-left-width: 0.25em;
     border-left-style: solid;
+    margin: 0 0 0.5em 0;
     padding-left: 1em;
     padding-right: 1em;
 }
