@@ -55,8 +55,6 @@ pre {
 }
 .signature .literal {
     display: block;
-}
-.signature > .literal {
     margin: 0.125em;
 }
 
