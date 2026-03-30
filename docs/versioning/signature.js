@@ -11,7 +11,16 @@ function fixSignatureCode(container){
     }
 }
 function spansSignatureCodeText(text) {
-    const reduced = text.replaceAll(/\s+/g, " ");
+    const reduced = text.replaceAll(/\s+/g, " ").trim();
+    const iCore = reduced.search(/[^a-zA-Z0-9 _.]/);
+    if (iCore == -1) {
+        return spansOverture(reduced);
+    }
+    const overture = reduced.substring(0, iCore);
+    const residue = reduced.substring(iCore);
+
+    // str.split('').reverse().join('')
+
     const iOpen = reduced.indexOf("(");
     const iClose = reduced.indexOf(")");
     const iEqual = reduced.indexOf("=");
@@ -22,6 +31,23 @@ function spansSignatureCodeText(text) {
         return spansH4Callable(reduced);
     }
     return spansH4NonCallableColon(reduced);
+}
+function spansOverture(text) {
+    const ans = [];
+    const titles = text.split(' ');
+    const lasttitle = titles.pop();
+    for (const title of titles) {
+        ans.push(span(title, 'signature-title'));
+        ans.push(span(' ', 'signature-separator'));
+    }
+    const names = lasttitle.split('.');
+    const lastname = names.pop();
+    for (const name of names) {
+        ans.push(span(name, 'signature-module'));
+        ans.push(span('.', 'signature-separator'));
+    }
+    ans.push(span(lastname, 'signature-name'));
+    return ans;
 }
 function spansH4Variable(text){
     const text_ = formatH4SpecialCharsInPart(text);
