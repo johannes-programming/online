@@ -36,7 +36,12 @@ function syncHtml() {
 }
 async function loadVersion() {
     const select = document.getElementById("version");
-    const rstElement = document.getElementById('rst');
+    let rstElement = document.getElementById("rst");
+    if (!rstElement) {
+        rstElement = document.createElement("div");
+        rstElement.id = "rst";
+        document.body.appendChild(rstElement);
+    }
     rstElement.innerHTML = "";
     const filePath = `./v${select.value}.rst`;
     const response = await fetch(filePath);
