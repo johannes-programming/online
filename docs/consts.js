@@ -17,6 +17,7 @@ export function getProjectNames() {
         'keyalias',
         'makeprop',
         'na_quantors',
+        'namings',
         'norming',
         'overloadable',
         'preparse',
