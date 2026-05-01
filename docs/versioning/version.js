@@ -47,7 +47,8 @@ async function loadVersion() {
     const response = await fetch(filePath);
     if (!response.ok) { return; }
     const rstContent = await response.text();
+    rstElement.textContent = rstContent;
     const result = compile_function(rstContent);
-    rstElement.innerHTML = result.body || '';
+    rstElement.innerHTML = result.body || textContent;
     fixContent(rstElement);
 }
