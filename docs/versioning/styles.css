@@ -176,7 +176,9 @@ th {
 }
 
 /* container */
-.container {
+.versionadded {
+    border-color: #4FC464;
+
     background-color: #808080;
     border: none;
     border-left-width: 0.25em;
@@ -185,20 +187,64 @@ th {
     padding-left: 1em;
     padding-right: 1em;
 }
-.container > p > strong {
+.versionadded > p > strong {
+    color: #4FC464;
+
     font-size: 1em;
     font-style: italic;
     font-weight: normal;
 }
-.versionadded {
-    border-color: #4FC464;
-}
-.versionadded > p > strong {
-    color: #4FC464;
-}
 .versionchanged {
     border-color: #F4E34C;
+
+    background-color: #808080;
+    border: none;
+    border-left-width: 0.25em;
+    border-left-style: solid;
+    margin: 0 0 0.5em 0;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 .versionchanged > p > strong {
     color: #F4E34C;
+
+    font-size: 1em;
+    font-style: italic;
+    font-weight: normal;
+}
+.versiondeprecated {
+    border-color: #F44C4E;
+
+    background-color: #808080;
+    border: none;
+    border-left-width: 0.25em;
+    border-left-style: solid;
+    margin: 0 0 0.5em 0;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.versiondeprecated > p > strong {
+    color: #F44C4E;
+
+    font-size: 1em;
+    font-style: italic;
+    font-weight: normal;
+}
+.warning {
+    border-color: #A95D65;
+    background-color: #E8D5D7;
+
+    border: none;
+    border-left-width: 0.25em;
+    border-left-style: solid;
+    margin: 0 0 0.5em 0;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.warning > p > strong {
+    color: #7C3F45;
+
+    font-size: 1em;
+    font-style: italic;
+    font-weight: normal;
 }
