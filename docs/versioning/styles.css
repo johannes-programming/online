@@ -177,9 +177,6 @@ th {
 
 /* container */
 .container {
-    border: none;
-    border-left-width: 0.25em;
-    border-left-style: solid;
     margin: 0 0 0.5em 0;
     padding-left: 1em;
     padding-right: 1em;
@@ -190,6 +187,10 @@ th {
     font-weight: normal;
 }
 .versionadded {
+    border: none;
+    border-left-width: 0.25em;
+    border-left-style: solid;
+    
     background-color: #808080;
     border-color: #4FC464;
 }
@@ -197,6 +198,10 @@ th {
     color: #4FC464;
 }
 .versionchanged {
+    border: none;
+    border-left-width: 0.25em;
+    border-left-style: solid;
+    
     background-color: #808080;
     border-color: #F4E34C;
 }
@@ -204,6 +209,10 @@ th {
     color: #F4E34C;
 }
 .warning {
+    border: none;
+    border-width: 0.125em;
+    border-style: solid;
+    
     background-color: #E8D5D7;
     border-color: #A95D65;
 }
