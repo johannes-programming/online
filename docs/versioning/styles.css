@@ -177,7 +177,6 @@ th {
 
 /* container */
 .container {
-    background-color: #808080;
     border: none;
     border-left-width: 0.25em;
     border-left-style: solid;
@@ -191,18 +190,21 @@ th {
     font-weight: normal;
 }
 .versionadded {
+    background-color: #808080;
     border-color: #4FC464;
 }
 .versionadded > p > strong {
     color: #4FC464;
 }
 .versionchanged {
+    background-color: #808080;
     border-color: #F4E34C;
 }
 .versionchanged > p > strong {
     color: #F4E34C;
 }
 .warning {
+    background-color: #E8D5D7;
     border-color: #A95D65;
 }
 .warning > p > strong {
