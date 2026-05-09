@@ -202,3 +202,9 @@ th {
 .versionchanged > p > strong {
     color: #F4E34C;
 }
+.warning {
+    border-color: #A95D65;
+}
+.warning > p > strong {
+    color: #7C3F45;
+}
