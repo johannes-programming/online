@@ -109,7 +109,7 @@ function formatH4Core(text){
 }
 function formatH4SpecialCharsInPart(text){
     let ans = text.trim();
-    // this works because every interval of whitespace 
+    // this works because every interval of whitespace
     // has been already replaced with single spaces
     ans = ans.replace(" =", "=");
     ans = ans.replace("= ", "=");
@@ -135,7 +135,7 @@ function addBody(){
     if (!document.body) {
         const body = document.createElement('body');
         document.documentElement.appendChild(body);
-    } 
+    }
 }
 function setup404(){
     document.title = "404";
@@ -505,7 +505,7 @@ function setupTestingCorpus(packageName) {
 function setupTestingCorpus0(packageName, container) {
     container.innerHTML = `
 <p>
-    This project can be tested 
+    This project can be tested
     through its <code>test</code> function.
 </p>
 <pre class="block"><code>import ${packageName}
@@ -538,8 +538,8 @@ function setupInstallCorpus(packageName) {
     if(!container){return;}
     container.innerHTML = `
         <p>
-            To install <a>${packageName}</a>, 
-            you can use <code>pip</code>. 
+            To install <a>${packageName}</a>,
+            you can use <code>pip</code>.
             Open your terminal and run:
         </p>
         <pre class="block"><code>pip install ${packageName}</code></pre>`;
@@ -554,27 +554,27 @@ function setupUsefulCorpus(packageName){
     <dd id="usefulCorpus">
         <ul>
             <li>
-                Download: 
+                Download:
                 <a href="https://pypi.org/project/${packageName}/#files"></a>
             </li>
             <li>
-                Impressum: 
+                Impressum:
                 <a href="https://${packageName}.johannes-programming.online/impressum.html"></a>
             </li>
             <li>
-                Index: 
+                Index:
                 <a href="https://pypi.org/project/${packageName}/"></a>
             </li>
             <li>
-                Installation: 
+                Installation:
                 <a href="https://${packageName}.johannes-programming.online/install.html"></a>
             </li>
             <li>
-                Source: 
+                Source:
                 <a href="https://github.com/johannes-programming/${packageName}/"></a>
             </li>
             <li>
-                Website: 
+                Website:
                 <a href="https://${subdomain}.johannes-programming.online/"></a>
             </li>
         </ul>
@@ -596,7 +596,7 @@ function getImpressumList() {
     return strings;
 }
 function getImpressumParagraphs() {
-    const strings = getImpressumList();  
+    const strings = getImpressumList();
     let result = "";
     strings.forEach(str => {
         result += `<p>${str}</p>`;
@@ -604,7 +604,7 @@ function getImpressumParagraphs() {
     return result;
 }
 function getImpressumBullets() {
-    const strings = getImpressumList();  
+    const strings = getImpressumList();
     let result = "";
     strings.forEach(str => {
         result += `<li>${str}</li>`;
@@ -629,8 +629,8 @@ function setupProjectsList() {
         'catchlib',
         'cmp3',
         'copyable',
-        'datahold', 
-        'datarepr', 
+        'datahold',
+        'datarepr',
         'dummyfunction',
         'expandpath',
         'expit',
@@ -639,21 +639,21 @@ function setupProjectsList() {
         'identityfunction',
         'iterflat',
         'iterprod',
-        'keyalias', 
+        'keyalias',
         'makeprop',
         'na_quantors',
         'norming',
-        'overloadable', 
+        'overloadable',
         'preparse',
         'printtostderr',
         'raisefunction',
-        'scaevola', 
+        'scaevola',
         'seqpad',
-        'setdoc', 
+        'setdoc',
         'staticclasses',
         'texthold',
         'tofunc',
-        'tomlhold', 
+        'tomlhold',
         'upcounting',
         'v440',
     ];
@@ -744,10 +744,10 @@ function modifyLinksWithoutHref() {
     links.forEach(link => {
         // Check if the href attribute is missing or empty
         if (link.getAttribute('href')) {return;}
-        
+
         // Strip the whitespace from the link's text
         const linkText = link.textContent.trim();
-    
+
         // Construct the new URL using the link's text
         const newUrl = `https://${linkText}.johannes-programming.online/`;
 
@@ -843,7 +843,7 @@ function updateVersionVisibilityElement(el) {
     const versions = versionsAttr.split(/\s+/).filter(Boolean);
     const shouldShow = versions.includes(currentVersion);
 
-    if (shouldShow) {el.classList.remove('hidden');} 
+    if (shouldShow) {el.classList.remove('hidden');}
     else {el.classList.add('hidden');}
 }
 

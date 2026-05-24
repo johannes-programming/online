@@ -2,7 +2,7 @@ export function addBody() {
     if (!document.body) {
         const body = document.createElement('body');
         document.documentElement.appendChild(body);
-    } 
+    }
 }
 export function toSubdomain(pkg) {
     let ans = pkg.replace("_", "-");

@@ -138,7 +138,7 @@ function spansH4Core(text){
 }
 function formatH4SpecialCharsInPart(text){
     let ans = text.trim();
-    // this works because every interval of whitespace 
+    // this works because every interval of whitespace
     // has been already replaced with single spaces
     ans = ans.replaceAll(" =", "=");
     ans = ans.replaceAll("= ", "=");

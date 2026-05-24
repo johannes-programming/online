@@ -1,4 +1,3 @@
-
 // h4
 export function setupAllHeading4(){
     document.querySelectorAll(".heading4 > dt").forEach(setupOneHeading4);
@@ -110,7 +109,7 @@ function formatH4Core(text){
 }
 function formatH4SpecialCharsInPart(text){
     let ans = text.trim();
-    // this works because every interval of whitespace 
+    // this works because every interval of whitespace
     // has been already replaced with single spaces
     ans = ans.replace(" =", "=");
     ans = ans.replace("= ", "=");
@@ -129,4 +128,3 @@ function formatH4SpecialCharsInPart(text){
 function formatH4trim(text){
     return text.trim();
 }
-

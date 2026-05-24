@@ -1,4 +1,3 @@
-
 // Version Visibility
 
 function getVersionFromUrl() {
@@ -21,7 +20,7 @@ function updateVersionVisibilityElement(el) {
     const versions = versionsAttr.split(/\s+/).filter(Boolean);
     const shouldShow = versions.includes(currentVersion);
 
-    if (shouldShow) {el.classList.remove('hidden');} 
+    if (shouldShow) {el.classList.remove('hidden');}
     else {el.classList.add('hidden');}
 }
 
@@ -59,5 +58,3 @@ export function setupVersionVisibility() {
     document.addEventListener('DOMContentLoaded', updateVersionVisibilityLoad);
     updateVersionVisibilityLoad();
 }
-
-

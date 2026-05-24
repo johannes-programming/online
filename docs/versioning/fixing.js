@@ -1,4 +1,3 @@
-
 import {
     fixAllSignatures,
 } from "https://www.johannes-programming.online/versioning/signature.js";
@@ -62,7 +61,7 @@ function fixElementDetails(element, number) {
         }
         if (![Node.ELEMENT_NODE, Node.TEXT_NODE, Node.COMMENT_NODE].includes(oldChild.nodeType)) {
             wrapper = null;
-            continue;   
+            continue;
         }
         if (oldChild.nodeType === Node.ELEMENT_NODE && oldChild.classList.contains(className)) {
             wrapper = null;
@@ -77,7 +76,3 @@ function fixElementDetails(element, number) {
         wrapper.appendChild(oldChild);
     }
 }
-
-
-
-

@@ -2,8 +2,8 @@
 import { getProjectNames } from "./consts.js";
 import { setupAllHeading4 } from "./h4.js";
 import { setupVersionVisibility } from "./version.js";
-import { 
-    addBody, 
+import {
+    addBody,
     toSubdomain,
 } from "./utils.js";
 
@@ -382,7 +382,7 @@ export function setupTestingCorpus(packageName) {
 function setupTestingCorpus0(packageName, container) {
     container.innerHTML = `
 <p>
-    This project can be tested 
+    This project can be tested
     through its <code>test</code> function.
 </p>
 <pre class="block"><code>import ${packageName}
@@ -415,8 +415,8 @@ export function setupInstallCorpus(packageName) {
     if(!container){return;}
     container.innerHTML = `
         <p>
-            To install <a>${packageName}</a>, 
-            you can use <code>pip</code>. 
+            To install <a>${packageName}</a>,
+            you can use <code>pip</code>.
             Open your terminal and run:
         </p>
         <pre class="block"><code>pip install ${packageName}</code></pre>`;
@@ -431,27 +431,27 @@ function setupUsefulCorpus(packageName){
     <dd id="usefulCorpus">
         <ul>
             <li>
-                Download: 
+                Download:
                 <a href="https://pypi.org/project/${packageName}/#files"></a>
             </li>
             <li>
-                Impressum: 
+                Impressum:
                 <a href="https://${packageName}.johannes-programming.online/impressum.html"></a>
             </li>
             <li>
-                Index: 
+                Index:
                 <a href="https://pypi.org/project/${packageName}/"></a>
             </li>
             <li>
-                Installation: 
+                Installation:
                 <a href="https://${packageName}.johannes-programming.online/install.html"></a>
             </li>
             <li>
-                Source: 
+                Source:
                 <a href="https://github.com/johannes-programming/${packageName}/"></a>
             </li>
             <li>
-                Website: 
+                Website:
                 <a href="https://${subdomain}.johannes-programming.online/"></a>
             </li>
         </ul>
@@ -473,7 +473,7 @@ function getImpressumList() {
     return strings;
 }
 function getImpressumParagraphs() {
-    const strings = getImpressumList();  
+    const strings = getImpressumList();
     let result = "";
     strings.forEach(str => {
         result += `<p>${str}</p>`;
@@ -481,7 +481,7 @@ function getImpressumParagraphs() {
     return result;
 }
 function getImpressumBullets() {
-    const strings = getImpressumList();  
+    const strings = getImpressumList();
     let result = "";
     strings.forEach(str => {
         result += `<li>${str}</li>`;
@@ -583,10 +583,10 @@ function modifyLinksWithoutHref() {
     links.forEach(link => {
         // Check if the href attribute is missing or empty
         if (link.getAttribute('href')) {return;}
-        
+
         // Strip the whitespace from the link's text
         const linkText = link.textContent.trim();
-    
+
         // Construct the new URL using the link's text
         const newUrl = `https://${linkText}.johannes-programming.online/`;
 

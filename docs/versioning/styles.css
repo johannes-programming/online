@@ -1,34 +1,34 @@
 * {
-    overflow: auto;
+        overflow: auto;
 }
 body {
-    background-color: #f4f4f4;
-    color: #333;
-    font-family: "Avenir Next";
-    font-size: 16px;
-    padding: 50px;
+        background-color: #f4f4f4;
+        color: #333;
+        font-family: "Avenir Next";
+        font-size: 16px;
+        padding: 50px;
 }
 
 header {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 1em;
-    font-weight: normal;
-    margin: 0 0 3em 0;
-    padding: 2.5em;
-    text-align: center;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 1em;
+        font-weight: normal;
+        margin: 0 0 3em 0;
+        padding: 2.5em;
+        text-align: center;
 }
 p {
-    font-size: 1em;
-    margin: 0 0 0.5em 0;
-    padding: 0 0 0 0;
-    text-align: justify;
+        font-size: 1em;
+        margin: 0 0 0.5em 0;
+        padding: 0 0 0 0;
+        text-align: justify;
 }
 header > p {
-    font-size: 1em;
-    margin: 0 0 0.25em 0;
-    padding: 0 0 0 0;
-    text-align: center;
+        font-size: 1em;
+        margin: 0 0 0.25em 0;
+        padding: 0 0 0 0;
+        text-align: center;
 }
 
 
@@ -42,24 +42,24 @@ header > p {
 /* code */
 
 pre {
-    border: 2px solid #7F7F7F;
-    border-radius: 0.25em;
-    margin: 0 0 0.5em 0;
-    padding: 0.5em 1em 0.5em 1em;
-    width: max(100%, max-content);
+        border: 2px solid #7F7F7F;
+        border-radius: 0.25em;
+        margin: 0 0 0.5em 0;
+        padding: 0.5em 1em 0.5em 1em;
+        width: max(100%, max-content);
 }
 .literal, header a, pre {
-    font-family: monospace;
-    font-size: 0.875em;
-    font-style: normal;
-    font-weight: normal;
+        font-family: monospace;
+        font-size: 0.875em;
+        font-style: normal;
+        font-weight: normal;
 }
 header > a {
-    font-size: 1.75em;
+        font-size: 1.75em;
 }
 .signature .literal {
-    display: block;
-    margin: 0.125em;
+        display: block;
+        margin: 0.125em;
 }
 
 
@@ -73,39 +73,39 @@ header > a {
 
 
 h1:not(.signature) {
-    background-color: transparent;
-    font-size: 1.75em;
-    font-weight: normal;
-    margin: 0 0 0.5em 0;
-    padding: 0;
+        background-color: transparent;
+        font-size: 1.75em;
+        font-weight: normal;
+        margin: 0 0 0.5em 0;
+        padding: 0;
 }
 .detail1:not(.description) {
-    margin: 0 0 2em 2em;
-    padding: 0;
+        margin: 0 0 2em 2em;
+        padding: 0;
 }
 h2:not(.signature) {
-    background-color: transparent;
-    font-size: 1.625em;
-    font-weight: normal;
-    margin: 0 0 0.5em 0;
-    padding: 0;
+        background-color: transparent;
+        font-size: 1.625em;
+        font-weight: normal;
+        margin: 0 0 0.5em 0;
+        padding: 0;
 }
 .detail2:not(.description) {
-    font-size: 1em;
-    margin: 0 0 1em 0;
-    padding: 0;
+        font-size: 1em;
+        margin: 0 0 1em 0;
+        padding: 0;
 }
 .signature {
-    background-color: #4CAF50;
-    font-size: 1em;
-    font-weight: normal;
-    margin: 0 0 0.5em 0;
-    padding: 0;
+        background-color: #4CAF50;
+        font-size: 1em;
+        font-weight: normal;
+        margin: 0 0 0.5em 0;
+        padding: 0;
 }
 .description {
-    font-size: 1em;
-    margin: 0 0 0.5em 2em;
-    padding: 0;
+        font-size: 1em;
+        margin: 0 0 0.5em 2em;
+        padding: 0;
 }
 
 
@@ -120,28 +120,28 @@ h2:not(.signature) {
 
 /* signature spans */
 .signature-title {
-    font-style: italic;
-    font-weight: normal;
+        font-style: italic;
+        font-weight: normal;
 }
 .signature-name {
-    font-style: normal;
-    font-weight: bold;
+        font-style: normal;
+        font-weight: bold;
 }
 .signature-bracket {
-    font-style: normal;
-    font-weight: normal;
+        font-style: normal;
+        font-weight: normal;
 }
 .signature-separator {
-    font-style: normal;
-    font-weight: normal;
+        font-style: normal;
+        font-weight: normal;
 }
 .signature-plain {
-    font-style: normal;
-    font-weight: normal;
+        font-style: normal;
+        font-weight: normal;
 }
 .signature-parameter {
-    font-style: italic;
-    font-weight: normal;
+        font-style: italic;
+        font-weight: normal;
 }
 
 
@@ -151,71 +151,71 @@ h2:not(.signature) {
 
 /* tables */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid black;
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid black;
 }
 td {
-    border: 1px solid black;
-    padding: 10px;
-    text-align: left;
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
 }
 th {
-    
-    border: 1px solid black;
-    font-weight: bold;
-    background-color: #f2f2f2;
-    
-    padding: 10px;
-    text-align: left;
+
+        border: 1px solid black;
+        font-weight: bold;
+        background-color: #f2f2f2;
+
+        padding: 10px;
+        text-align: left;
 }
 
 /* hidden */
 .hidden {
-  display: none !important;
+    display: none !important;
 }
 
 /* container */
 .container {
-    margin: 0 0 0.5em 0;
-    padding-left: 1em;
-    padding-right: 1em;
+        margin: 0 0 0.5em 0;
+        padding-left: 1em;
+        padding-right: 1em;
 }
 .container > p > strong {
-    font-size: 1em;
-    font-style: italic;
-    font-weight: normal;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: normal;
 }
 .versionadded {
-    border: none;
-    border-left-width: 0.25em;
-    border-left-style: solid;
-    
-    background-color: #808080;
-    border-color: #4FC464;
+        border: none;
+        border-left-width: 0.25em;
+        border-left-style: solid;
+
+        background-color: #808080;
+        border-color: #4FC464;
 }
 .versionadded > p > strong {
-    color: #4FC464;
+        color: #4FC464;
 }
 .versionchanged {
-    border: none;
-    border-left-width: 0.25em;
-    border-left-style: solid;
-    
-    background-color: #808080;
-    border-color: #F4E34C;
+        border: none;
+        border-left-width: 0.25em;
+        border-left-style: solid;
+
+        background-color: #808080;
+        border-color: #F4E34C;
 }
 .versionchanged > p > strong {
-    color: #F4E34C;
+        color: #F4E34C;
 }
 .warning {
-    border: none;
-    border-width: 0.125em;
-    border-style: solid;
-    
-    background-color: #E8D5D7;
-    border-color: #A95D65;
+        border: none;
+        border-width: 0.125em;
+        border-style: solid;
+
+        background-color: #E8D5D7;
+        border-color: #A95D65;
 }
 .warning > p > strong {
-    color: #7C3F45;
+        color: #7C3F45;
 }
