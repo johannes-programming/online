@@ -29,6 +29,7 @@ export function getProjectNames() {
         'setdoc',
         'texthold',
         'tofunc',
+        'toml_get',
         'tomlhold',
         'upcounting',
         'v440',
