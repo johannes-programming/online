@@ -14,6 +14,7 @@ export function getProjectNames() {
         'identityfunction',
         'iterflat',
         'iterprod',
+        'jacobus',
         'keyalias',
         'makeprop',
         'na_quantors',
