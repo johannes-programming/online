@@ -30,6 +30,7 @@ export function getProjectNames() {
         'texthold',
         'tofunc',
         'toml_get',
+        'toml_sorted',
         'tomlhold',
         'upcounting',
         'v440',
