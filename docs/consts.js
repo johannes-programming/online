@@ -32,7 +32,6 @@ export function getProjectNames() {
         'toml_get',
         'toml_sorted',
         'tomlhold',
-        'upcounting',
         'v440',
     ];
 }
