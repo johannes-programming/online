@@ -7,7 +7,6 @@ export function getProjectNames() {
         'datahold',
         'datarepr',
         'dummyfunction',
-        'expandpath',
         'expit',
         'filelisting',
         'gravy',
