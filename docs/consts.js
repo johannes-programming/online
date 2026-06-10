@@ -17,7 +17,6 @@ export function getProjectNames() {
         'jacobus',
         'keyalias',
         'makeprop',
-        'na_quantors',
         'namings',
         'norming',
         'overloadable',
