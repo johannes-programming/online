@@ -22,7 +22,6 @@ export function getProjectNames() {
         'preparse',
         'printtostderr',
         'raisefunction',
-        'seqpad',
         'setdoc',
         'texthold',
         'tofunc',
