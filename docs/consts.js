@@ -15,7 +15,6 @@ export function getProjectNames() {
         'jacobus',
         'namings',
         'norming',
-        'overloadable',
         'preparse',
         'printtostderr',
         'raisefunction',
