@@ -13,8 +13,6 @@ export function getProjectNames() {
         'iterflat',
         'iterprod',
         'jacobus',
-        'keyalias',
-        'makeprop',
         'namings',
         'norming',
         'overloadable',
