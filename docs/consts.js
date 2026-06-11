@@ -8,7 +8,6 @@ export function getProjectNames() {
         'datarepr',
         'dummyfunction',
         'expit',
-        'filelisting',
         'gravy',
         'identityfunction',
         'iterflat',
