@@ -140,6 +140,7 @@ function formatH4SpecialCharsInPart(text){
     let ans = text.trim();
     // this works because every interval of whitespace
     // has been already replaced with single spaces
+    ans = ans.replace(/[^\x20-\x7E]/g, '');
     ans = ans.replaceAll(" =", "=");
     ans = ans.replaceAll("= ", "=");
     ans = ans.replaceAll(" :", ":");
@@ -148,8 +149,10 @@ function formatH4SpecialCharsInPart(text){
     ans = ans.replaceAll("-> ", "->");
     ans = ans.replaceAll(" -&gt;", "-&gt;");
     ans = ans.replaceAll("-&gt; ", "-&gt;");
+    ans = ans.replaceAll(":=", "\n");
     ans = ans.replaceAll("=", " = ");
     ans = ans.replaceAll(":", ": ");
+    ans = ans.replaceAll("\n", " := ");
     ans = ans.replaceAll("-&gt;", "-&gt; ");
     ans = ans.trim();
     return ans;
