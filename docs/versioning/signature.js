@@ -1,13 +1,16 @@
-import {
-        tokenizePythonAsciiLine,
-} from "https://www.johannes-programming.online/versioning/tokenizing.js";
+import { tokenizePythonAsciiLine } from "https://www.johannes-programming.online/versioning/tokenizing.js";
 
 export function fixAllSignatures(realm = document.body) {
     realm.querySelectorAll(".signature > .literal").forEach(fixSignatureCode);
 }
 
 function fixSignatureCode(container) {
-    if (container.children.length > 0) {
+    // Reformat spans produced by an earlier run, but preserve unrelated markup.
+    // Skipping every element-bearing signature leaves old formatting unfixed.
+    if ([...container.children].some(child =>
+        child.tagName !== "SPAN" ||
+        ![...child.classList].some(name => name.startsWith("signature-"))
+    )) {
         return;
     }
 
@@ -18,7 +21,7 @@ function fixSignatureCode(container) {
 
     // The tokenizer is intentionally ASCII-only. This keeps the previous
     // behavior of discarding non-ASCII characters before formatting.
-    const tokens = tokenizePythonAsciiLine(ascii);
+    const tokens = normalizePythonTokens(tokenizePythonAsciiLine(ascii));
     const children = spansSignatureCodeText(tokens);
 
     container.textContent = "";
@@ -79,7 +82,7 @@ function spansH4CallableTokens(tokens, iOpen, iClose) {
     const core = tokens.slice(iOpen + 1, iClose);
     const closing = tokens.slice(iClose + 1);
 
-    const ans = spansH4OpeningTokens(opening);
+    const ans = spansH4OpeningTokens(opening, { callable: true });
     ans.push(span("(", "signature-bracket"));
     ans.push(...spansH4CoreTokens(core));
     ans.push(span(")", "signature-bracket"));
@@ -103,17 +106,21 @@ function spansH4ClosingTokens(tokens) {
     return ans;
 }
 
-function spansH4OpeningTokens(tokens) {
+function spansH4OpeningTokens(tokens, { callable = false } = {}) {
     if (tokens.length === 0) {
         return [];
     }
 
-    const genericStart = findTrailingGenericStart(tokens);
+    // Split at the FIRST type-parameter group, not the last. Some rendered
+    // overload signatures contain successive [...] groups, and using only the
+    // last one incorrectly styles "class package.Name[...]" as one name.
+    const genericStart = findTopLevelToken(tokens, "[");
     const classical = genericStart === -1 ? tokens : tokens.slice(0, genericStart);
     const generic = genericStart === -1 ? [] : tokens.slice(genericStart);
 
     const ans = spansH4OpeningClassicalTokens(classical);
-    pushIfText(ans, formatPythonTokens(generic), "signature-plain");
+    const typeParameters = callable || classical.includes("class") || classical.includes("type");
+    pushIfText(ans, formatPythonTokens(generic, { typeParameters }), "signature-plain");
     return ans;
 }
 
@@ -245,27 +252,6 @@ function findMatchingBracket(tokens, iOpen) {
     return -1;
 }
 
-function findTrailingGenericStart(tokens) {
-    if (tokens.at(-1) !== "]") {
-        return -1;
-    }
-
-    let depth = 0;
-
-    for (let i = tokens.length - 1; i >= 0; i--) {
-        if (tokens[i] === "]") {
-            depth++;
-        } else if (tokens[i] === "[") {
-            depth--;
-            if (depth === 0) {
-                return i;
-            }
-        }
-    }
-
-    return -1;
-}
-
 function findQualifiedNameStart(tokens) {
     if (tokens.length === 0 || !isIdentifierToken(tokens.at(-1))) {
         return -1;
@@ -324,7 +310,22 @@ function popMatchingBracket(stack, close) {
     }
 }
 
-function formatPythonTokens(tokens) {
+// The ASCII tokenizer may return an ellipsis as three separate dots.
+// Unify it so "tuple[T, ...]" gets the same spacing as other comma lists.
+function normalizePythonTokens(tokens) {
+    const ans = [];
+    for (let i = 0; i < tokens.length; i++) {
+        if (tokens[i] === "." && tokens[i + 1] === "." && tokens[i + 2] === ".") {
+            ans.push("...");
+            i += 2;
+        } else {
+            ans.push(tokens[i]);
+        }
+    }
+    return ans;
+}
+
+function formatPythonTokens(tokens, { typeParameters = false } = {}) {
     let ans = "";
     const stack = [];
     let previous = null;
@@ -333,6 +334,7 @@ function formatPythonTokens(tokens) {
         const token = tokens[i];
         const next = tokens[i + 1] ?? null;
         const inSquareBrackets = stack.at(-1) === "[";
+        const inTypeParameters = typeParameters && stack.length === 1 && inSquareBrackets;
 
         if (isOpeningBracket(token)) {
             ans += token;
@@ -347,7 +349,9 @@ function formatPythonTokens(tokens) {
         } else if (token === ";") {
             ans = ans.trimEnd() + "; ";
         } else if (token === ":") {
-            ans = ans.trimEnd() + (inSquareBrackets ? ":" : ": ");
+            // Slices use a tight colon (a[1:3]); type-variable bounds use a
+            // spaced colon (class A[T: Hashable]).
+            ans = ans.trimEnd() + (inSquareBrackets && !inTypeParameters ? ":" : ": ");
         } else if (token === "->") {
             ans = ans.trimEnd() + " -> ";
         } else if (isOperatorToken(token)) {
