@@ -19,6 +19,7 @@ export function getProjectNames() {
         'printtostderr',
         'raisefunction',
         'setdoc',
+        'style_checker',
         'texthold',
         'tofunc',
         'toml_get',
