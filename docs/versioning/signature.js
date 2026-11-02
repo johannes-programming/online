@@ -55,7 +55,10 @@ function spansSignatureCodeText(tokens) {
 
 function spansH4VariableTokens(tokens) {
     const parts = splitTopLevel(tokens, "=");
-    const ans = spansH4OpeningTokens(parts[0] ?? []);
+    // A variable's declaration may include a type annotation. Style only the
+    // name before the top-level colon as the signature name; the annotation
+    // and default value are plain text.
+    const ans = spansH4NonCallableColonTokens(parts[0] ?? []);
 
     for (let i = 1; i < parts.length; i++) {
         ans.push(span(" = ", "signature-separator"));
